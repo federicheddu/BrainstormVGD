@@ -319,7 +319,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ed53d331f4bfff4eabe51590a56adab, type: 3}
   m_Name: 
@@ -510,11 +510,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1752b6852628e94195a4296c44b7074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: 0
+  y: 0
+  jump: 0
+  crouch: 0
+  sprint: 0
+  grapling: 0
   camera: {fileID: 963194227}
-  runSpeed: 0.1
-  jumpSpeed: 0.1
-  gravity: 20
-  sens: 5
 --- !u!143 &1328625165
 CharacterController:
   m_ObjectHideFlags: 0

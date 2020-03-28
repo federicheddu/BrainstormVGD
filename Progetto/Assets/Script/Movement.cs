@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    private CharacterController characterController;
+
+    //input
+    public float x, y;
+    public bool jump, crouch, sprint, grapling;
+
+    //camera
     public Camera camera;
+    private float tiltCamera = 0;
 
-    public float runSpeed = 5f;
-    public float jumpSpeed = 0.5f;
-    public float gravity = 20.0f;
-    public float sens = 1000.0f;
+    //component
+    private CharacterController characterController;
 
+
+
+    //movimento
     private Vector3 direction = Vector3.zero;
+
+    //moltiplicatori movimento
+    private float walkSpeed = 5f;
+    private float runSpeed = 1.5f;
+    private float jumpForce = 0.1f;
+    private float gravity = 25f;
+    private float sens = 5.0f;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -20,32 +36,40 @@ public class Movement : MonoBehaviour
         //eliminare il cursore all'avvio
         Cursor.lockState = CursorLockMode.Locked;
 
+        //recupero i component
         characterController = GetComponent<CharacterController>();
+    }
+
+    private void FixedUpdate()
+    {
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(characterController.isGrounded)
-        {
-            //movimento su x e y con WASD
-            direction = new Vector3(Input.GetAxis("Horizontal") * runSpeed, 0.0f, Input.GetAxis("Vertical") * runSpeed);
-            direction = transform.TransformDirection(direction);
+        x = Input.GetAxis("Horizontal");
+        y = Input.GetAxis("Vertical");
+        jump = Input.GetButtonDown("Jump");
+        sprint = Input.GetKey(KeyCode.LeftShift);
+        crouch = Input.GetKey(KeyCode.LeftControl);
 
-            //chissà cosa fa
-            if (Input.GetButtonDown("Jump"))
-            {
-                direction.y = jumpSpeed;
-            }
+        //movimento su x e y con WASD
+        direction = new Vector3(x * walkSpeed * Time.deltaTime, direction.y, y * walkSpeed * Time.deltaTime);
+        direction = transform.TransformDirection(direction);
 
-        }
+        //chissà cosa fa
+        if (characterController.isGrounded && jump)
+            direction.y = jumpForce;
 
-        //rotazione del corpo con il mouse
+        if (characterController.isGrounded && sprint)
+            direction.z *= runSpeed;
+
+        //rotazione corpo/camera
         transform.Rotate(0.0f, Input.GetAxis("Mouse X") * sens, 0.0f);
+        tiltCamera -= Input.GetAxis("Mouse Y") * sens;
+        camera.transform.localRotation = Quaternion.Euler(Mathf.Clamp(tiltCamera, -90f, 90f), 0f, 0f);
 
-        //tilt della camera
-        camera.transform.Rotate((Input.GetAxis("Mouse Y") * sens) % 90f, 0.0f, 0.0f);
-        
         //gravità
         direction.y -= gravity * Time.deltaTime * Time.deltaTime;
 
