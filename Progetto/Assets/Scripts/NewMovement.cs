@@ -47,4 +47,6 @@ public class NewMovement : MonoBehaviour
         m_crouch = Input.GetKey(KeyCode.LeftControl);
     }
 
+    void OnControl
+
 }
