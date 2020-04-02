@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.AI;
+using UnityEngine.Audio;
 
 [RequireComponent(typeof(Animator))]
 public class Actions : MonoBehaviour
@@ -54,10 +55,12 @@ public class Actions : MonoBehaviour
 
             if (follow)
             {
+                FaceTarget();
                 Walk();
             }
             if (shoot)
             {
+                FaceTarget();
                 Attack();
             }
             if (!follow && !shoot)
@@ -70,6 +73,15 @@ public class Actions : MonoBehaviour
     }
 
 
+    void FaceTarget()
+    {
+        Vector3 direction = (Player.transform.position - transform.position).normalized;
+        Quaternion lookRotation =
+            Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation =
+            Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+    }
+
     public void Stay()
     {
         animator.SetBool("Aiming", false);
@@ -79,19 +91,25 @@ public class Actions : MonoBehaviour
     public void Walk()
     {
         animator.SetBool("Aiming", false);
-        animator.SetFloat("Speed", 0.5f);
+        animator.SetFloat("Speed", 0.75f); //0.5f
     }
 
     public void Run()
     {
         animator.SetBool("Aiming", false);
-        animator.SetFloat("Speed", 1f);
+        animator.SetFloat("Speed", 1f);//1
     }
 
     public void Attack()
     {
         Aiming();
         animator.SetTrigger("Attack");
+        /*
+        if (m_Audio != null)
+        {
+            m_Audio.PlayOneShot(GunSound);
+        }
+        */
     }
 
     public void Death()
