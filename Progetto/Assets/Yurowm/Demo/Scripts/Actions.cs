@@ -13,7 +13,7 @@ public class Actions : MonoBehaviour
     private NavMeshAgent _navMeshAgent;
 
     public float AttackDistance = 10.0f;
-    public float FollowDistance = 12.0f;
+    public float FollowDistance = 22.0f;
     public float AttackProbability = 0.5f;
 
     public AudioClip GunSound = null;
@@ -43,10 +43,10 @@ public class Actions : MonoBehaviour
                     shoot = true;
                 }
             }
-            Vector3 mov = Vector3.zero;//
+            
             if (follow)
             {
-                _navMeshAgent.SetDestination(mov);// Player.transform.position);
+                _navMeshAgent.SetDestination(Player.transform.position);
             }
 
             if (!follow || shoot)
@@ -60,6 +60,8 @@ public class Actions : MonoBehaviour
             {
                 Attack();
             }
+            if (!follow && !shoot)
+                Stay();
 
             //animator.SetBool("Shoot", shoot);
             //animator.SetBool("Walk", follow);
