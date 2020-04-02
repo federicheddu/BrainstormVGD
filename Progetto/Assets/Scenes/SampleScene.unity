@@ -120,7 +120,35 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 7044642fc1a7031498c56068c161afb7, type: 2}
+--- !u!1 &273026079 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100096, guid: de63ee434fe39914b8d2f5680c62d05f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2064343121}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &273026080
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273026079}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,6 +449,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+--- !u!1 &2009056464 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1850892275}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2064343121
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -500,6 +534,14 @@ PrefabInstance:
       propertyPath: rightGunBone
       value: 
       objectReference: {fileID: 400000, guid: 4d9b132573d0584439c28e583cfce43d, type: 3}
+    - target: {fileID: 11400002, guid: de63ee434fe39914b8d2f5680c62d05f, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 2009056464}
+    - target: {fileID: 11400002, guid: de63ee434fe39914b8d2f5680c62d05f, type: 3}
+      propertyPath: _navMeshAgent
+      value: 
+      objectReference: {fileID: 273026080}
     m_RemovedComponents:
     - {fileID: 11400000, guid: de63ee434fe39914b8d2f5680c62d05f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: de63ee434fe39914b8d2f5680c62d05f, type: 3}
