@@ -36,7 +36,7 @@ public class NewMovement : MonoBehaviour
         if (m_crouch)
         {
             transform.localScale = crouchDim;
-            rb.AddForce(new Vector3(0f, 100f, 115f), ForceMode.Impulse);
+            //rb.AddForce(new Vector3(0f, 0f, rb.velocity.z / 2), ForceMode.Impulse);
         } else
             transform.localScale = fullDim;
     }
@@ -46,7 +46,5 @@ public class NewMovement : MonoBehaviour
     {
         m_crouch = Input.GetKey(KeyCode.LeftControl);
     }
-
-    void OnControl
 
 }
