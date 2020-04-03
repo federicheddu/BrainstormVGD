@@ -15,6 +15,7 @@ public class Actions : MonoBehaviour
 
     public float AttackDistance = 10.0f;
     public float FollowDistance = 22.0f;
+    [Range(0.0f, 1.0f)]
     public float AttackProbability = 0.5f;
 
     public AudioClip GunSound = null;
@@ -33,9 +34,9 @@ public class Actions : MonoBehaviour
         if (_navMeshAgent.enabled)
         {
             float dist = Vector3.Distance(Player.transform.position, this.transform.position);
-            bool shoot = false;
+            bool shoot = dist < AttackDistance;//false;
             bool follow = (dist < FollowDistance);
-
+            /*
             if (follow)
             {
                 float random = Random.Range(0.0f, 1.0f);
@@ -44,7 +45,7 @@ public class Actions : MonoBehaviour
                     shoot = true;
                 }
             }
-            
+            */
             if (follow)
             {
                 _navMeshAgent.SetDestination(Player.transform.position);
@@ -91,7 +92,7 @@ public class Actions : MonoBehaviour
     public void Walk()
     {
         animator.SetBool("Aiming", false);
-        animator.SetFloat("Speed", 0.75f); //0.5f
+        animator.SetFloat("Speed", 0.5f);
     }
 
     public void Run()
