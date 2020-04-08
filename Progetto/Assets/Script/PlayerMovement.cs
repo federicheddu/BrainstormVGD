@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float vertical, horizontal, rotation = 0f;
     public bool run, crouch, jump;
     private bool wasRunning = false;
-    private bool grounded, wasGrounded;
+    public bool grounded, wasGrounded;
 
     //movimento
     private Vector3 direction = Vector3.zero;
@@ -31,15 +31,18 @@ public class PlayerMovement : MonoBehaviour
 
     //component
     CharacterController characterController;
+    private Rigidbody rb;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         speed = walkSpeed;
         Cursor.lockState = CursorLockMode.Locked;
-
-        //component
-        characterController = GetComponent<CharacterController>();
 
         //dimensione
         fullDim = transform.localScale;
@@ -51,12 +54,11 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         PlayerInput();
-        Move();
     }
 
     private void FixedUpdate()
     {
-        
+        Move();
     }
 
     public void PlayerInput()
@@ -65,8 +67,7 @@ public class PlayerMovement : MonoBehaviour
         vertical = Input.GetAxis("Vertical");
         horizontal = Input.GetAxis("Horizontal");
         rotation = Input.GetAxis("Mouse X");
-        //jump = Input.GetButtonDown("Jump");
-        if (Input.GetButtonDown("Jump")) jump = true;
+        jump = Input.GetButtonDown("Jump");
         run = Input.GetKey(KeyCode.LeftShift);
         crouch = Input.GetKey(KeyCode.LeftControl);
 
@@ -77,9 +78,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move()
     {
-        //controllo a terra
-        grounded = characterController.isGrounded;
-        if (grounded) airTime = 0;
 
         //velocità
         if (grounded)
@@ -93,14 +91,13 @@ public class PlayerMovement : MonoBehaviour
         //movimento a terra
         direction = new Vector3(horizontal * speed * Time.deltaTime, 0f, vertical * speed * Time.deltaTime);
         direction = transform.TransformDirection(direction);
+        rb.AddForce(direction);
 
 
         //salto
-        if (grounded && jump)
-        {
-            direction.y = jumpForce;
-            airTime = 0;
-        }
+        if (Input.GetButtonDown("Jump") && grounded)        
+            rb.AddForce(new Vector3(0, 5, 0), ForceMode.Impulse);
+
 
         //crouch
         if (crouch)
@@ -111,13 +108,22 @@ public class PlayerMovement : MonoBehaviour
         //rotazione corpo e camera
         transform.Rotate(0f, rotation * mouseSens, 0f);
         camera.transform.localRotation = Quaternion.Euler(Mathf.Clamp(tiltCamera, cameraVerticalMin, cameraVerticalMax), 0f, 0f);
+    }
 
-        //gravità
-        airTime += Time.deltaTime;
-        direction.y -= gravity * airTime * airTime;
 
-        //movimento finale
-        characterController.Move(direction);
-        if (grounded) jump = false;
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == 8)
+        {
+            grounded = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.layer == 8)
+        {
+            grounded = false;
+        }
     }
 }
