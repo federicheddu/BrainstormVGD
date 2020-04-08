@@ -90,12 +90,12 @@ public class PlayerMovement : MonoBehaviour
 
         //movimento a terra
         direction = new Vector3(horizontal * speed * Time.deltaTime, 0f, vertical * speed * Time.deltaTime);
-        direction = transform.TransformDirection(direction);
-        rb.AddForce(direction);
+        //direction = transform.TransformDirection(direction); Il problema era questa riga che non so perchè fosse qui
+        transform.Translate(direction);
 
 
         //salto
-        if (Input.GetButtonDown("Jump") && grounded)        
+        if (jump && grounded)        
             rb.AddForce(new Vector3(0, 5, 0), ForceMode.Impulse);
 
 
@@ -113,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == 8)
+        if (collision.gameObject.tag == "Ground")
         {
             grounded = true;
         }
@@ -121,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.layer == 8)
+        if (collision.gameObject.tag == "Ground")
         {
             grounded = false;
         }
