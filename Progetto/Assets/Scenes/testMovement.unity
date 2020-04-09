@@ -161,9 +161,9 @@ MonoBehaviour:
   crouch: 0
   jump: 0
   grounded: 0
-  wasGrounded: 0
+  wasGrounded: 1
   walkSpeed: 4
-  runSpeed: 6
+  runSpeed: 10
   jumpForce: 0.1
   gravity: 25
   camera: {fileID: 1111584568}
@@ -450,7 +450,7 @@ GameObject:
   - component: {fileID: 1133794313}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
