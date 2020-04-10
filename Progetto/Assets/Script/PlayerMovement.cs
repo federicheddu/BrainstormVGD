@@ -8,15 +8,17 @@ public class PlayerMovement : MonoBehaviour
     //input
     public float vertical, horizontal, rotation = 0f;
     public bool run, crouch, jump;
-    private bool wasRunning = false;
-    public bool grounded, wasGrounded;
+    
 
     //movimento
-    private Vector3 direction = Vector3.zero;
+    private Vector3 direction = Vector3.zero, wallRideDirection, jumpDirection;
     private float speed;
-    public float walkSpeed = 4f, runSpeed = 6f, jumpForce = 0.1f;
+    public float walkSpeed = 4f, runSpeed = 6f, jumpForce = 0.1f, airSpeed;
     private float airTime = 0f;
     public float gravity = 25f;
+    private bool wasRunning = false;
+    public bool grounded, wasGrounded, wallRide;
+    public float wallJumpPower;
 
     //camera
     public Camera camera;
@@ -54,11 +56,13 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         PlayerInput();
+        //A me il gioco funziona bene solo quando move sta in update quindi terrò questo commento qui finchè non capirò perchè
+        //Move();
     }
 
     private void FixedUpdate()
     {
-        Move();
+        Move();        
     }
 
     public void PlayerInput()
@@ -91,12 +95,17 @@ public class PlayerMovement : MonoBehaviour
         //movimento a terra
         direction = new Vector3(horizontal * speed * Time.deltaTime, 0f, vertical * speed * Time.deltaTime);
         //direction = transform.TransformDirection(direction); Il problema era questa riga che non so perchè fosse qui
-        transform.Translate(direction);
+        transform.Translate(direction); //Movimento a terra
+        
+
 
 
         //salto
         if (jump && grounded)        
             rb.AddForce(new Vector3(0, 5, 0), ForceMode.Impulse);
+        else if (jump && wallRide) //salto in wallride
+            rb.AddForce(new Vector3(0, 6, 0) + wallRideDirection * wallJumpPower, ForceMode.Impulse);
+
 
 
         //crouch
@@ -117,6 +126,11 @@ public class PlayerMovement : MonoBehaviour
         {
             grounded = true;
         }
+        else if (collision.gameObject.tag == "Wall")
+        {
+            wallRide = true;
+            wallRideDirection = collision.contacts[0].normal;
+        }
     }
 
     private void OnCollisionExit(Collision collision)
@@ -125,5 +139,10 @@ public class PlayerMovement : MonoBehaviour
         {
             grounded = false;
         }
+        else if (collision.gameObject.tag == "Wall")
+        {
+            wallRide = false;
+        }
+
     }
 }
