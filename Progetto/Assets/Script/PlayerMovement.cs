@@ -12,10 +12,9 @@ public class PlayerMovement : MonoBehaviour
 
     //movimento
     private Vector3 direction = Vector3.zero, wallRideDirection, jumpDirection;
-    private float speed;
-    public float walkSpeed = 4f, runSpeed = 6f, jumpForce = 0.1f, airSpeed;
-    private float airTime = 0f;
-    public float gravity = 25f;
+    public float speed;
+    public float walkSpeed = 4f, runSpeed = 6f, jumpPower = 5f, airSpeed;
+    public float airDrag = 0.5f;
     private bool wasRunning = false;
     public bool grounded, wasGrounded, wallRide;
     public float wallJumpPower;
@@ -96,15 +95,23 @@ public class PlayerMovement : MonoBehaviour
         direction = new Vector3(horizontal * speed * Time.deltaTime, 0f, vertical * speed * Time.deltaTime);
         //direction = transform.TransformDirection(direction); Il problema era questa riga che non so perchè fosse qui
         transform.Translate(direction); //Movimento a terra
-        
+
 
 
 
         //salto
-        if (jump && grounded)        
-            rb.AddForce(new Vector3(0, 5, 0), ForceMode.Impulse);
-        else if (jump && wallRide) //salto in wallride
-            rb.AddForce(new Vector3(0, 6, 0) + wallRideDirection * wallJumpPower, ForceMode.Impulse);
+        if (jump && grounded)
+        {
+            grounded = false;
+            rb.AddForce(new Vector3(0, jumpPower, 0), ForceMode.Impulse);
+            speed = speed / (airDrag + 1);
+        }
+        else if (jump && wallRide)//salto in wallride
+        {
+            wallRide = false;
+            rb.AddForce(new Vector3(0, jumpPower, 0) + wallRideDirection * wallJumpPower, ForceMode.Impulse);
+        }
+
 
 
 

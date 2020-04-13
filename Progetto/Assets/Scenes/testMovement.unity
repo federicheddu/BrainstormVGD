@@ -162,13 +162,13 @@ MonoBehaviour:
   jump: 0
   walkSpeed: 4
   runSpeed: 10
-  jumpForce: 0.1
+  jumpPower: 2.5
   airSpeed: 0
   gravity: 25
   grounded: 0
   wasGrounded: 1
   wallRide: 0
-  wallJumpPower: 5
+  wallJumpPower: 2.5
   camera: {fileID: 1111584568}
   cameraVerticalMax: 90
   cameraVerticalMin: -90
