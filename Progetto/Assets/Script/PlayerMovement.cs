@@ -10,14 +10,18 @@ public class PlayerMovement : MonoBehaviour
     public bool run, crouch, jump;
     
 
-    //movimento
-    private Vector3 direction = Vector3.zero, wallRideDirection, jumpDirection;
+    //movimento base
+    private Vector3 direction = Vector3.zero;
+    private Vector3 jumpDirection;
     public float speed;
     public float walkSpeed = 4f, runSpeed = 6f, jumpPower = 5f, airSpeed;
     public float airDrag = 0.5f;
-    private bool wasRunning = false;
     public bool grounded, wasGrounded, wallRide;
-    public float wallJumpPower;
+
+    //movimento parkour
+    private Vector3 groundNormal;
+    public float wallJumpPower = 10f;
+    public float wallRideGravity = -0.2f;
 
     //camera
     public Camera camera;
@@ -56,12 +60,12 @@ public class PlayerMovement : MonoBehaviour
     {
         PlayerInput();
         //A me il gioco funziona bene solo quando move sta in update quindi terrò questo commento qui finchè non capirò perchè
-        //Move();
+        Move();
     }
 
     private void FixedUpdate()
     {
-        Move();        
+        //Move();        
     }
 
     public void PlayerInput()
@@ -76,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
 
         //camera
         tiltCamera -= Input.GetAxis("Mouse Y");
-        /* Camera X è gestito dalla rotazione del corpo*/
+        /** Camera X è gestito dalla rotazione del corpo **/
     }
 
     public void Move()
@@ -102,18 +106,10 @@ public class PlayerMovement : MonoBehaviour
         //salto
         if (jump && grounded)
         {
-            grounded = false;
-            rb.AddForce(new Vector3(0, jumpPower, 0), ForceMode.Impulse);
+            jumpDirection = groundNormal + Vector3.up;
+            rb.AddForce(jumpDirection.normalized * jumpPower, ForceMode.Impulse);
             speed = speed / (airDrag + 1);
         }
-        else if (jump && wallRide)//salto in wallride
-        {
-            wallRide = false;
-            rb.AddForce(new Vector3(0, jumpPower, 0) + wallRideDirection * wallJumpPower, ForceMode.Impulse);
-        }
-
-
-
 
         //crouch
         if (crouch)
@@ -123,21 +119,25 @@ public class PlayerMovement : MonoBehaviour
 
         //rotazione corpo e camera
         transform.Rotate(0f, rotation * mouseSens, 0f);
-        camera.transform.localRotation = Quaternion.Euler(Mathf.Clamp(tiltCamera, cameraVerticalMin, cameraVerticalMax), 0f, 0f);
+        camera.transform.localRotation = Quaternion.Euler(Mathf.Clamp(tiltCamera * mouseSens, cameraVerticalMin, cameraVerticalMax), 0f, 0f);
     }
 
 
     private void OnCollisionEnter(Collision collision)
     {
+        groundNormal = collision.GetContact(0).normal;
+        
         if (collision.gameObject.tag == "Ground")
-        {
             grounded = true;
-        }
-        else if (collision.gameObject.tag == "Wall")
-        {
-            wallRide = true;
-            wallRideDirection = collision.contacts[0].normal;
-        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        
+        if (collision.gameObject.tag == "Wall")
+            if(groundNormal == transform.TransformVector(Vector3.left) || groundNormal == transform.TransformVector(Vector3.right))
+                rb.AddForce(Vector3.Scale(Physics.gravity, new Vector3(wallRideGravity, wallRideGravity, wallRideGravity)), ForceMode.Force); //diminuisce dell'80% la gravità
+
     }
 
     private void OnCollisionExit(Collision collision)
@@ -145,10 +145,6 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             grounded = false;
-        }
-        else if (collision.gameObject.tag == "Wall")
-        {
-            wallRide = false;
         }
     }
 }
