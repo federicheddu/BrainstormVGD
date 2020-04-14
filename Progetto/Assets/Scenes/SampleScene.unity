@@ -477,10 +477,16 @@ MonoBehaviour:
   run: 0
   crouch: 0
   jump: 0
+  speed: 0
   walkSpeed: 4
   runSpeed: 6
-  jumpForce: 0.1
-  gravity: 25
+  jumpPower: 5
+  airSpeed: 0
+  airDrag: 0.5
+  grounded: 0
+  wasGrounded: 0
+  wallRide: 0
+  wallJumpPower: 0
   camera: {fileID: 76775112}
   cameraVerticalMax: 0
   cameraVerticalMin: 0
@@ -798,7 +804,7 @@ PrefabInstance:
     - target: {fileID: 11400000, guid: 398da42bc4f6f6e44852a9f96c6c4e41, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 764890751}
     m_RemovedComponents:
     - {fileID: 11400002, guid: 398da42bc4f6f6e44852a9f96c6c4e41, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 398da42bc4f6f6e44852a9f96c6c4e41, type: 3}
@@ -884,7 +890,7 @@ PrefabInstance:
     - target: {fileID: 11400002, guid: de63ee434fe39914b8d2f5680c62d05f, type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 764890751}
     - target: {fileID: 11400002, guid: de63ee434fe39914b8d2f5680c62d05f, type: 3}
       propertyPath: _navMeshAgent
       value: 
