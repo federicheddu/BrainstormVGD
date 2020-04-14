@@ -150,6 +150,5 @@ public class PlayerMovement : MonoBehaviour
         {
             wallRide = false;
         }
-
     }
 }
