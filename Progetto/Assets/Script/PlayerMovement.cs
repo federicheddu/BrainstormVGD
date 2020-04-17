@@ -18,6 +18,11 @@ public class PlayerMovement : MonoBehaviour
     public float airDrag = 0.5f;
     public bool grounded, wasGrounded, wallRide;
 
+    public float maxSpeed, maxWalkSpeed = 8, maxRunSpeed = 15;
+    public float counterMovement = 0.175f;
+    public float slideCounterMovement = 0.2f;
+    private float threshold = 0.01f;
+
     //movimento parkour
     private Vector3 groundNormal;
     public float wallJumpPower = 10f;
@@ -88,7 +93,11 @@ public class PlayerMovement : MonoBehaviour
 
         //velocità
         if (grounded)
+        {
             speed = run ? runSpeed : walkSpeed;
+            maxSpeed = run ? maxRunSpeed : maxWalkSpeed;
+        }
+            
 
         /*if (grounded && run && !wasRunning)
             direction.z = runSpeed;
@@ -98,7 +107,12 @@ public class PlayerMovement : MonoBehaviour
         //movimento a terra
         direction = new Vector3(horizontal * speed * Time.deltaTime, 0f, vertical * speed * Time.deltaTime);
         //direction = transform.TransformDirection(direction); Il problema era questa riga che non so perchè fosse qui
-        transform.Translate(direction); //Movimento a terra
+        //transform.Translate(direction); //Movimento a terra
+
+        rb.AddForce(transform.TransformVector(direction), ForceMode.Impulse);
+
+        CounterMovement(direction.x, direction.z, new Vector2(rb.velocity.x, rb.velocity.z));
+        
 
 
 
@@ -134,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
         
-        if (collision.gameObject.tag == "Wall")
+        if (collision.gameObject.tag == "Ground")
             if(groundNormal == transform.TransformVector(Vector3.left) || groundNormal == transform.TransformVector(Vector3.right))
                 rb.AddForce(Vector3.Scale(Physics.gravity, new Vector3(wallRideGravity, wallRideGravity, wallRideGravity)), ForceMode.Force); //diminuisce dell'80% la gravità
 
@@ -147,4 +161,36 @@ public class PlayerMovement : MonoBehaviour
             grounded = false;
         }
     }
+
+    //https://github.com/DaniDevy/FPS_Movement_Rigidbody/blob/master/PlayerMovement.cs
+    private void CounterMovement(float x, float y, Vector2 mag)
+    {
+        if (!grounded || jump) return;
+
+        //Slow down sliding
+        if (crouch)
+        {
+            rb.AddForce(speed * Time.deltaTime * -rb.velocity.normalized * slideCounterMovement);
+            return;
+        }
+
+        //Counter movement
+        if (Mathf.Abs(mag.x) > threshold && Mathf.Abs(x) < 0.05f || (mag.x < -threshold && x > 0) || (mag.x > threshold && x < 0))
+        {
+            rb.AddForce(speed * transform.TransformVector(Vector3.right) * Time.deltaTime * -mag.x * counterMovement);
+        }
+        if (Mathf.Abs(mag.y) > threshold && Mathf.Abs(y) < 0.05f || (mag.y < -threshold && y > 0) || (mag.y > threshold && y < 0))
+        {
+            rb.AddForce(speed * transform.TransformVector(Vector3.forward) * Time.deltaTime * -mag.y * counterMovement);
+        }
+
+        //Limit diagonal running. This will also cause a full stop if sliding fast and un-crouching, so not optimal.
+        if (Mathf.Sqrt((Mathf.Pow(rb.velocity.x, 2) + Mathf.Pow(rb.velocity.z, 2))) > maxSpeed)
+        {
+            float fallspeed = rb.velocity.y;
+            Vector3 n = rb.velocity.normalized * maxSpeed;
+            rb.velocity = new Vector3(n.x, fallspeed, n.z);
+        }
+    }
+
 }

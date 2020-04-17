@@ -163,12 +163,17 @@ MonoBehaviour:
   speed: 0
   walkSpeed: 8
   runSpeed: 15
-  jumpPower: 5
+  jumpPower: 8
   airSpeed: 0
   airDrag: 0.5
   grounded: 0
   wasGrounded: 1
   wallRide: 0
+  maxSpeed: 0
+  maxWalkSpeed: 8
+  maxRunSpeed: 15
+  counterMovement: 0.175
+  slideCounterMovement: 0.2
   wallJumpPower: 10
   wallRideGravity: -0.8
   camera: {fileID: 1111584568}
@@ -1661,7 +1666,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14782
+  m_Name: pb_Mesh14794
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
