@@ -139,8 +139,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        groundNormal = collision.GetContact(0).normal;
-        
         if (collision.gameObject.tag == "Ground")
             grounded = true;
     }
@@ -149,8 +147,14 @@ public class PlayerMovement : MonoBehaviour
     {
         
         if (collision.gameObject.tag == "Ground")
-            if(groundNormal == transform.TransformVector(Vector3.left) || groundNormal == transform.TransformVector(Vector3.right))
+        {
+            grounded = true;
+            groundNormal = collision.GetContact(0).normal;
+
+            if (groundNormal == transform.TransformVector(Vector3.left) || groundNormal == transform.TransformVector(Vector3.right))
                 rb.AddForce(Vector3.Scale(Physics.gravity, new Vector3(wallRideGravity, wallRideGravity, wallRideGravity)), ForceMode.Force); //diminuisce dell'80% la gravità
+        }
+            
 
     }
 
