@@ -14,8 +14,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 direction = Vector3.zero;
     private Vector3 jumpDirection;
     public float speed;
-    public float walkSpeed = 4f, runSpeed = 6f, jumpPower = 5f, airSpeed;
-    public float airDrag = 0.5f;
+    public float walkSpeed, runSpeed, jumpPower, airSpeed;
+    public float airFriction = 0.5f;
     public bool grounded, wasGrounded, wallRide;
 
     public float maxSpeed, maxWalkSpeed = 8, maxRunSpeed = 15;
@@ -92,29 +92,19 @@ public class PlayerMovement : MonoBehaviour
     {
 
         //velocità
-        if (grounded)
-        {
+        if (grounded) {
             speed = run ? runSpeed : walkSpeed;
             maxSpeed = run ? maxRunSpeed : maxWalkSpeed;
-        }
-            
-
-        /*if (grounded && run && !wasRunning)
-            direction.z = runSpeed;
-        else if (grounded && run && wasRunning)
-            direction.z = walkSpeed;*/
+        } else
+            speed = airSpeed;
 
         //movimento a terra
         direction = new Vector3(horizontal * speed * Time.deltaTime, 0f, vertical * speed * Time.deltaTime);
-        //direction = transform.TransformDirection(direction); Il problema era questa riga che non so perchè fosse qui
-        //transform.Translate(direction); //Movimento a terra
-
         rb.AddForce(transform.TransformVector(direction), ForceMode.Impulse);
 
+        //diminuisce lo slittamento a terra una volta mollato wasd
         CounterMovement(direction.x, direction.z, new Vector2(rb.velocity.x, rb.velocity.z));
-        
-
-
+        //attrrito aria quando è in salto
 
 
         //salto
@@ -122,7 +112,6 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpDirection = groundNormal + Vector3.up;
             rb.AddForce(jumpDirection.normalized * jumpPower, ForceMode.Impulse);
-            speed = speed / (airDrag + 1);
         }
 
         //crouch

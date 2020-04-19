@@ -1387,17 +1387,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: c9c2b0ec9a244d0409ed80d033745378,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 160.36
+      value: 160.4
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: c9c2b0ec9a244d0409ed80d033745378,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 32.893
+      value: 40.3
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: c9c2b0ec9a244d0409ed80d033745378,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 44.024
+      value: 42.6
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: c9c2b0ec9a244d0409ed80d033745378,
         type: 3}
@@ -4906,8 +4906,8 @@ MonoBehaviour:
   walkSpeed: 10
   runSpeed: 15
   jumpPower: 8
-  airSpeed: 0
-  airDrag: 0.5
+  airSpeed: 0.5
+  airFriction: 0.5
   grounded: 0
   wasGrounded: 1
   wallRide: 0
@@ -4921,7 +4921,7 @@ MonoBehaviour:
   camera: {fileID: 664354430}
   cameraVerticalMax: 90
   cameraVerticalMin: -90
-  mouseSens: 5
+  mouseSens: 2
 --- !u!54 &1441252309
 Rigidbody:
   m_ObjectHideFlags: 0
