@@ -95,8 +95,7 @@ public class PlayerMovement : MonoBehaviour
         if (grounded) {
             speed = run ? runSpeed : walkSpeed;
             maxSpeed = run ? maxRunSpeed : maxWalkSpeed;
-        } else
-            speed = airSpeed;
+        }
 
         //movimento a terra
         direction = new Vector3(horizontal * speed * Time.deltaTime, 0f, vertical * speed * Time.deltaTime);
