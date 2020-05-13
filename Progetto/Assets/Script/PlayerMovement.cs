@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 direction = Vector3.zero;
     private Vector3 jumpDirection;
     public float speed;
+    public float speedCap;
     public float walkSpeed, runSpeed, jumpPower, airSpeed;
     public float airFriction = 0.5f;
     public bool grounded, wasGrounded, wallRide;
@@ -99,7 +101,10 @@ public class PlayerMovement : MonoBehaviour
 
         //movimento a terra
         direction = new Vector3(horizontal * speed * Time.deltaTime, 0f, vertical * speed * Time.deltaTime);
-        rb.AddForce(transform.TransformVector(direction), ForceMode.Impulse);
+        if (Math.Sqrt(rb.velocity.x * rb.velocity.x + rb.velocity.y * rb.velocity.y + rb.velocity.z * rb.velocity.z) < speedCap)
+        {
+            rb.AddForce(transform.TransformVector(direction), ForceMode.Impulse);
+        }
 
         //diminuisce lo slittamento a terra una volta mollato wasd
         CounterMovement(direction.x, direction.z, new Vector2(rb.velocity.x, rb.velocity.z));
