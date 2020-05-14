@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement2 : MonoBehaviour
 {
 
     //input
     public float vertical, horizontal, rotation = 0f;
     public bool run, crouch, jump;
-    
+
 
     //movimento base
     private Vector3 direction = Vector3.zero;
     private Vector3 jumpDirection;
     public float speed;
-    public float speedCap, constant;
     public float walkSpeed, runSpeed, jumpPower, airSpeed;
     public float airFriction = 0.5f;
     public bool grounded, wasGrounded, wallRide;
@@ -40,12 +39,6 @@ public class PlayerMovement : MonoBehaviour
     //altro
     private Vector3 fullDim;
     private Vector3 halfDim;
-
-    //Debug
-  /*public float groundNormalX;
-    public float groundNormalY;
-    public float groundNormalZ;*/
-
 
     //component
     CharacterController characterController;
@@ -98,25 +91,19 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move()
     {
-       
+
         //velocità
-        if (grounded) {
+        if (grounded)
+        {
             speed = run ? runSpeed : walkSpeed;
             maxSpeed = run ? maxRunSpeed : maxWalkSpeed;
         }
 
         //movimento a terra
         direction = new Vector3(horizontal * speed * Time.deltaTime, 0f, vertical * speed * Time.deltaTime);
-        if (!grounded || groundNormal.y == 0)
+        if (Math.Sqrt(rb.velocity.x * rb.velocity.x + rb.velocity.y * rb.velocity.y + rb.velocity.z * rb.velocity.z) < walkSpeed)
         {
-            if (Math.Sqrt(rb.velocity.x * rb.velocity.x + rb.velocity.y * rb.velocity.y) < speedCap)
-            {
-                rb.AddForce(transform.TransformVector(direction), ForceMode.Impulse);
-            }
-        }
-        else
-        {
-            transform.Translate(direction);
+            rb.AddForce(transform.TransformVector(direction), ForceMode.Impulse);
         }
 
         //diminuisce lo slittamento a terra una volta mollato wasd
@@ -128,7 +115,7 @@ public class PlayerMovement : MonoBehaviour
         if (jump && grounded)
         {
             jumpDirection = groundNormal + Vector3.up;
-            rb.AddForce(jumpDirection.normalized * jumpPower + transform.TransformVector(direction) * constant, ForceMode.Impulse);
+            rb.AddForce(jumpDirection.normalized * jumpPower, ForceMode.Impulse);
         }
 
         //crouch
@@ -151,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        
+
         if (collision.gameObject.tag == "Ground")
         {
             grounded = true;
@@ -160,7 +147,7 @@ public class PlayerMovement : MonoBehaviour
             if (groundNormal == transform.TransformVector(Vector3.left) || groundNormal == transform.TransformVector(Vector3.right))
                 rb.AddForce(Vector3.Scale(Physics.gravity, new Vector3(wallRideGravity, wallRideGravity, wallRideGravity)), ForceMode.Force); //diminuisce dell'80% la gravità
         }
-            
+
 
     }
 
@@ -204,3 +191,4 @@ public class PlayerMovement : MonoBehaviour
     }
 
 }
+

@@ -11245,8 +11245,9 @@ MonoBehaviour:
   jump: 0
   speed: 0
   speedCap: 10
-  walkSpeed: 10
-  runSpeed: 15
+  constant: 20
+  walkSpeed: 5
+  runSpeed: 10
   jumpPower: 8
   airSpeed: 0.5
   airFriction: 0.5
