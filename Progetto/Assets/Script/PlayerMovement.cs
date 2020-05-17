@@ -203,4 +203,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void setMouseSens(float sens)
+    {
+        mouseSens = sens;
+    }
+
 }
