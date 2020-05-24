@@ -3040,17 +3040,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 7e34a7e9f60ba024b97731767f169458,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 115.6
+      value: 109.6
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7e34a7e9f60ba024b97731767f169458,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 64.15
+      value: 37.7
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7e34a7e9f60ba024b97731767f169458,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -118.7
+      value: -115
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7e34a7e9f60ba024b97731767f169458,
         type: 3}
@@ -12842,7 +12842,7 @@ MonoBehaviour:
   jump: 0
   speed: 0
   speedCap: 10
-  constant: 20
+  constant: 25
   walkSpeed: 5
   runSpeed: 10
   jumpPower: 8
