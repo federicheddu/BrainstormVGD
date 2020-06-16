@@ -107,16 +107,9 @@ public class PlayerMovement : MonoBehaviour
 
         //movimento a terra
         direction = new Vector3(horizontal * speed * Time.deltaTime, 0f, vertical * speed * Time.deltaTime);
-        if (!grounded || groundNormal.y == 0)
+        if (Math.Sqrt(rb.velocity.x * rb.velocity.x + rb.velocity.z * rb.velocity.z) < speedCap)
         {
-            if (Math.Sqrt(rb.velocity.x * rb.velocity.x + rb.velocity.y * rb.velocity.y) < speedCap)
-            {
-                rb.AddForce(transform.TransformVector(direction), ForceMode.Impulse);
-            }
-        }
-        else
-        {
-            transform.Translate(direction);
+            rb.AddForce(transform.TransformVector(direction), ForceMode.Impulse);
         }
 
         //diminuisce lo slittamento a terra una volta mollato wasd
