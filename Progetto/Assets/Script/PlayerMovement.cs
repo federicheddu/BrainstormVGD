@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Security.Cryptography;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -109,6 +110,7 @@ public class PlayerMovement : MonoBehaviour
         direction = new Vector3(horizontal * speed * Time.deltaTime, 0f, vertical * speed * Time.deltaTime);
         if (Math.Sqrt(rb.velocity.x * rb.velocity.x + rb.velocity.z * rb.velocity.z) < speedCap)
         {
+            //rb.MovePosition(transform.position + transform.TransformVector(direction));
             rb.AddForce(transform.TransformVector(direction), ForceMode.Impulse);
         }
 
@@ -121,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
         if (jump && grounded)
         {
             jumpDirection = groundNormal + Vector3.up;
-            rb.AddForce(jumpDirection.normalized * jumpPower + transform.TransformVector(direction) * constant, ForceMode.Impulse);
+            rb.AddForce(jumpDirection.normalized * jumpPower, ForceMode.Impulse);
         }
 
         //crouch
