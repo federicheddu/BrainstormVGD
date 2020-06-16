@@ -6,14 +6,17 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
 
-
+    public GameObject player;
     public KeyCode keyToPressToPause = KeyCode.Escape;
     public GameObject pauseMenuUI;
+
+    private PlayerMovement script;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        script = player.GetComponent<PlayerMovement>();
+        pauseMenuUI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -21,11 +24,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(keyToPressToPause))
         {
-            if (GameIsPaused)
-            {
-                Resume();
-            }
-            else
+            if (!GameIsPaused)
             {
                 Pause();
             }
@@ -34,12 +33,13 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        Debug.Log("resumeee");
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+
+        script.enabled = true; //Per sbloccare la camera e i movimenti
     }
 
     public void Pause()
@@ -48,7 +48,9 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        Time.timeScale = 0f;
+        script.enabled = false; //Per bloccare la camera
+
+        Time.timeScale = 0f; 
         GameIsPaused = true;
     }
 
