@@ -10,6 +10,7 @@ public class Actions : MonoBehaviour
     private Animator animator;
 
     public GameObject Player;
+    public GameObject bullet;
 
     private NavMeshAgent _navMeshAgent;
 
@@ -17,11 +18,12 @@ public class Actions : MonoBehaviour
     public float FollowDistance = 22.0f;
     [Range(0.0f, 1.0f)]
     public float AttackProbability = 0.5f;
-
+    public float damage = 10f;
     public AudioClip GunSound = null;
 
     const int countOfDamageAnimations = 3;
     int lastDamageAnimation = -1;
+
 
     void Awake()
     {
@@ -105,6 +107,19 @@ public class Actions : MonoBehaviour
     {
         Aiming();
         animator.SetTrigger("Attack");
+        // metti un figlio e usa get component
+        RaycastHit hit;
+        //Ray MyRay = new Ray(bullet.transform.position, Vector3.forward);
+
+        if(Physics.Raycast(bullet.transform.position, bullet.transform.forward, out hit, 100f))//Vector3.forward, out hit, 100f))
+        {
+            Debug.Log(hit.transform.name);
+            Debug.DrawRay(bullet.transform.position, Vector3.forward * 100f, Color.green);
+            Target target = hit.transform.GetComponent<Target>();
+            if (target != null)
+                target.TakeDamage(damage);
+        }
+        
         /*
         if (m_Audio != null)
         {
