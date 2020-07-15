@@ -11,25 +11,24 @@ public class PlayerMovement : MonoBehaviour
     public float vertical, horizontal, rotation = 0f;
     public bool run, crouch, jump;
     
-
     //movimento base
-    private Vector3 direction = Vector3.zero;
-    private Vector3 jumpDirection;
-    public float speed;
-    public float speedCap, constant;
-    public float walkSpeed, runSpeed, jumpPower, airSpeed;
-    public float airFriction = 0.5f;
-    public bool grounded, wasGrounded, wallRide;
+    private Vector3 direction = Vector3.zero;               //direzione movimento
+    private float speed;
+    public float walkSpeed, runSpeed, walkCap, runCap;      //fattori moviemento orizzontale
+    public bool grounded, doubleJump;
 
-    public float maxSpeed, maxWalkSpeed = 8, maxRunSpeed = 15;
+    //salto e wallride
+    private Vector3 jumpDirection, groundNormal;
+    public float jumpPower, airCorrection;
+    private double maxAirSpeed;
+    public float wallJumpPower = 10f;
+    public float wallRideGravity = -0.2f;
+
+    //countermovement
+    public float maxSpeed = 15;
     public float counterMovement = 0.175f;
     public float slideCounterMovement = 0.2f;
     private float threshold = 0.01f;
-
-    //movimento parkour
-    private Vector3 groundNormal;
-    public float wallJumpPower = 10f;
-    public float wallRideGravity = -0.2f;
 
     //camera
     public Camera camera;
@@ -82,62 +81,6 @@ public class PlayerMovement : MonoBehaviour
         //Move();        
     }
 
-    public void PlayerInput()
-    {
-        //movement
-        vertical = Input.GetAxis("Vertical");
-        horizontal = Input.GetAxis("Horizontal");
-        rotation = Input.GetAxis("Mouse X");
-        jump = Input.GetButtonDown("Jump");
-        run = Input.GetKey(KeyCode.LeftShift);
-        crouch = Input.GetKey(KeyCode.LeftControl);
-
-        //camera
-        tiltCamera -= Input.GetAxis("Mouse Y");
-        /** Camera X è gestito dalla rotazione del corpo **/
-    }
-
-    public void Move()
-    {
-       
-        //velocità
-        if (grounded) {
-            speed = run ? runSpeed : walkSpeed;
-            maxSpeed = run ? maxRunSpeed : maxWalkSpeed;
-        }
-
-        //movimento a terra
-        direction = new Vector3(horizontal * speed * Time.deltaTime, 0f, vertical * speed * Time.deltaTime);
-        if (Math.Sqrt(rb.velocity.x * rb.velocity.x + rb.velocity.z * rb.velocity.z) < speedCap)
-        {
-            //rb.MovePosition(transform.position + transform.TransformVector(direction));
-            rb.AddForce(transform.TransformVector(direction), ForceMode.Impulse);
-        }
-
-        //diminuisce lo slittamento a terra una volta mollato wasd
-        CounterMovement(direction.x, direction.z, new Vector2(rb.velocity.x, rb.velocity.z));
-        //attrrito aria quando è in salto
-
-
-        //salto
-        if (jump && grounded)
-        {
-            jumpDirection = groundNormal + Vector3.up;
-            rb.AddForce(jumpDirection.normalized * jumpPower, ForceMode.Impulse);
-        }
-
-        //crouch
-        if (crouch)
-            transform.localScale = halfDim;
-        else
-            transform.localScale = fullDim;
-
-        //rotazione corpo e camera
-        transform.Rotate(0f, rotation * mouseSens, 0f);
-        camera.transform.localRotation = Quaternion.Euler(Mathf.Clamp(tiltCamera * mouseSens, cameraVerticalMin, cameraVerticalMax), 0f, 0f);
-    }
-
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Ground")
@@ -164,7 +107,83 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             grounded = false;
+            maxAirSpeed = Math.Sqrt(Math.Pow(rb.velocity.x,2) + Math.Pow(rb.velocity.z,2));
         }
+    }
+
+    public void PlayerInput()
+    {
+        //movement
+        vertical = Input.GetAxis("Vertical");
+        horizontal = Input.GetAxis("Horizontal");
+        rotation = Input.GetAxis("Mouse X");
+        jump = Input.GetButtonDown("Jump");
+        run = Input.GetKey(KeyCode.LeftShift);
+        crouch = Input.GetKey(KeyCode.LeftControl);
+
+        //camera
+        tiltCamera -= Input.GetAxis("Mouse Y");
+        /** Camera X è gestito dalla rotazione del corpo **/
+    }
+
+    public void Move()
+    {
+
+        //velocità
+        if (grounded)
+            groundMove();
+        else
+            airMove();
+
+        //diminuisce lo slittamento a terra una volta mollato wasd
+        CounterMovement(direction.x, direction.z, new Vector2(rb.velocity.x, rb.velocity.z));
+
+        //salto
+        if (jump && grounded)
+        {
+            jumpDirection = groundNormal + Vector3.up;
+            rb.AddForce(jumpDirection.normalized * jumpPower, ForceMode.Impulse);
+        }
+
+        //crouch
+        if (crouch)
+            transform.localScale = halfDim;
+        else
+            transform.localScale = fullDim;
+
+        //rotazione corpo e camera
+        transform.Rotate(0f, rotation * mouseSens, 0f);
+        camera.transform.localRotation = Quaternion.Euler(Mathf.Clamp(tiltCamera * mouseSens, cameraVerticalMin, cameraVerticalMax), 0f, 0f);
+    }
+
+    private void groundMove()
+    {
+        float force_x = 0, force_z = 0;
+        speed = run ? runSpeed : walkSpeed;
+        maxSpeed = run ? runCap : walkCap;
+
+        if (Math.Sqrt(Math.Pow(rb.velocity.x, 2) + Math.Pow(rb.velocity.z, 2)) < speed)
+        {
+            force_x = horizontal * speed * Time.deltaTime;
+            force_z = vertical * speed * Time.deltaTime;
+        }
+
+        direction = new Vector3(force_x, 0f, force_z);
+        rb.AddForce(transform.TransformVector(direction), ForceMode.Impulse);
+    }
+
+    private void airMove()
+    {
+        float force_x = 0, force_z = 0;
+
+        if (Math.Sqrt(Math.Pow(rb.velocity.x, 2) + Math.Pow(rb.velocity.z, 2)) < maxAirSpeed)
+        {
+            force_x = horizontal * airCorrection * Time.deltaTime;
+            force_z = vertical * airCorrection * Time.deltaTime;
+        }
+
+        direction = new Vector3(force_x, 0f, force_z);
+        rb.AddForce(transform.TransformVector(direction), ForceMode.Impulse);
     }
 
     //https://github.com/DaniDevy/FPS_Movement_Rigidbody/blob/master/PlayerMovement.cs

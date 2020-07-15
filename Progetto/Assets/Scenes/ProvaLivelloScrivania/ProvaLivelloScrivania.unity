@@ -4082,6 +4082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae3280e753e04642b5525cd601d11b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   keyToPressToPause: 27
   pauseMenuUI: {fileID: 1314081317}
 --- !u!1 &439881781 stripped
@@ -13038,8 +13039,8 @@ Rigidbody:
   m_GameObject: {fileID: 1441252307}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 1
+  m_AngularDrag: 0.5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -13114,7 +13115,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1441252307}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 151, y: 51.4, z: 1.3}
+  m_LocalPosition: {x: -0.01, y: 1.42, z: -0.009}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 664354432}
