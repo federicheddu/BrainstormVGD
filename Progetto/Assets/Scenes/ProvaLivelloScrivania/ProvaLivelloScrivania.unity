@@ -4063,7 +4063,7 @@ RectTransform:
   - {fileID: 1314081318}
   - {fileID: 1973718259}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -13008,24 +13008,19 @@ MonoBehaviour:
   run: 0
   crouch: 0
   jump: 0
-  speed: 0
-  speedCap: 10
-  constant: 25
   walkSpeed: 10
   runSpeed: 18
-  jumpPower: 8
-  airSpeed: 0.5
-  airFriction: 0.5
+  walkCap: 10
+  runCap: 18
   grounded: 0
-  wasGrounded: 1
-  wallRide: 0
-  maxSpeed: 0
-  maxWalkSpeed: 8
-  maxRunSpeed: 15
-  counterMovement: 0.175
-  slideCounterMovement: 0.2
+  doubleJump: 0
+  jumpPower: 8
+  airCorrection: 5
   wallJumpPower: 2.5
   wallRideGravity: -0.2
+  maxSpeed: 0
+  counterMovement: 0.175
+  slideCounterMovement: 0.2
   camera: {fileID: 664354430}
   cameraVerticalMax: 90
   cameraVerticalMin: -90
@@ -14786,7 +14781,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1665853437
 GameObject:
