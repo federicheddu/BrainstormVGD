@@ -16,8 +16,7 @@ public class Actions : MonoBehaviour
 
     public float AttackDistance = 10.0f;
     public float FollowDistance = 22.0f;
-    [Range(0.0f, 1.0f)]
-    public float AttackProbability = 0.5f;
+    public float AttackProbability = 5f;
     public float damage = 10f;
     public AudioClip GunSound = null;
 
@@ -110,14 +109,16 @@ public class Actions : MonoBehaviour
         // metti un figlio e usa get component
         RaycastHit hit;
         //Ray MyRay = new Ray(bullet.transform.position, Vector3.forward);
-
+        StartCoroutine(Waiter());
         if(Physics.Raycast(bullet.transform.position, bullet.transform.forward, out hit, 100f))//Vector3.forward, out hit, 100f))
         {
-            Debug.Log(hit.transform.name);
-            Debug.DrawRay(bullet.transform.position, Vector3.forward * 100f, Color.green);
-            Target target = hit.transform.GetComponent<Target>();
-            if (target != null)
-                target.TakeDamage(damage);
+            if(Random.Range(1,1000) < AttackProbability){
+                Debug.Log(hit.transform.name);
+                Debug.DrawRay(bullet.transform.position, Vector3.forward * 100f, Color.green);
+                Target target = hit.transform.GetComponent<Target>();
+                if (target != null)
+                    target.TakeDamage(damage);
+            }
         }
         
         /*
@@ -126,6 +127,12 @@ public class Actions : MonoBehaviour
             m_Audio.PlayOneShot(GunSound);
         }
         */
+    }
+
+
+    IEnumerator Waiter()
+    {
+        yield return new WaitForSeconds(2);
     }
 
     public void Death()

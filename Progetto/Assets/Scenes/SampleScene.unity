@@ -443,24 +443,19 @@ MonoBehaviour:
   run: 0
   crouch: 0
   jump: 0
-  speed: 0
-  speedCap: 10
-  constant: 25
   walkSpeed: 10
   runSpeed: 18
-  jumpPower: 8
-  airSpeed: 0.5
-  airFriction: 0.5
+  walkCap: 0
+  runCap: 0
   grounded: 0
-  wasGrounded: 1
-  wallRide: 0
-  maxSpeed: 0
-  maxWalkSpeed: 8
-  maxRunSpeed: 15
-  counterMovement: 0.175
-  slideCounterMovement: 0.2
+  doubleJump: 0
+  jumpPower: 8
+  airCorrection: 0
   wallJumpPower: 2.5
   wallRideGravity: -0.2
+  maxSpeed: 0
+  counterMovement: 0.175
+  slideCounterMovement: 0.2
   camera: {fileID: 961035224}
   cameraVerticalMax: 90
   cameraVerticalMin: -90
@@ -911,6 +906,10 @@ PrefabInstance:
       propertyPath: bullet
       value: 
       objectReference: {fileID: 486302425}
+    - target: {fileID: 11400000, guid: 398da42bc4f6f6e44852a9f96c6c4e41, type: 3}
+      propertyPath: AttackProbability
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400002, guid: 398da42bc4f6f6e44852a9f96c6c4e41, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 398da42bc4f6f6e44852a9f96c6c4e41, type: 3}
@@ -1008,6 +1007,7 @@ MonoBehaviour:
   damage: 10
   range: 100
   camera: {fileID: 961035224}
+  muzzleFlash: {fileID: 0}
 --- !u!114 &1493961504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1326,6 +1326,10 @@ PrefabInstance:
       propertyPath: bullet
       value: 
       objectReference: {fileID: 483707370}
+    - target: {fileID: 11400002, guid: de63ee434fe39914b8d2f5680c62d05f, type: 3}
+      propertyPath: AttackProbability
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400000, guid: de63ee434fe39914b8d2f5680c62d05f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: de63ee434fe39914b8d2f5680c62d05f, type: 3}
