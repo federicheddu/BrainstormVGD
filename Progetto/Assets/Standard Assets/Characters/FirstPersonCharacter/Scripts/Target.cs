@@ -6,11 +6,12 @@ public class Target : MonoBehaviour
 {
 
     public float health = 50f;
+    private PowerUp pu;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        pu = GetComponent<PowerUp>();
     }
 
     // Update is called once per frame
@@ -21,6 +22,13 @@ public class Target : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        // Caso in cui si ha il powerup no damage
+        // - i nemici NON devono avere il component powerup
+        // - non sono nello stesso if per non fare nullpointerexception nel caso dei nemici
+        if (pu != null)
+            if (pu.nodamage)
+                return;
+
         health -= damage;
         if (health <= 0f)
             Die();
