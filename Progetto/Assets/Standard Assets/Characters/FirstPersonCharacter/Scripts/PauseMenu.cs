@@ -12,6 +12,7 @@ public class PauseMenu : MonoBehaviour
 
     private PlayerMovement script;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,7 +57,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Quit()
     {
-        Debug.Log("Replace with code to Quit Game");
+        Application.Quit();
     }
 
     public void Levels()
