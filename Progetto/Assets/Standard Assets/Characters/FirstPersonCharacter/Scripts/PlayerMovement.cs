@@ -9,16 +9,17 @@ public class PlayerMovement : MonoBehaviour
 
     //input
     public float vertical, horizontal, rotation = 0f;
-    public bool run, crouch, jump;
+    public bool key_run, key_crouch, key_jump;
     
     //movimento base
     private Vector3 direction = Vector3.zero;               //direzione movimento
     private float speed;
     public float walkSpeed, runSpeed, walkCap, runCap;      //fattori moviemento orizzontale
-    public bool grounded, doubleJump;
+    public bool grounded;
+    private bool doubleJump = false;
 
     //salto e wallride
-    private Vector3 jumpDirection, groundNormal;
+    private Vector3 groundNormal;
     public float jumpPower, airCorrection;
     private double maxAirSpeed;
     public float wallJumpPower = 10f;
@@ -50,10 +51,12 @@ public class PlayerMovement : MonoBehaviour
     //component
     CharacterController characterController;
     private Rigidbody rb;
+    private PowerUp pu;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        pu = GetComponent<PowerUp>();
     }
 
     // Start is called before the first frame update
@@ -84,7 +87,12 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Ground")
+        {
             grounded = true;
+            if (pu.doublejump) //riattivo anche il double jump in caso di powerup
+                doubleJump = true;
+        }
+            
     }
 
     private void OnCollisionStay(Collision collision)
@@ -117,9 +125,9 @@ public class PlayerMovement : MonoBehaviour
         vertical = Input.GetAxis("Vertical");
         horizontal = Input.GetAxis("Horizontal");
         rotation = Input.GetAxis("Mouse X");
-        jump = Input.GetButtonDown("Jump");
-        run = Input.GetKey(KeyCode.LeftShift);
-        crouch = Input.GetKey(KeyCode.LeftControl);
+        key_jump = Input.GetButtonDown("Jump");
+        key_run = Input.GetKey(KeyCode.LeftShift);
+        key_crouch = Input.GetKey(KeyCode.LeftControl);
 
         //camera
         tiltCamera -= Input.GetAxis("Mouse Y");
@@ -139,14 +147,11 @@ public class PlayerMovement : MonoBehaviour
         CounterMovement(direction.x, direction.z, new Vector2(rb.velocity.x, rb.velocity.z));
 
         //salto
-        if (jump && grounded)
-        {
-            jumpDirection = groundNormal + Vector3.up;
-            rb.AddForce(jumpDirection.normalized * jumpPower, ForceMode.Impulse);
-        }
+        if (key_jump)
+            jump();
 
         //crouch
-        if (crouch)
+        if (key_crouch)
             transform.localScale = halfDim;
         else
             transform.localScale = fullDim;
@@ -159,8 +164,8 @@ public class PlayerMovement : MonoBehaviour
     private void groundMove()
     {
         float force_x = 0, force_z = 0;
-        speed = run ? runSpeed : walkSpeed;
-        maxSpeed = run ? runCap : walkCap;
+        speed = key_run ? runSpeed : walkSpeed;
+        maxSpeed = key_run ? runCap : walkCap;
 
         if (Math.Sqrt(Math.Pow(rb.velocity.x, 2) + Math.Pow(rb.velocity.z, 2)) < speed)
         {
@@ -186,13 +191,29 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(transform.TransformVector(direction), ForceMode.Impulse);
     }
 
+    private void jump()
+    {
+        Vector3 jumpDirection = Vector3.zero;
+
+        if (grounded)
+            jumpDirection = groundNormal + Vector3.up;
+
+        if (!grounded && doubleJump)
+        {
+            jumpDirection = Vector3.up;
+            doubleJump = false;
+        }
+
+        rb.AddForce(jumpDirection.normalized * jumpPower, ForceMode.Impulse);
+    }
+
     //https://github.com/DaniDevy/FPS_Movement_Rigidbody/blob/master/PlayerMovement.cs
     private void CounterMovement(float x, float y, Vector2 mag)
     {
-        if (!grounded || jump) return;
+        if (!grounded || key_jump) return;
 
         //Slow down sliding
-        if (crouch)
+        if (key_crouch)
         {
             rb.AddForce(speed * Time.deltaTime * -rb.velocity.normalized * slideCounterMovement);
             return;

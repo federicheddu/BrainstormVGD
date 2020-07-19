@@ -5,10 +5,17 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    //impostazioni sparo
     public float damage = 10f;
-    public float range = 100f;
+    private int headMult = 1;
+    private int damageMult = 1;
+    private float range = 100f;
 
+    //component utili
     public Camera camera;
+    public PowerUp pu;
+
+    //effetti
     public ParticleSystem muzzleFlash;
 
     // Start is called before the first frame update
@@ -20,10 +27,16 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //check powerup
+        if (!pu.doubledamage) damageMult = 1;
+        else damageMult = 2;
+
+        //check bang
         if(Input.GetButtonDown("Fire1"))
             Shoot();
     }
 
+    //bang
     void Shoot() {
 
         muzzleFlash.Play();
@@ -33,9 +46,15 @@ public class Gun : MonoBehaviour
 
             Debug.Log(hit.transform.name);
 
-            Target target = hit.transform.GetComponent<Target>();
+            Transform enemy = hit.transform;
+            Target target = enemy.GetComponent<Target>();
+
+            string enemy_tag = enemy.tag;
+            if (enemy_tag == "Head") headMult = 2;
+            else headMult = 1;
+
             if (target != null)
-                target.TakeDamage(damage);
+                target.TakeDamage(damage * headMult * damageMult);
 
         }
     }
