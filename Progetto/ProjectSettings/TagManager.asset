@@ -7,6 +7,11 @@ TagManager:
   - Ground
   - Wall
   - Metal
+  - Target
+  - Fire
+  - ExplosiveBarrel
+  - Head
+  - Body
   layers:
   - Default
   - TransparentFX
