@@ -7,11 +7,13 @@ public class Target : MonoBehaviour
 
     public float health = 50f;
     private PowerUp pu;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         pu = GetComponent<PowerUp>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
