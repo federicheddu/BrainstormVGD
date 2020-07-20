@@ -38,6 +38,11 @@ public class Target : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject);
+        if(animator != null)
+        {
+            animator.SetTrigger("Death");
+            Destroy(gameObject, 2);
+        } else
+            Destroy(gameObject);
     }
 }
