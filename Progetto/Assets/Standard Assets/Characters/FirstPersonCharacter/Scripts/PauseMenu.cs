@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
-
-    public GameObject player;
+ 
     public KeyCode keyToPressToPause = KeyCode.Escape;
     public GameObject pauseMenuUI;
     public GameObject targetViewer;
@@ -18,12 +17,16 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        script = player.GetComponent<PlayerMovement>();
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if(player != null)
+        {
+            script = player.GetComponent<PlayerMovement>();
+        }
         pauseMenuUI.SetActive(false);
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() 
     {
         if (Input.GetKeyDown(keyToPressToPause))
         {
@@ -42,8 +45,10 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         GameIsPaused = false;
         targetViewer.SetActive(true);
-
-        script.enabled = true; //Per sbloccare la camera e i movimenti
+        if(script != null)
+        {
+            script.enabled = true; //Per sbloccare la camera e i movimenti
+        }
     }
 
     public void Pause()
@@ -53,8 +58,10 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = true;
         targetViewer.SetActive(false);
 
-
-        script.enabled = false; //Per bloccare la camera
+        if(script != null)
+        {
+            script.enabled = false; //Per bloccare la camera
+        }
 
         Time.timeScale = 0f; 
         GameIsPaused = true;

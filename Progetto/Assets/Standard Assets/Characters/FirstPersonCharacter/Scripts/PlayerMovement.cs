@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     private float tiltCamera = 0f;
     public float cameraVerticalMax = 90f;
     public float cameraVerticalMin = -90f;
-    public float mouseSens = 5f;
+    private float mouseSens = 2f; // Attributo aggiunto piuttosto che fare ogni volta GameSettings.getMouseSensibility() perchè più leggero, anzichè leggerlo ogni volta chiamando il metodo viene salvato e letto normalmente
 
     //altro
     private Vector3 fullDim;
@@ -238,7 +238,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void setMouseSens(float sens)
+    public void setMouseSensibility(float sens)
     {
         mouseSens = sens;
     }

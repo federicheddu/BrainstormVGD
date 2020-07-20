@@ -7,22 +7,22 @@ using System;
 public class SensValueVisualizer : MonoBehaviour
 {
 
-    public GameObject player;
-    public Slider slider;
-
+    private Slider slider;
     private Text text;
+
     // Start is called before the first frame update
     void Start()
     {
-        text = GetComponent<UnityEngine.UI.Text>();
-        slider.value = (float) Math.Floor(player.GetComponent<PlayerMovement>().mouseSens * 100 / slider.maxValue);
+        text = GetComponent<Text>();
+        slider = GetComponentInParent<Slider>();
+        ShowValue();
     }
 
     /* Questo codice era in update, ma per ottimizzare questo metodo viene chiamato solo quando il valore dello slider viene cambiato, così
        non viene eseguito ad ogni frame*/
     public void ShowValue()
     {
-        double value = Math.Floor(player.GetComponent<PlayerMovement>().mouseSens * 100 / slider.maxValue);
-        text.text = value.ToString();
+        double value = Math.Floor((slider.value-slider.minValue)*(100/(slider.maxValue-slider.minValue)));
+        text.text = String.Concat(value.ToString(), "%");
     }
 }

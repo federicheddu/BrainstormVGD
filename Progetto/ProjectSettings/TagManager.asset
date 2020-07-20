@@ -7,16 +7,7 @@ TagManager:
   - Ground
   - Wall
   - Metal
-
-  - LevelLabel
-  - LevelOptions
-
-  - Target
-  - Fire
-  - ExplosiveBarrel
-  - Head
-  - Body
-
+  - Settings
   layers:
   - Default
   - TransparentFX
@@ -26,8 +17,8 @@ TagManager:
   - UI
   - 
   - 
-  - Ground
-  - Grappeable
+  - 
+  - 
   - 
   - 
   - 
