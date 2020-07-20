@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject player;
     public KeyCode keyToPressToPause = KeyCode.Escape;
     public GameObject pauseMenuUI;
+    public GameObject targetViewer;
 
     private PlayerMovement script;
 
@@ -39,6 +41,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+        targetViewer.SetActive(true);
 
         script.enabled = true; //Per sbloccare la camera e i movimenti
     }
@@ -48,6 +51,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        targetViewer.SetActive(false);
+
 
         script.enabled = false; //Per bloccare la camera
 
@@ -60,9 +65,9 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void Levels()
+    public void Menu()
     {
-        Debug.Log("Replace with code to show Game Levels");
+        SceneManager.LoadScene(0);
     }
 
 }

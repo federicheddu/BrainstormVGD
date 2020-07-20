@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour
 {
-    public Button levelsButton;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -23,16 +21,6 @@ public class StartMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void Levels()
-    {
-        levelsButton.gameObject.SetActive(false);
-    }
-
-    public void Back(Button b)
-    {
-        levelsButton.gameObject.SetActive(true);
-
-    }
 
     public void FirstLevel(int checkpoint)
     {
