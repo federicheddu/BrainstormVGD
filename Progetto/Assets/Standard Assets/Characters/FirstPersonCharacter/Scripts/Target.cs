@@ -6,12 +6,13 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
 
+    public float maxHealt = 50f;
     public float health = 50f;
     private PowerUp pu;
     private Animator animator;
-    float regTime = 5f;
-    float timerHit;
-    float count;
+    public float regTime = 5f;
+    private float timerHit;
+    private float count;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,7 @@ public class Target : MonoBehaviour
     {
         if(gameObject.tag == "Player")
         {
-            if (Time.time - timerHit > regTime && health < 50f)
+            if (Time.time - timerHit > regTime && health < maxHealt)
             {
                count += Time.deltaTime;
                 if(count >= 1f)
