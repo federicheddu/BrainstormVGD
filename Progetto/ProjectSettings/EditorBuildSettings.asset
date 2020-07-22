@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Livello Castello.unity
     guid: 0a713ecde31cb5a449cdb3ab7068c456
   - enabled: 1
-    path: Assets/LivelloLava/New Scene.unity
+    path: Assets/Scenes/LivelloLava/New Scene.unity
     guid: 6be8c9d86eb3751428af50ce7b1c72f2
   m_configObjects: {}
