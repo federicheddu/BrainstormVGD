@@ -109,7 +109,7 @@ public class Actions : MonoBehaviour
         // metti un figlio e usa get component
         RaycastHit hit;
         //Ray MyRay = new Ray(bullet.transform.position, Vector3.forward);
-        StartCoroutine(Waiter());
+        StartCoroutine(Waiter(2f));
         if(Physics.Raycast(bullet.transform.position, bullet.transform.forward, out hit, 100f))//Vector3.forward, out hit, 100f))
         {
             if(Random.Range(1,1000) < AttackProbability){
@@ -130,9 +130,9 @@ public class Actions : MonoBehaviour
     }
 
 
-    IEnumerator Waiter()
+    IEnumerator Waiter(float time)
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(time);
     }
 
     public void Death()
