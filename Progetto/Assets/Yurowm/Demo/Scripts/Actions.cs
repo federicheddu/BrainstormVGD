@@ -16,7 +16,7 @@ public class Actions : MonoBehaviour
 
     public float AttackDistance = 10.0f;
     public float FollowDistance = 22.0f;
-    public float AttackProbability = 0f;
+    private float AttackProbability = 0f;
     public float damage = 10f;
     public AudioClip GunSound = null;
 
