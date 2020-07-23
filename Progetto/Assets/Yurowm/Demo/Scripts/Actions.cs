@@ -37,16 +37,7 @@ public class Actions : MonoBehaviour
             float dist = Vector3.Distance(Player.transform.position, this.transform.position);
             bool shoot = dist < AttackDistance;//false;
             bool follow = (dist < FollowDistance);
-            /*
-            if (follow)
-            {
-                float random = Random.Range(0.0f, 1.0f);
-                if (random > (1.0f - AttackProbability) && dist < AttackDistance)
-                {
-                    shoot = true;
-                }
-            }
-            */
+            
             if (follow)
             {
                 _navMeshAgent.SetDestination(Player.transform.position);
@@ -67,9 +58,6 @@ public class Actions : MonoBehaviour
             }
             if (!follow && !shoot)
                 Stay();
-
-            //animator.SetBool("Shoot", shoot);
-            //animator.SetBool("Walk", follow);
 
         }
     }

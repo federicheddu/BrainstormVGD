@@ -13,10 +13,12 @@ public class actions2 : MonoBehaviour
 
     public float AttackDistance = 10.0f;
     public float FollowDistance = 22.0f;
-    private float AttackProbability = 0f;
+    private float AttackProbability = 3f;
     public float damage = 10f;
     public AudioClip GunSound = null;
-
+    public ParticleSystem muzzleFlash1;
+    public ParticleSystem muzzleFlash2;
+    float timer = 0f;
 
     // Start is called before the first frame update
     void Awake()
@@ -50,7 +52,13 @@ public class actions2 : MonoBehaviour
             if (shoot)
             {
                 FaceTarget();
-                Attack();
+                timer += Time.deltaTime;
+                if (timer >= 1f)
+                {
+                    timer = 0f;
+                    Attack();
+                }
+                
             }
             if (!follow && !shoot)
             {
@@ -66,7 +74,9 @@ public class actions2 : MonoBehaviour
         // metti un figlio e usa get component
         RaycastHit hit;
         //Ray MyRay = new Ray(bullet.transform.position, Vector3.forward);
-        StartCoroutine(Waiter(2f));
+        
+        muzzleFlash1.Play();
+        muzzleFlash2.Play();
         if (Physics.Raycast(bullet.transform.position, bullet.transform.forward, out hit, 100f))//Vector3.forward, out hit, 100f))
         {
             if (Random.Range(1, 1000) < AttackProbability)
