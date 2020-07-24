@@ -3,16 +3,45 @@ using System.Collections.Generic;
 using System.Runtime;
 using UnityEngine;
 
+public enum GunType
+{
+    Pistol,
+    Assault,
+    LMG,
+    None
+}
+
 public class Gun : MonoBehaviour
 {
+
+    //Tipo di arma
+    public GunType gunType;
+    //pistola
+    private float pisDamage = 10;
+    private float pisMag = 8;
+    private float pisHsMult = 2;
+    //assalto
+    private float assDamage = 10;
+    private float assMag = 25;
+    private float assHsMult = 1.8f;
+    private float assFireRate = 8;
+    //lmg
+    private float lmgDamage = 8;
+    private float lmgMag = 80;
+    private float lmgHsMult = 1.5f;
+    private float lmgFireRate = 15;
+
     //impostazioni sparo
-    public float damage = 10f;
-    private int headMult = 1;
-    private int damageMult = 1;
+    private float damage;
+    private float headShot;
+    private float headMult = 1;
+    private float damageMult = 1;
+    private float mag;
+    private float bulletsFired = 0;
+    private float fireRate;
+    private bool isReloading = false;
     private float range = 100f;
-    int maxGun = 8;
-    int countGun;
-    bool isReloading = false;
+
     //component utili
     public Camera camera;
     public PowerUp pu;
@@ -23,6 +52,26 @@ public class Gun : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        switch(gunType)
+        {
+            case GunType.Pistol:
+                damage = pisDamage;
+                mag = pisMag;
+                headShot = pisHsMult;
+                break;
+            case GunType.Assault:
+                damage = assDamage;
+                mag = assMag;
+                headShot = assHsMult;
+                fireRate = assFireRate;
+                break;
+            case GunType.LMG:
+                damage = lmgMag;
+                mag = lmgMag;
+                headShot = lmgMag;
+                fireRate = lmgFireRate;
+                break;
+        }
         
     }
 
@@ -37,16 +86,16 @@ public class Gun : MonoBehaviour
         else damageMult = 2;
 
         //check bang
-        if (Input.GetButtonDown("Fire1") && countGun < maxGun)
+        if (Input.GetButtonDown("Fire1") && bulletsFired < mag)
         {
-            countGun++;
+            bulletsFired++;
             Shoot();
-        }else if(Input.GetButtonDown("Fire1") && countGun >= maxGun)
+        }else if(Input.GetButtonDown("Fire1") && bulletsFired >= mag)
         {
             StartCoroutine(Reload(2));
             return;
         }
-        if (Input.GetKeyDown("r") && countGun != 0)
+        if (Input.GetKeyDown("r") && bulletsFired != 0)
         {
             StartCoroutine(Reload(2));
             return;
@@ -61,7 +110,7 @@ public class Gun : MonoBehaviour
         yield return new WaitForSeconds(time-0.25f);
         //animazion.setBool false
         yield return new WaitForSeconds(0.25f);
-        countGun = 0;
+        bulletsFired = 0;
         isReloading = false;
     }
 
