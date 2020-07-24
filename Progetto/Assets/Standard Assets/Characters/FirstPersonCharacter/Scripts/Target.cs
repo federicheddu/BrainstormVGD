@@ -59,21 +59,22 @@ public class Target : MonoBehaviour
 
     void Die()
     {
-        if (gameObject.GetComponent<MeshFilter>() == null)
+        if (animator != null)
+                {
+                    Debug.Log("ha l'animator");
+                    animator.SetTrigger("Death");
+                    Destroy(gameObject, 2);
+                }
+        else 
+        { 
+            if (gameObject.GetComponent<MeshFilter>() == null)
         {
             Debug.Log("OK");
             transform.GetChild(1).gameObject.SetActive(true);
             transform.GetChild(0).gameObject.SetActive(false);
             Destroy(gameObject, 1);
         }
-        else 
-        { 
-                if (animator != null)
-                {
-                    Debug.Log("ha l'animator");
-                    animator.SetTrigger("Death");
-                    Destroy(gameObject, 2);
-                } else
+                 else
                     Destroy(gameObject);
         }
     }
