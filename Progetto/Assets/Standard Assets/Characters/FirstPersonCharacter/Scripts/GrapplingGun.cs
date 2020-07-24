@@ -34,8 +34,6 @@ public class GrapplingGun : MonoBehaviour
         else if (Input.GetMouseButtonUp(1))
         {
             StopGrapple();
-            Debug.Log("DOWN");
-
         }
     }
 
@@ -50,8 +48,6 @@ public class GrapplingGun : MonoBehaviour
 
         if (Physics.Raycast(camera.position, camera.forward, out hit, maxDistance, whatIsGrappleable))  
         {
-            Debug.Log("UP");
-
             grapplePoint = hit.point;
             joint = player.gameObject.AddComponent<SpringJoint>();
             joint.autoConfigureConnectedAnchor = false;
