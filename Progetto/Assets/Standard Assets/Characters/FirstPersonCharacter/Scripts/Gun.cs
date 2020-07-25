@@ -34,11 +34,12 @@ public class Gun : MonoBehaviour
     //impostazioni sparo
     private float damage;
     private float headShot;
-    private float headMult = 1;
-    private float damageMult = 1;
+    private float headMult = 1f;
+    private float damageMult = 1f;
     private float mag;
-    private float bulletsFired = 0;
+    private float bulletsFired = 0f;
     private float fireRate;
+    private float nextTimeToFire = 0f;
     private bool isReloading = false;
     private float range = 100f;
 
@@ -48,6 +49,7 @@ public class Gun : MonoBehaviour
 
     //effetti
     public ParticleSystem muzzleFlash;
+    public GameObject impactEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -86,16 +88,22 @@ public class Gun : MonoBehaviour
         else damageMult = 2;
 
         //check bang
-        if (Input.GetButtonDown("Fire1") && bulletsFired < mag)
+        if (Input.GetButton("Fire1") && bulletsFired < mag)
         {
-            bulletsFired++;
-            Shoot();
-        }else if(Input.GetButtonDown("Fire1") && bulletsFired >= mag)
-        {
+            if(Time.time >= nextTimeToFire && gunType != GunType.Pistol) {      //armi automatiche (assalto e lmg)
+                nextTimeToFire = Time.time + 1f / fireRate;
+                bulletsFired++;
+                Shoot();
+            } else if(gunType == GunType.Pistol){                               //pistola
+                bulletsFired++;
+                Shoot();
+            }
+        } else if(Input.GetButtonDown("Fire1")) {                               //ricarica automatica
             StartCoroutine(Reload(2));
             return;
         }
-        if (Input.GetKeyDown("r") && bulletsFired != 0)
+
+        if (Input.GetKeyDown("r") && bulletsFired != 0)                         //ricarica manuale
         {
             StartCoroutine(Reload(2));
             return;
@@ -127,15 +135,22 @@ public class Gun : MonoBehaviour
             Transform enemy = hit.transform;
             TargetLink targetlink = enemy.GetComponent<TargetLink>();
 
-            if (targetlink == null) return;
-            Target target = targetlink.target;
+            if (targetlink != null) {
+                Target target = targetlink.target;
 
-            string enemy_tag = enemy.tag;
-            if (enemy_tag == "Head") headMult = 2;
-            else headMult = 1;
+                string enemy_tag = enemy.tag;
+                if (enemy_tag == "Head") headMult = 2;
+                else headMult = 1;
 
-            target.TakeDamage(damage * headMult * damageMult);
+                target.TakeDamage(damage * headMult * damageMult);
+            }
 
+            if (hit.rigidbody != null)
+                hit.rigidbody.AddForce(-hit.normal * 30f);
+
+            GameObject obj = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            Destroy(obj, 2f)
+;
         }
     }
 }
