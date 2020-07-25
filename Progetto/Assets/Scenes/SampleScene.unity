@@ -531,6 +531,7 @@ GameObject:
   - component: {fileID: 289705411}
   - component: {fileID: 289705410}
   - component: {fileID: 289705413}
+  - component: {fileID: 289705414}
   m_Layer: 0
   m_Name: Sphere (1)
   m_TagString: Untagged
@@ -626,6 +627,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 184318616939854600, guid: aea197447b4cc514188979c14bfe50c7, type: 3}
   timer: 0
+--- !u!114 &289705414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289705408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ba274b9515a1c418128c76bb248f79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetBoss: {fileID: 1596312707}
 --- !u!198 &291592791 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 19800004, guid: 0438351a6e6422d43a09930e9be00ee9,
@@ -856,6 +870,7 @@ GameObject:
   - component: {fileID: 458342436}
   - component: {fileID: 458342435}
   - component: {fileID: 458342438}
+  - component: {fileID: 458342439}
   m_Layer: 0
   m_Name: Sphere (3)
   m_TagString: Untagged
@@ -951,6 +966,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 184318616939854600, guid: aea197447b4cc514188979c14bfe50c7, type: 3}
   timer: 0
+--- !u!114 &458342439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458342433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ba274b9515a1c418128c76bb248f79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetBoss: {fileID: 1596312707}
 --- !u!4 &476626103 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426,
@@ -1594,85 +1622,6 @@ CapsuleCollider:
   m_Height: 2.7
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &965206707
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 965206710}
-  - component: {fileID: 965206709}
-  - component: {fileID: 965206708}
-  m_Layer: 0
-  m_Name: Crown
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!23 &965206708
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 965206707}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &965206709
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 965206707}
-  m_Mesh: {fileID: 4300002, guid: 598a1f45fefa08846b93be35e98f166e, type: 3}
---- !u!4 &965206710
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 965206707}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.006955, y: 2.3055916, z: 19.373281}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1020958105 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 3b5fa33dd71764e649577243ee418be1,
@@ -1692,6 +1641,7 @@ GameObject:
   - component: {fileID: 1049100114}
   - component: {fileID: 1049100113}
   - component: {fileID: 1049100116}
+  - component: {fileID: 1049100117}
   m_Layer: 0
   m_Name: Sphere (4)
   m_TagString: Untagged
@@ -1787,6 +1737,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 184318616939854600, guid: aea197447b4cc514188979c14bfe50c7, type: 3}
   timer: 0
+--- !u!114 &1049100117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049100111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ba274b9515a1c418128c76bb248f79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetBoss: {fileID: 1596312707}
 --- !u!1 &1096175597
 GameObject:
   m_ObjectHideFlags: 0
@@ -2071,6 +2034,7 @@ GameObject:
   - component: {fileID: 1311436176}
   - component: {fileID: 1311436175}
   - component: {fileID: 1311436178}
+  - component: {fileID: 1311436179}
   m_Layer: 0
   m_Name: Sphere (2)
   m_TagString: Untagged
@@ -2166,6 +2130,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 184318616939854600, guid: aea197447b4cc514188979c14bfe50c7, type: 3}
   timer: 0
+--- !u!114 &1311436179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311436173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ba274b9515a1c418128c76bb248f79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetBoss: {fileID: 1596312707}
 --- !u!1 &1337957254
 GameObject:
   m_ObjectHideFlags: 0
@@ -2414,7 +2391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 102883ba9ca1f8b4098fbc175ff56fc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  gunType: 0
   camera: {fileID: 1457805547}
   pu: {fileID: 699505262}
   muzzleFlash: {fileID: 291592791}
@@ -2702,12 +2679,43 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 71aed711704103740b8d6db062407a2c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b5fa33dd71764e649577243ee418be1, type: 3}
+--- !u!1 &1596312706 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 3b5fa33dd71764e649577243ee418be1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1596312705}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1596312707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596312706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9b793d57f7d87d4e995a4cc4bbcd754, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1600690282 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 598a1f45fefa08846b93be35e98f166e,
     type: 3}
   m_PrefabInstance: {fileID: 2017632251}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1600690283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600690282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ba274b9515a1c418128c76bb248f79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetBoss: {fileID: 1596312707}
 --- !u!64 &1600690286
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3116,6 +3124,7 @@ GameObject:
   - component: {fileID: 2008348919}
   - component: {fileID: 2008348921}
   - component: {fileID: 2008348918}
+  - component: {fileID: 2008348922}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -3211,6 +3220,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 184318616939854600, guid: aea197447b4cc514188979c14bfe50c7, type: 3}
   timer: 0
+--- !u!114 &2008348922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008348916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ba274b9515a1c418128c76bb248f79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetBoss: {fileID: 1596312707}
 --- !u!1001 &2017632251
 PrefabInstance:
   m_ObjectHideFlags: 0
