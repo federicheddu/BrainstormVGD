@@ -122,10 +122,15 @@ public class Gun : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, range))
         {
-
             Debug.Log(hit.transform.name);
-
             Transform enemy = hit.transform;
+
+            if(enemy.tag == "Bullet")
+            {
+                Destroy(enemy.gameObject);
+                return;
+            }
+
             if (enemy.gameObject.GetComponent<TargetLink>())
             {
                 TargetLink targetlink = enemy.GetComponent<TargetLink>();
