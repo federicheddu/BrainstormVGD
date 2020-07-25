@@ -115,27 +115,36 @@ public class Gun : MonoBehaviour
     }
 
     //bang
-    void Shoot() {
-
+    void Shoot()
+    {
         muzzleFlash.Play();
 
         RaycastHit hit;
-        if(Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, range)) {
+        if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, range))
+        {
 
             Debug.Log(hit.transform.name);
 
             Transform enemy = hit.transform;
-            TargetLink targetlink = enemy.GetComponent<TargetLink>();
+            if (enemy.gameObject.GetComponent<TargetLink>())
+            {
+                TargetLink targetlink = enemy.GetComponent<TargetLink>();
 
-            if (targetlink == null) return;
-            Target target = targetlink.target;
+                if (targetlink == null) return;
+                Target target = targetlink.target;
 
-            string enemy_tag = enemy.tag;
-            if (enemy_tag == "Head") headMult = 2;
-            else headMult = 1;
+                string enemy_tag = enemy.tag;
+                if (enemy_tag == "Head") headMult = 2;
+                else headMult = 1;
 
-            target.TakeDamage(damage * headMult * damageMult);
-
+                target.TakeDamage(damage * headMult * damageMult);
+            }
+            else if (enemy.gameObject.GetComponent<LinkBoss>())
+            {
+                LinkBoss linkBoss = enemy.GetComponent<LinkBoss>();
+                linkBoss.TakeDamage(damage * damageMult);
+            }
         }
     }
+
 }

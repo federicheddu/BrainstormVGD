@@ -34,7 +34,7 @@ public class LinkBoss : MonoBehaviour
         }
     }
 
-    void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         if (gameObject.name != "Crown" && !targetBoss.CrownState())
         {
