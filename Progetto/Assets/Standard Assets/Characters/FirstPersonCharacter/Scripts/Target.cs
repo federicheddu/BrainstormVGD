@@ -63,13 +63,19 @@ public class Target : MonoBehaviour
 
     void Die()
     {
+        //caso siano nemici umanoidi
         if (animator != null)
                 {
                     Debug.Log("ha l'animator");
                     animator.SetTrigger("Death");
                     Destroy(gameObject, 2);
                 }
-        else 
+        else if (gameObject.tag == "BossShooter")
+            //caso siano lo shooter
+        {
+            Target target = transform.parent.gameObject.GetComponent<Target>();
+            target.TakeDamage(20);
+        }else 
         { 
             if (gameObject.GetComponent<MeshFilter>() == null)
         {
