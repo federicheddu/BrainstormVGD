@@ -531,6 +531,7 @@ GameObject:
   - component: {fileID: 289705411}
   - component: {fileID: 289705410}
   - component: {fileID: 289705413}
+  - component: {fileID: 289705415}
   - component: {fileID: 289705414}
   m_Layer: 0
   m_Name: Sphere (1)
@@ -636,10 +637,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 289705408}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5ba274b9515a1c418128c76bb248f79, type: 3}
+  m_Script: {fileID: 11500000, guid: bd8717ccdb0204d97b62a78f0508cc96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetBoss: {fileID: 1596312707}
+  target: {fileID: 289705415}
+--- !u!114 &289705415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289705408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eda9ac8eddd80844f8bb929a99a68329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealt: 50
+  health: 50
+  regTime: 5
 --- !u!198 &291592791 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 19800004, guid: 0438351a6e6422d43a09930e9be00ee9,
@@ -870,6 +886,7 @@ GameObject:
   - component: {fileID: 458342436}
   - component: {fileID: 458342435}
   - component: {fileID: 458342438}
+  - component: {fileID: 458342440}
   - component: {fileID: 458342439}
   m_Layer: 0
   m_Name: Sphere (3)
@@ -975,10 +992,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 458342433}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5ba274b9515a1c418128c76bb248f79, type: 3}
+  m_Script: {fileID: 11500000, guid: bd8717ccdb0204d97b62a78f0508cc96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetBoss: {fileID: 1596312707}
+  target: {fileID: 458342440}
+--- !u!114 &458342440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458342433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eda9ac8eddd80844f8bb929a99a68329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealt: 50
+  health: 50
+  regTime: 5
 --- !u!4 &476626103 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426,
@@ -1641,6 +1673,7 @@ GameObject:
   - component: {fileID: 1049100114}
   - component: {fileID: 1049100113}
   - component: {fileID: 1049100116}
+  - component: {fileID: 1049100118}
   - component: {fileID: 1049100117}
   m_Layer: 0
   m_Name: Sphere (4)
@@ -1746,10 +1779,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1049100111}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5ba274b9515a1c418128c76bb248f79, type: 3}
+  m_Script: {fileID: 11500000, guid: bd8717ccdb0204d97b62a78f0508cc96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetBoss: {fileID: 1596312707}
+  target: {fileID: 1049100118}
+--- !u!114 &1049100118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049100111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eda9ac8eddd80844f8bb929a99a68329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealt: 50
+  health: 50
+  regTime: 5
 --- !u!1 &1096175597
 GameObject:
   m_ObjectHideFlags: 0
@@ -2034,6 +2082,7 @@ GameObject:
   - component: {fileID: 1311436176}
   - component: {fileID: 1311436175}
   - component: {fileID: 1311436178}
+  - component: {fileID: 1311436180}
   - component: {fileID: 1311436179}
   m_Layer: 0
   m_Name: Sphere (2)
@@ -2139,10 +2188,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1311436173}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5ba274b9515a1c418128c76bb248f79, type: 3}
+  m_Script: {fileID: 11500000, guid: bd8717ccdb0204d97b62a78f0508cc96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetBoss: {fileID: 1596312707}
+  target: {fileID: 1311436180}
+--- !u!114 &1311436180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311436173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eda9ac8eddd80844f8bb929a99a68329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealt: 50
+  health: 50
+  regTime: 5
 --- !u!1 &1337957254
 GameObject:
   m_ObjectHideFlags: 0
@@ -2395,6 +2459,7 @@ MonoBehaviour:
   camera: {fileID: 1457805547}
   pu: {fileID: 699505262}
   muzzleFlash: {fileID: 291592791}
+  impactEffect: {fileID: 0}
 --- !u!114 &1536686538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2694,9 +2759,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 1596312706}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9b793d57f7d87d4e995a4cc4bbcd754, type: 3}
+  m_Script: {fileID: 11500000, guid: bd8717ccdb0204d97b62a78f0508cc96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 1596312708}
+--- !u!114 &1596312708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596312706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eda9ac8eddd80844f8bb929a99a68329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealt: 50
+  health: 50
+  regTime: 5
+--- !u!135 &1596312709
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596312706}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 25
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1600690282 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 598a1f45fefa08846b93be35e98f166e,
@@ -2712,10 +2806,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1600690282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5ba274b9515a1c418128c76bb248f79, type: 3}
+  m_Script: {fileID: 11500000, guid: bd8717ccdb0204d97b62a78f0508cc96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetBoss: {fileID: 1596312707}
+  target: {fileID: 1600690284}
+--- !u!114 &1600690284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600690282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eda9ac8eddd80844f8bb929a99a68329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealt: 50
+  health: 50
+  regTime: 5
 --- !u!64 &1600690286
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3122,8 +3231,9 @@ GameObject:
   - component: {fileID: 2008348917}
   - component: {fileID: 2008348920}
   - component: {fileID: 2008348919}
-  - component: {fileID: 2008348921}
   - component: {fileID: 2008348918}
+  - component: {fileID: 2008348921}
+  - component: {fileID: 2008348923}
   - component: {fileID: 2008348922}
   m_Layer: 0
   m_Name: Sphere
@@ -3229,10 +3339,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 2008348916}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5ba274b9515a1c418128c76bb248f79, type: 3}
+  m_Script: {fileID: 11500000, guid: bd8717ccdb0204d97b62a78f0508cc96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetBoss: {fileID: 1596312707}
+  target: {fileID: 2008348923}
+--- !u!114 &2008348923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008348916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eda9ac8eddd80844f8bb929a99a68329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealt: 50
+  health: 50
+  regTime: 5
 --- !u!1001 &2017632251
 PrefabInstance:
   m_ObjectHideFlags: 0

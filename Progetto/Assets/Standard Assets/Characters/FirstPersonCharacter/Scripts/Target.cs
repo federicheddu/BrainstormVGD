@@ -53,7 +53,7 @@ public class Target : MonoBehaviour
                 return;
 
         //il boss non prende danno se esiste ancora la corona tra i suoi figli
-        if (gameObject.name == "Coronavirus2_hipoly" && gameObject.transform.GetChild(0).name == "Crown")
+        if (gameObject.name == "Coronavirus2_hipoly" && gameObject.transform.GetChild(1).name == "Crown")
             return;
 
         health -= damage;
