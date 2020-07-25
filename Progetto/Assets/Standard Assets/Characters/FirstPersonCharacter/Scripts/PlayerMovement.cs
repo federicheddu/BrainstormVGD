@@ -136,12 +136,17 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move()
     {
-
         //velocità
         if (grounded)
+        {
+            rb.drag = 1;
             groundMove();
+        }
         else
+        {
+            rb.drag = 0;
             airMove();
+        }
 
         //diminuisce lo slittamento a terra una volta mollato wasd
         CounterMovement(direction.x, direction.z, new Vector2(rb.velocity.x, rb.velocity.z));
@@ -173,7 +178,10 @@ public class PlayerMovement : MonoBehaviour
             force_z = vertical * speed * Time.deltaTime;
         }
 
-        direction = new Vector3(force_x, 0f, force_z);
+        //so che x e z sono invertiti, ma mi servono invertiti per fare il prodotto vettoriale
+        //uso questo approccio per avere la tangente al terreno con il giusto angolo e permettere di fare le salite facilmente
+        direction = new Vector3(force_z, 0f, -force_x);
+        direction = Vector3.Cross(direction, groundNormal);
         rb.AddForce(transform.TransformVector(direction), ForceMode.Impulse);
     }
 
