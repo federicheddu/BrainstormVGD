@@ -9,6 +9,8 @@ TagManager:
   - Metal
   - Settings
   - PU_doublejump
+  - Head
+  - Bullet
   layers:
   - Default
   - TransparentFX
