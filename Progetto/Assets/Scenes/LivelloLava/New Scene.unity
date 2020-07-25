@@ -1137,8 +1137,8 @@ GameObject:
   - component: {fileID: 644544301}
   - component: {fileID: 644544300}
   - component: {fileID: 644544299}
-  - component: {fileID: 644544298}
   - component: {fileID: 644544302}
+  - component: {fileID: 644544298}
   m_Layer: 0
   m_Name: Lava
   m_TagString: Untagged
@@ -1146,20 +1146,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &644544298
-MeshCollider:
+--- !u!65 &644544298
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644544297}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &644544299
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1233,6 +1232,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 191f493be540fca40b8bc88640722732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0.25
+  rotationSpeed1: 0.2
+  rotationSpeed2: 0.2
 --- !u!1 &687497208
 GameObject:
   m_ObjectHideFlags: 0
@@ -2583,6 +2585,7 @@ MonoBehaviour:
   camera: {fileID: 1013420441}
   pu: {fileID: 1698007322}
   muzzleFlash: {fileID: 1871632347}
+  impactEffect: {fileID: 0}
 --- !u!114 &1405748144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3253,7 +3256,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1698007321}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.5, y: 32.2, z: 66}
+  m_LocalPosition: {x: -92.7, y: 13.2, z: -5.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1013420443}
