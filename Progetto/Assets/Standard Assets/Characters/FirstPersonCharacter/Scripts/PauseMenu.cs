@@ -9,7 +9,7 @@ public class PauseMenu : MonoBehaviour
  
     public KeyCode keyToPressToPause = KeyCode.Escape;
     public GameObject pauseMenuUI;
-    public GameObject targetViewer;
+    public GameObject[] UisToDisableOnPause;
 
     private PlayerMovement script;
 
@@ -44,7 +44,12 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
-        targetViewer.SetActive(true);
+
+        for(int i=0; i<UisToDisableOnPause.Length; i++)
+        {
+            UisToDisableOnPause[i].SetActive(true);
+        }
+
         if(script != null)
         {
             script.enabled = true; //Per sbloccare la camera e i movimenti
@@ -56,9 +61,12 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        targetViewer.SetActive(false);
 
-        if(script != null)
+        for (int i = 0; i < UisToDisableOnPause.Length; i++)
+        {
+            UisToDisableOnPause[i].SetActive(false);
+        }
+        if (script != null)
         {
             script.enabled = false; //Per bloccare la camera
         }

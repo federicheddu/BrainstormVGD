@@ -7,15 +7,13 @@ public class LifeSetter : MonoBehaviour
 {
     private Target target;
 
-    private Slider slider;
-    private Text text;
+    public Slider slider;
+    public Text text;
 
     // Start is called before the first frame update
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Target>();
-        slider = GetComponent<Slider>();
-        text = GetComponent<Text>();
     }
 
     // Update is called once per frame
