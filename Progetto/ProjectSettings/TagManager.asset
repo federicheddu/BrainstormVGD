@@ -11,6 +11,7 @@ TagManager:
   - PU_doublejump
   - Head
   - Bullet
+  - Shooter
   layers:
   - Default
   - TransparentFX
