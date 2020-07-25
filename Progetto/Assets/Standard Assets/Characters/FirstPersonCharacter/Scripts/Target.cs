@@ -42,15 +42,19 @@ public class Target : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (gameObject.tag == "Player")
+            timerHit = Time.time;
+
         // Caso in cui si ha il powerup no damage
         // - i nemici NON devono avere il component powerup
         // - non sono nello stesso if per non fare nullpointerexception nel caso dei nemici
-        if(gameObject.tag == "Player")
-        timerHit = Time.time;
-
         if (pu != null)
             if (pu.nodamage)
                 return;
+
+        //il boss non prende danno se esiste ancora la corona tra i suoi figli
+        if (gameObject.name == "Coronavirus2_hipoly" && gameObject.transform.GetChild(0).name == "Crown")
+            return;
 
         health -= damage;
         if (health <= 0f)

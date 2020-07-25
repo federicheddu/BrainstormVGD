@@ -134,7 +134,8 @@ public class Gun : MonoBehaviour
             Transform enemy = hit.transform;
             TargetLink targetlink = enemy.GetComponent<TargetLink>();
 
-            if (targetlink != null) {
+            if (targetlink != null)
+            {
                 Target target = targetlink.target;
 
                 string enemy_tag = enemy.tag;
@@ -148,33 +149,7 @@ public class Gun : MonoBehaviour
                 hit.rigidbody.AddForce(-hit.normal * 30f);
 
             GameObject obj = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-            Destroy(obj, 2f)
-;
-
-            if(enemy.tag == "Bullet")
-            {
-                Destroy(enemy.gameObject);
-                return;
-            }
-
-            if (enemy.gameObject.GetComponent<TargetLink>())
-            {
-                TargetLink targetlink = enemy.GetComponent<TargetLink>();
-
-                if (targetlink == null) return;
-                Target target = targetlink.target;
-
-                string enemy_tag = enemy.tag;
-                if (enemy_tag == "Head") headMult = 2;
-                else headMult = 1;
-
-                target.TakeDamage(damage * headMult * damageMult);
-            }
-            else if (enemy.gameObject.GetComponent<LinkBoss>())
-            {
-                LinkBoss linkBoss = enemy.GetComponent<LinkBoss>();
-                linkBoss.TakeDamage(damage * damageMult);
-            }
+            Destroy(obj, 2f);
         }
     }
 
