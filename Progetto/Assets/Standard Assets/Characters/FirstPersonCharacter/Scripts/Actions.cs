@@ -6,12 +6,9 @@ using UnityEngine.Audio;
 [RequireComponent(typeof(Animator))]
 public class Actions : MonoBehaviour
 {
-
     private Animator animator;
-
     GameObject Player;
     public GameObject bullet;
-
     private NavMeshAgent _navMeshAgent;
 
     float AttackDistance = 10.0f;
@@ -34,40 +31,41 @@ public class Actions : MonoBehaviour
 
     void Update()
     {
-        if (_navMeshAgent.enabled)
+        if (!death)
         {
-            float dist = Vector3.Distance(Player.transform.position, this.transform.position);
-            bool shoot = dist < AttackDistance;//false;
-            bool follow = (dist < FollowDistance);
-            
-            if (follow)
+            if (_navMeshAgent.enabled)
             {
-                _navMeshAgent.SetDestination(Player.transform.position);
-            }
+                float dist = Vector3.Distance(Player.transform.position, this.transform.position);
+                bool shoot = dist < AttackDistance;//false;
+                bool follow = (dist < FollowDistance);
 
-            if (!follow || shoot)
-                _navMeshAgent.SetDestination(transform.position);
-
-            if (follow)
-            {
-                FaceTarget();
-                Walk();
-            }
-            if (shoot)
-            {
-                FaceTarget();
-                Attack();
-                timer += Time.deltaTime;
-                if (timer >= 0.5f)
+                if (follow)
                 {
-                    AudioManager.instance.Play("GunShoot");
-                    timer = 0f;
-                    
+                    _navMeshAgent.SetDestination(Player.transform.position);
                 }
-            }
-            if (!follow && !shoot)
-                Stay();
 
+                if (!follow || shoot)
+                    _navMeshAgent.SetDestination(transform.position);
+
+                if (follow)
+                {
+                    FaceTarget();
+                    Walk();
+                }
+                if (shoot)
+                {
+                    FaceTarget();
+                    Attack();
+                    timer += Time.deltaTime;
+                    if (timer >= 0.5f)
+                    {
+                        AudioManager.instance.Play("GunShoot");
+                        timer = 0f;
+                    }
+                }
+                if (!follow && !shoot)
+                    Stay();
+            }
         }
     }
 

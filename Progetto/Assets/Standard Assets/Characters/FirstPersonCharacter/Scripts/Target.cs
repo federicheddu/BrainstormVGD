@@ -70,7 +70,7 @@ public class Target : MonoBehaviour
         {
             Debug.Log("ha l'animator");
             animator.SetTrigger("Death");
-            gameObject.GetComponent<Actions>();
+            gameObject.GetComponent<Actions>().SetDeath();
             AudioManager.instance.Play("DeathHuman");
             Destroy(gameObject, 2);
                 }
