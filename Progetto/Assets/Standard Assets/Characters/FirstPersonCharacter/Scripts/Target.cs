@@ -24,6 +24,7 @@ public class Target : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //controllo se è stato colpito meno di 5 secondi fa allora parte la rigenerazione della salute
         if(gameObject.tag == "Player")
         {
             if (Time.time - timerHit > regTime && health < maxHealt)
@@ -56,6 +57,7 @@ public class Target : MonoBehaviour
         if (gameObject.name == "Coronavirus2_hipoly" && gameObject.transform.GetChild(1).name == "Crown")
             return;
 
+        //controllo per vedere se il proprietario di target muore
         health -= damage;
         if (health <= 0f)
             Die();
@@ -77,15 +79,15 @@ public class Target : MonoBehaviour
             target.TakeDamage(20);
         }else 
         { 
-            if (gameObject.GetComponent<MeshFilter>() == null)
-        {
-            Debug.Log("OK");
-            transform.GetChild(1).gameObject.SetActive(true);
-            transform.GetChild(0).gameObject.SetActive(false);
-            Destroy(gameObject, 1);
-        }
-                 else
-                    Destroy(gameObject);
+            // caso sia robot attack
+            if (gameObject.GetComponent<actions2>())
+            {
+                Debug.Log("OK");
+                transform.GetChild(1).gameObject.SetActive(true);
+                transform.GetChild(0).gameObject.SetActive(false);
+                Destroy(gameObject, 1);
+            }else 
+                Destroy(gameObject);
         }
     }
 }
