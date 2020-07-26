@@ -67,17 +67,24 @@ public class Target : MonoBehaviour
     {
         //caso siano nemici umanoidi
         if (animator != null)
-                {
-                    Debug.Log("ha l'animator");
-                    animator.SetTrigger("Death");
-                    Destroy(gameObject, 2);
+        {
+            Debug.Log("ha l'animator");
+            animator.SetTrigger("Death");
+            gameObject.GetComponent<Actions>();
+            AudioManager.instance.Play("DeathHuman");
+            Destroy(gameObject, 2);
                 }
         else if (gameObject.tag == "BossShooter")
             //caso siano lo shooter
         {
             Target target = transform.parent.gameObject.GetComponent<Target>();
             target.TakeDamage(20);
-        }else 
+        }else if (gameObject.tag == "Bullet")
+        {
+            AudioManager.instance.Play("Bubble");
+            Destroy(gameObject);
+        }
+        else
         { 
             // caso sia robot attack
             if (gameObject.GetComponent<actions2>())
@@ -85,6 +92,9 @@ public class Target : MonoBehaviour
                 Debug.Log("OK");
                 transform.GetChild(1).gameObject.SetActive(true);
                 transform.GetChild(0).gameObject.SetActive(false);
+                transform.GetChild(2).gameObject.SetActive(false);
+                transform.GetChild(3).gameObject.SetActive(false);
+                AudioManager.instance.Play("Explosion");
                 Destroy(gameObject, 1);
             }else 
                 Destroy(gameObject);

@@ -30,41 +30,45 @@ public class actions2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_navMeshAgent.enabled)
+        //controllo se è ancora vivo l'object
+        if (transform.GetChild(0).gameObject.activeInHierarchy)
         {
-            float dist = Vector3.Distance(Player.transform.position, transform.position);
-            bool shoot = dist < AttackDistance;//false;
-            bool follow = (dist < FollowDistance);
-
-            if (follow)
+            if (_navMeshAgent.enabled)
             {
-                _navMeshAgent.SetDestination(Player.transform.position);
-            }
+                float dist = Vector3.Distance(Player.transform.position, transform.position);
+                bool shoot = dist < AttackDistance;//false;
+                bool follow = (dist < FollowDistance);
 
-            if (!follow || shoot)
-                _navMeshAgent.SetDestination(transform.position);
-
-            if (follow)
-            {
-                FaceTarget();
-                
-            }
-            if (shoot)
-            {
-                FaceTarget();
-                timer += Time.deltaTime;
-                if (timer >= 1f)
+                if (follow)
                 {
-                    timer = 0f;
-                    Attack();
+                    _navMeshAgent.SetDestination(Player.transform.position);
                 }
-                
-            }
-            if (!follow && !shoot)
-            {
 
+                if (!follow || shoot)
+                    _navMeshAgent.SetDestination(transform.position);
+
+                if (follow)
+                {
+                    FaceTarget();
+
+                }
+                if (shoot)
+                {
+                    FaceTarget();
+                    timer += Time.deltaTime;
+                    if (timer >= 1f)
+                    {
+                        timer = 0f;
+                        Attack();
+                        AudioManager.instance.Play("GunShoot");
+                    }
+
+                }
+                if (!follow && !shoot)
+                {
+
+                }
             }
-                
         }
     }
 

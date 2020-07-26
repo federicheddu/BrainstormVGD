@@ -9,16 +9,17 @@ public class Actions : MonoBehaviour
 
     private Animator animator;
 
-    public GameObject Player;
+    GameObject Player;
     public GameObject bullet;
 
     private NavMeshAgent _navMeshAgent;
 
-    public float AttackDistance = 10.0f;
-    public float FollowDistance = 22.0f;
+    float AttackDistance = 10.0f;
+    float FollowDistance = 22.0f;
     private float AttackProbability = 5f;
-    public float damage = 10f;
-    public AudioClip GunSound = null;
+    float damage = 10f;
+    float timer = 0f;
+    bool death = false;
 
     const int countOfDamageAnimations = 3;
     int lastDamageAnimation = -1;
@@ -28,6 +29,7 @@ public class Actions : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
+        Player = GameObject.FindWithTag("Player");
     }
 
     void Update()
@@ -55,6 +57,13 @@ public class Actions : MonoBehaviour
             {
                 FaceTarget();
                 Attack();
+                timer += Time.deltaTime;
+                if (timer >= 0.5f)
+                {
+                    AudioManager.instance.Play("GunShoot");
+                    timer = 0f;
+                    
+                }
             }
             if (!follow && !shoot)
                 Stay();
@@ -108,13 +117,6 @@ public class Actions : MonoBehaviour
                     target.TakeDamage(damage);
             }
         }
-        
-        /*
-        if (m_Audio != null)
-        {
-            m_Audio.PlayOneShot(GunSound);
-        }
-        */
     }
 
 
@@ -129,6 +131,11 @@ public class Actions : MonoBehaviour
             animator.Play("Idle", 0);
         else
             animator.SetTrigger("Death");
+    }
+
+    public void SetDeath()
+    {
+        death = true;
     }
 
     public void Damage()

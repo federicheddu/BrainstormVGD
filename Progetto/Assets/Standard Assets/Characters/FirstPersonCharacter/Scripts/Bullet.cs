@@ -34,6 +34,7 @@ public class Bullet : MonoBehaviour
             Target target = collision.transform.GetComponent<Target>();
             if (target != null)
                 target.TakeDamage(damage);
+            AudioManager.instance.Play("Bubble");
             Destroy(gameObject);
         }
     }
