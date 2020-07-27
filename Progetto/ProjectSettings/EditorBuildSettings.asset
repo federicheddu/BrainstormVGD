@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScene/StartScene.unity
     guid: d677a9b8e51fb473f948564f9cb9c36a
   - enabled: 1
+    path: Assets/Introduction To First Level.unity
+    guid: d83d77386361f48ec91c25d715817baf
+  - enabled: 1
     path: Assets/Scenes/ProvaLivelloScrivania/ProvaLivelloScrivania.unity
     guid: 5fab0d1d228b3c94f9b7aa587f40aa96
   - enabled: 1
