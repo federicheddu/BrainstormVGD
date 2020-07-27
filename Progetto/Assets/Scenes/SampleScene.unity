@@ -4268,6 +4268,24 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
+  - name: Walk
+    clip: {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
+    volume: 0.32
+    volumeVariance: 0.35
+    pitch: 1
+    pitchVariance: 0.2
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: DeathHuman
+    clip: {fileID: 8300000, guid: f21fa213d11b1a74fb2f2b6ea64de0fa, type: 3}
+    volume: 0.32
+    volumeVariance: 0.35
+    pitch: 1
+    pitchVariance: 0.2
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
 --- !u!4 &1680836087
 Transform:
   m_ObjectHideFlags: 0
