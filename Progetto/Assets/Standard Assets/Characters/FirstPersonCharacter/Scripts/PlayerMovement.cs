@@ -186,16 +186,18 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(transform.TransformVector(direction), ForceMode.Impulse);
 
         timer += Time.deltaTime;
-        if (speed == 0)
+        if (speed < 1f)
         {
             timer = 0;
         } else
-        if (timer >= 0.5f && speed <= walkCap)
+        if (timer >= 0.5f && speed <= 10f && speed>1f)
         {
+            Debug.Log("Sto camminando a " + speed);
             StartCoroutine(WalkSound());
             timer = 0f;
-        } else if (speed > walkCap && timer > 0.3f)
+        } else if (speed > 10f && timer > 0.3f)
         {
+            Debug.Log("Sto correndo");
             timer = 0f;
             StartCoroutine(WalkSound());
         }

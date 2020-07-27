@@ -646,18 +646,6 @@ MonoBehaviour:
   maxHealt: 50
   health: 50
   regTime: 5
---- !u!114 &273026082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273026079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd75b59c867b63c489e629b788e32f35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!198 &285099853 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 19800004, guid: 0438351a6e6422d43a09930e9be00ee9,
@@ -4277,8 +4265,8 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - name: DeathHuman
-    clip: {fileID: 8300000, guid: f21fa213d11b1a74fb2f2b6ea64de0fa, type: 3}
+  - name: GunReload
+    clip: {fileID: 8300000, guid: b0d51244fd32fc647960320540b32f66, type: 3}
     volume: 0.32
     volumeVariance: 0.35
     pitch: 1
