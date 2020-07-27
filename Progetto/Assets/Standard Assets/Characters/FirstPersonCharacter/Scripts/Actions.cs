@@ -66,7 +66,7 @@ public class Actions : MonoBehaviour
                 if (!follow && !shoot)
                     Stay();
             }
-        }
+        }else _navMeshAgent.SetDestination(transform.position);
     }
 
 

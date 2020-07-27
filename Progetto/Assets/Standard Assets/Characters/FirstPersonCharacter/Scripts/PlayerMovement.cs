@@ -184,18 +184,19 @@ public class PlayerMovement : MonoBehaviour
         direction = new Vector3(force_z, 0f, -force_x);
         direction = Vector3.Cross(direction, groundNormal);
         rb.AddForce(transform.TransformVector(direction), ForceMode.Impulse);
+        float s = Mathf.Sqrt((Mathf.Pow(rb.velocity.x, 2) + Mathf.Pow(rb.velocity.z, 2)));
 
         timer += Time.deltaTime;
-        if (speed < 1f)
+        if (s < 1f)
         {
             timer = 0;
         } else
-        if (timer >= 0.5f && speed <= 10f && speed>1f)
+        if (timer >= 0.5f && s <= 8f && s>1f)
         {
-            Debug.Log("Sto camminando a " + speed);
+            Debug.Log("Sto camminando a " + s);
             StartCoroutine(WalkSound());
             timer = 0f;
-        } else if (speed > 10f && timer > 0.3f)
+        } else if (s > 8f && timer > 0.3f)
         {
             Debug.Log("Sto correndo");
             timer = 0f;
