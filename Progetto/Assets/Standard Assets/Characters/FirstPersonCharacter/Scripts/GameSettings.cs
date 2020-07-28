@@ -12,6 +12,7 @@ public class GameSettings : MonoBehaviour
     private static int lavaCheckpoint = 0;
     private static int castleCheckpoint = 0;
     private static float mouseSensibility = 2f;
+    public static int currentLevel = 1;
 
 
     public void Start()

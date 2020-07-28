@@ -8,12 +8,11 @@ public class StoryTellingPlayerController : MonoBehaviour
     public float moveSpeed = 2f;
     public float rotationSpeed = 2f;
     public float stopDistance = 4f;
-    private Transform myTransform;
     public GameObject myLight;
-    public GameObject gameLight;
-    Coroutine changeLightCoroutine;
-    public GameObject[] brainstormObjects;
-    public GameObject storyTellingUI;
+
+    private Transform myTransform;
+    private Coroutine changeLightCoroutine;
+    private bool finished;
 
     void Awake()
     {
@@ -23,13 +22,8 @@ public class StoryTellingPlayerController : MonoBehaviour
 
     void Start()
     {
-        Cursor.visible = false;
-        foreach (GameObject g in brainstormObjects)
-        {
-            g.SetActive(false);
-        }
         myLight.SetActive(true);
-        gameLight.SetActive(false);
+        finished = false;
     }
 
     // https://answers.unity.com/questions/353675/how-to-stop-enemy-within-certain-distance-of-playe.html
@@ -48,31 +42,15 @@ public class StoryTellingPlayerController : MonoBehaviour
         else
         {
             //changeLightCoroutine = StartCoroutine(ChangeLight());
-
+            finished = true;
             myLight.SetActive(false);
-            gameLight.SetActive(true);
-            StartCoroutine(StartBrainstorm());
         }
     }
 
-    IEnumerator StartBrainstorm()
+
+    public bool isInFrontOfTheTable()
     {
-        // Attivazione brainstorm per ogni studente
-        foreach (GameObject g in brainstormObjects)
-        {
-            yield return new WaitForSeconds(1f);
-            g.SetActive(true);
-        }
-
-        //Aspetto che tutte le parole siano state "branstormate". Controllo il numero dei figli perchè viene fatta una destroy delle parole
-        foreach (GameObject g in brainstormObjects)
-        {
-            yield return new WaitUntil(() => g.transform.childCount == 0);
-        }
-
-        //Attivazione dialoghi
-        storyTellingUI.SetActive(true);
-
+        return finished;
     }
 
 }

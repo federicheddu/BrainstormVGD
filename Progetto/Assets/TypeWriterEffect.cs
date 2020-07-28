@@ -27,13 +27,11 @@ public class TypeWriterEffect : MonoBehaviour
 
     IEnumerator ShowText()
     {
-        finished = false;
         for(int i=0; i<fullText.Length; i+=2)
         {
             text.text = fullText.Substring(0, i+1);
             yield return new WaitForSeconds(0.0001f);
         }
         finished = true;
-        StopCoroutine(c);
     }
 }
