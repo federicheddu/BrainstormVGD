@@ -74,6 +74,6 @@ public class IntroductionSceneController : MonoBehaviour
         CountdownUI countdownUiScript = finalCountdownUi.GetComponent<CountdownUI>();
         yield return new WaitUntil(() => countdownUiScript.hasFinished());
         // Caricamento primo livello
-        StartMenu.LoadLevel(gameObject, 1, 0);
+        StartMenu.LoadLevel(gameObject, 1, 1);
     }
 }

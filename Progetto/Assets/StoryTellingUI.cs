@@ -27,6 +27,7 @@ public class StoryTellingUI : MonoBehaviour
 
     public bool hasFinished()
     {
+
         return finished;
     }
 
@@ -50,7 +51,6 @@ public class StoryTellingUI : MonoBehaviour
 
         button.SetActive(false);
         talkerText.gameObject.SetActive(false);
-        Debug.Log("Finitooo");
         finished = true;
     }
 
