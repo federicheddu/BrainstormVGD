@@ -35,7 +35,6 @@ public class StoryTellingPlayerController : MonoBehaviour
     // https://answers.unity.com/questions/353675/how-to-stop-enemy-within-certain-distance-of-playe.html
     void Update()
     {
-        Debug.DrawLine(targetTransform.position, myTransform.position, Color.red);
         float dist = Vector3.Distance(targetTransform.position, transform.position);
         
         // direzione
@@ -58,15 +57,20 @@ public class StoryTellingPlayerController : MonoBehaviour
 
     IEnumerator StartBrainstorm()
     {
+        // Attivazione brainstorm per ogni studente
         foreach (GameObject g in brainstormObjects)
         {
             yield return new WaitForSeconds(1f);
             g.SetActive(true);
         }
+
+        //Aspetto che tutte le parole siano state "branstormate". Controllo il numero dei figli perchè viene fatta una destroy delle parole
         foreach (GameObject g in brainstormObjects)
         {
             yield return new WaitUntil(() => g.transform.childCount == 0);
         }
+
+        //Attivazione dialoghi
         storyTellingUI.SetActive(true);
 
     }

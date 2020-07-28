@@ -7,7 +7,6 @@ public class BrainstormWordsController : MonoBehaviour
     public GameObject[] wordsObject;
     private bool finished;
 
-    private Coroutine brainstormCoroutine;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +15,7 @@ public class BrainstormWordsController : MonoBehaviour
         {
             g.SetActive(false);
         }
-        brainstormCoroutine = StartCoroutine(Brainstorm());
+        StartCoroutine(Brainstorm());
     }
 
 
@@ -24,12 +23,13 @@ public class BrainstormWordsController : MonoBehaviour
     {
         for(int i=0; i<wordsObject.Length; i++)
         {
+            // Il game object si occuperà all'attivazione di fare l'effetto brainstorm, quindi andare verso il giocatore
             wordsObject[i].SetActive(true);
-            Debug.Log(wordsObject[i].GetComponentInChildren<UnityEngine.UI.Text>().text);
+            // Si aspetta finchè non finisce, poi si elimina e si passa alla parola successiva
             yield return new WaitUntil(() => wordsObject[i].GetComponent<BrainstormEffect>().hasFinished());
             Destroy(wordsObject[i]);
         }
-        finished = true;
+        finished = true; 
     }
 
     public bool hasFinished() { return finished; }

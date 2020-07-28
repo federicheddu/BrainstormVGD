@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class TypeWriterEffect : MonoBehaviour
 {
-    public float delay = 0.001f;
     private string fullText;
     private Text text;
     private Coroutine c;
@@ -18,11 +17,6 @@ public class TypeWriterEffect : MonoBehaviour
         fullText = text.text;
         text.text = "";
         finished = false;
-        StartShowingText();
-    }
-
-    public void StartShowingText()
-    {
         c = StartCoroutine(ShowText());
     }
 
@@ -34,10 +28,10 @@ public class TypeWriterEffect : MonoBehaviour
     IEnumerator ShowText()
     {
         finished = false;
-        for(int i=0; i<fullText.Length; i++)
+        for(int i=0; i<fullText.Length; i+=2)
         {
-            text.text = fullText.Substring(0, i);
-            yield return new WaitForSeconds(delay);
+            text.text = fullText.Substring(0, i+1);
+            yield return new WaitForSeconds(0.0001f);
         }
         finished = true;
         StopCoroutine(c);
