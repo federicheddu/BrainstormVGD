@@ -12,6 +12,7 @@ TagManager:
   - Head
   - Bullet
   - Shooter
+  - Player_Brainstorm_Target
   layers:
   - Default
   - TransparentFX
