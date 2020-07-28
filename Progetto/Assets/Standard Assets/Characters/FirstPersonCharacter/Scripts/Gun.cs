@@ -110,10 +110,17 @@ public class Gun : MonoBehaviour
         }
     }
 
+    IEnumerator ReloadSound()
+    {
+        AudioManager.instance.Play("GunReload");
+        yield return new WaitForSeconds(0.5f);
+    }
+
     IEnumerator Reload(float time)
     {
         isReloading = true;
         Debug.Log("Reloading");
+        StartCoroutine(ReloadSound());
         //animazione set bool true
         yield return new WaitForSeconds(time-0.25f);
         //animazion.setBool false

@@ -6,19 +6,17 @@ using UnityEngine.Audio;
 [RequireComponent(typeof(Animator))]
 public class Actions : MonoBehaviour
 {
-
     private Animator animator;
-
-    public GameObject Player;
+    GameObject Player;
     public GameObject bullet;
-
     private NavMeshAgent _navMeshAgent;
 
-    public float AttackDistance = 10.0f;
-    public float FollowDistance = 22.0f;
+    float AttackDistance = 10.0f;
+    float FollowDistance = 22.0f;
     private float AttackProbability = 5f;
-    public float damage = 10f;
-    public AudioClip GunSound = null;
+    float damage = 10f;
+    float timer = 0f;
+    bool death = false;
 
     const int countOfDamageAnimations = 3;
     int lastDamageAnimation = -1;
@@ -28,38 +26,47 @@ public class Actions : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
+        Player = GameObject.FindWithTag("Player");
     }
 
     void Update()
     {
-        if (_navMeshAgent.enabled)
+        if (!death)
         {
-            float dist = Vector3.Distance(Player.transform.position, this.transform.position);
-            bool shoot = dist < AttackDistance;//false;
-            bool follow = (dist < FollowDistance);
-            
-            if (follow)
+            if (_navMeshAgent.enabled)
             {
-                _navMeshAgent.SetDestination(Player.transform.position);
-            }
+                float dist = Vector3.Distance(Player.transform.position, this.transform.position);
+                bool shoot = dist < AttackDistance;//false;
+                bool follow = (dist < FollowDistance);
 
-            if (!follow || shoot)
-                _navMeshAgent.SetDestination(transform.position);
+                if (follow)
+                {
+                    _navMeshAgent.SetDestination(Player.transform.position);
+                }
 
-            if (follow)
-            {
-                FaceTarget();
-                Walk();
-            }
-            if (shoot)
-            {
-                FaceTarget();
-                Attack();
-            }
-            if (!follow && !shoot)
-                Stay();
+                if (!follow || shoot)
+                    _navMeshAgent.SetDestination(transform.position);
 
-        }
+                if (follow)
+                {
+                    FaceTarget();
+                    Walk();
+                }
+                if (shoot)
+                {
+                    FaceTarget();
+                    Attack();
+                    timer += Time.deltaTime;
+                    if (timer >= 0.5f)
+                    {
+                        AudioManager.instance.Play("GunShoot");
+                        timer = 0f;
+                    }
+                }
+                if (!follow && !shoot)
+                    Stay();
+            }
+        }else _navMeshAgent.SetDestination(transform.position);
     }
 
 
@@ -108,13 +115,6 @@ public class Actions : MonoBehaviour
                     target.TakeDamage(damage);
             }
         }
-        
-        /*
-        if (m_Audio != null)
-        {
-            m_Audio.PlayOneShot(GunSound);
-        }
-        */
     }
 
 
@@ -129,6 +129,11 @@ public class Actions : MonoBehaviour
             animator.Play("Idle", 0);
         else
             animator.SetTrigger("Death");
+    }
+
+    public void SetDeath()
+    {
+        death = true;
     }
 
     public void Damage()

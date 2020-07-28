@@ -24,6 +24,7 @@ public class Target : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //controllo se è stato colpito meno di 5 secondi fa allora parte la rigenerazione della salute
         if(gameObject.tag == "Player")
         {
             if (Time.time - timerHit > regTime && health < maxHealt)
@@ -56,6 +57,7 @@ public class Target : MonoBehaviour
         if (gameObject.name == "Coronavirus2_hipoly" && gameObject.transform.GetChild(1).name == "Crown")
             return;
 
+        //controllo per vedere se il proprietario di target muore
         health -= damage;
         if (health <= 0f)
             Die();
@@ -65,27 +67,38 @@ public class Target : MonoBehaviour
     {
         //caso siano nemici umanoidi
         if (animator != null)
-                {
-                    Debug.Log("ha l'animator");
-                    animator.SetTrigger("Death");
-                    Destroy(gameObject, 2);
+        {
+            Debug.Log("ha l'animator");
+            animator.SetTrigger("Death");
+            gameObject.GetComponent<Actions>().SetDeath();
+            Destroy(gameObject, 2);
+            AudioManager.instance.Play("DeathHuman");
+            
                 }
         else if (gameObject.tag == "BossShooter")
             //caso siano lo shooter
         {
             Target target = transform.parent.gameObject.GetComponent<Target>();
             target.TakeDamage(20);
-        }else 
-        { 
-            if (gameObject.GetComponent<MeshFilter>() == null)
+        }else if (gameObject.tag == "Bullet")
         {
-            Debug.Log("OK");
-            transform.GetChild(1).gameObject.SetActive(true);
-            transform.GetChild(0).gameObject.SetActive(false);
-            Destroy(gameObject, 1);
+            AudioManager.instance.Play("Bubble");
+            Destroy(gameObject);
         }
-                 else
-                    Destroy(gameObject);
+        else
+        { 
+            // caso sia robot attack
+            if (gameObject.GetComponent<actions2>())
+            {
+                Debug.Log("OK");
+                transform.GetChild(1).gameObject.SetActive(true);
+                transform.GetChild(0).gameObject.SetActive(false);
+                transform.GetChild(2).gameObject.SetActive(false);
+                transform.GetChild(3).gameObject.SetActive(false);
+                AudioManager.instance.Play("Explosion");
+                Destroy(gameObject, 1);
+            }else 
+                Destroy(gameObject);
         }
     }
 }

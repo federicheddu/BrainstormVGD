@@ -14,6 +14,7 @@ public class BossMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //rotazione costante
         transform.Rotate(Vector3.up * speed * Time.deltaTime);
     }
 }

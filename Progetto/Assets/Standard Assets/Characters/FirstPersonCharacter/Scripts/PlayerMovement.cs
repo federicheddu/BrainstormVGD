@@ -43,10 +43,11 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 halfDim;
 
     //Debug
-  /*public float groundNormalX;
-    public float groundNormalY;
-    public float groundNormalZ;*/
+    /*public float groundNormalX;
+      public float groundNormalY;
+      public float groundNormalZ;*/
 
+    float timer = 0f;
 
     //component
     CharacterController characterController;
@@ -183,6 +184,30 @@ public class PlayerMovement : MonoBehaviour
         direction = new Vector3(force_z, 0f, -force_x);
         direction = Vector3.Cross(direction, groundNormal);
         rb.AddForce(transform.TransformVector(direction), ForceMode.Impulse);
+        float s = Mathf.Sqrt((Mathf.Pow(rb.velocity.x, 2) + Mathf.Pow(rb.velocity.z, 2)));
+
+        timer += Time.deltaTime;
+        if (s < 1f)
+        {
+            timer = 0;
+        } else
+        if (timer >= 0.5f && s <= 8f && s>1f)
+        {
+            Debug.Log("Sto camminando a " + s);
+            StartCoroutine(WalkSound());
+            timer = 0f;
+        } else if (s > 8f && timer > 0.3f)
+        {
+            Debug.Log("Sto correndo");
+            timer = 0f;
+            StartCoroutine(WalkSound());
+        }
+    }
+
+    IEnumerator WalkSound()
+    {
+        AudioManager.instance.Play("Walk");
+        yield return new WaitForSeconds(0.5f);
     }
 
     private void airMove()
