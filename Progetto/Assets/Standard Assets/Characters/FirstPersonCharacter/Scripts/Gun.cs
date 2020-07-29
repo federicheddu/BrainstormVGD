@@ -81,33 +81,47 @@ public class Gun : MonoBehaviour
     void Update()
     {
         //check powerup
-        if (isReloading)
-            return;
+        if (pu.doubledamage) damageMult = 2;
+        else damageMult = 1;
 
-        if (!pu.doubledamage) damageMult = 1;
-        else damageMult = 2;
+        //check reload
+        if (isReloading) return;
 
-        //check bang
-        if (Input.GetButton("Fire1") && bulletsFired < mag)
+        //distinzione comportamento in base all'arma
+        switch(gunType)
         {
-            if(Time.time >= nextTimeToFire && gunType != GunType.Pistol) {      //armi automatiche (assalto e lmg)
-                nextTimeToFire = Time.time + 1f / fireRate;
-                bulletsFired++;
-                Shoot();
-            } else if(gunType == GunType.Pistol){                               //pistola
-                bulletsFired++;
-                Shoot();
-            }
-        } else if(Input.GetButtonDown("Fire1")) {                               //ricarica automatica
-            StartCoroutine(Reload(2));
-            return;
+            /* PISTOLA */
+            case GunType.Pistol:
+
+                if (Input.GetMouseButtonDown(0) && bulletsFired < mag)
+                {
+                    bulletsFired++;
+                    Shoot();
+                }
+                else if (Input.GetMouseButtonDown(0))
+                    StartCoroutine(Reload(2));
+
+                break;
+
+            /* ARMI AUTOMATICHE */
+            case GunType.Assault:
+            case GunType.LMG:
+
+                if (Input.GetMouseButton(0) && bulletsFired < mag && Time.time < nextTimeToFire)
+                {
+                    bulletsFired++;
+                    nextTimeToFire = Time.time + 1f / fireRate;
+                    Shoot();
+                }
+                else if (Input.GetMouseButton(0))
+                    StartCoroutine(Reload(2));
+
+                break;
         }
 
-        if (Input.GetKeyDown("r") && bulletsFired != 0)                         //ricarica manuale
-        {
+        //ricarca automatica
+        if (Input.GetKeyDown("r") && bulletsFired > 0)
             StartCoroutine(Reload(2));
-            return;
-        }
     }
 
     IEnumerator ReloadSound()

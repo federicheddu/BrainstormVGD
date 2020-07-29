@@ -104,8 +104,15 @@ public class PlayerMovement : MonoBehaviour
             grounded = true;
             groundNormal = collision.GetContact(0).normal;
 
-            if (groundNormal == transform.TransformVector(Vector3.left) || groundNormal == transform.TransformVector(Vector3.right))
-                rb.AddForce(Vector3.Scale(Physics.gravity, new Vector3(wallRideGravity, wallRideGravity, wallRideGravity)), ForceMode.Force); //diminuisce dell'80% la gravità
+            if ((groundNormal == transform.TransformVector(Vector3.left) || groundNormal == transform.TransformVector(Vector3.right)) && Math.Sqrt(Math.Pow(rb.velocity.x, 2) + Math.Pow(rb.velocity.z, 2)) > 0)
+            {
+                rb.useGravity = false;
+                rb.AddForce(Vector3.Cross(groundNormal, Vector3.up) * speed *  Time.deltaTime, ForceMode.Impulse);
+            }
+            else
+                rb.useGravity = true;
+
+            //rb.AddForce(Vector3.Scale(Physics.gravity, new Vector3(wallRideGravity, wallRideGravity, wallRideGravity)), ForceMode.Force); //diminuisce dell'80% la gravità
         }
             
 
@@ -116,6 +123,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             grounded = false;
+            rb.useGravity = true;
             maxAirSpeed = Math.Sqrt(Math.Pow(rb.velocity.x,2) + Math.Pow(rb.velocity.z,2));
         }
     }
