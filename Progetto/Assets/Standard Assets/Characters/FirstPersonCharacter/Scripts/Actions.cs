@@ -13,7 +13,7 @@ public class Actions : MonoBehaviour
 
     float AttackDistance = 10.0f;
     float FollowDistance = 22.0f;
-    private float AttackProbability = 5f;
+    private float AttackProbability = 400f;
     float damage = 10f;
     float timer = 0f;
     bool death = false;
@@ -55,8 +55,8 @@ public class Actions : MonoBehaviour
                 if (shoot)
                 {
                     FaceTarget();
-                    Attack();
                     timer += Time.deltaTime;
+                    Attack();
                     if (timer >= 0.5f)
                     {
                         AudioManager.instance.Play("GunShoot");
@@ -105,14 +105,20 @@ public class Actions : MonoBehaviour
         RaycastHit hit;
         //Ray MyRay = new Ray(bullet.transform.position, Vector3.forward);
         StartCoroutine(Waiter(2f));
-        if(Physics.Raycast(bullet.transform.position, bullet.transform.forward, out hit, 100f))//Vector3.forward, out hit, 100f))
+        for (int i = 0; i < 30; i++)
         {
-            if(Random.Range(1,1000) < AttackProbability){
-                Debug.Log(hit.transform.name);
-                Debug.DrawRay(bullet.transform.position, Vector3.forward * 100f, Color.green);
+            if (Physics.Raycast(bullet.transform.position, 
+                new Vector3(bullet.transform.forward.x, bullet.transform.forward.y - i, bullet.transform.forward.z), out hit, 100f))
+            {
                 Target target = hit.transform.GetComponent<Target>();
-                if (target != null)
+                string targetTag = hit.transform.gameObject.tag; //
+                if (target != null && targetTag == "Player" && timer >= 0.5f && Random.Range(1, 1000) < AttackProbability) 
+                {                    
                     target.TakeDamage(damage);
+                    Debug.Log(hit.transform.name + "dal soldato");
+                    return;
+                }
+                
             }
         }
     }
