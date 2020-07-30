@@ -96,6 +96,7 @@ public class Gun : MonoBehaviour
                 if (Input.GetMouseButtonDown(0) && bulletsFired < mag)
                 {
                     bulletsFired++;
+                    AudioManager.instance.Play("GunShoot");
                     Shoot();
                 }
                 else if (Input.GetMouseButtonDown(0))

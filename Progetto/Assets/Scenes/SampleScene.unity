@@ -4310,9 +4310,9 @@ MonoBehaviour:
   - name: GunShoot
     clip: {fileID: 8300000, guid: 38b450e2adcb6f542acc8c1d423bd8dc, type: 3}
     volume: 0.32
-    volumeVariance: 0.3
+    volumeVariance: 0.5
     pitch: 1
-    pitchVariance: 0.3
+    pitchVariance: 0.5
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}

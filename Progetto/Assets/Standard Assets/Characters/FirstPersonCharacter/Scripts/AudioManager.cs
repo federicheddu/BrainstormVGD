@@ -33,7 +33,7 @@ public class AudioManager : MonoBehaviour
 			s.source.outputAudioMixerGroup = mixerGroup;
 		}
 
-		if (SceneManager.GetActiveScene().name == "SampleScene" || SceneManager.GetActiveScene().name == "ProvaLivelloScrivania")
+		if ( SceneManager.GetActiveScene().name == "ProvaLivelloScrivania")
 		{
 			Play("MusicLiv1");
 
@@ -41,9 +41,9 @@ public class AudioManager : MonoBehaviour
 		{
 			Play("MusicLiv2");
 		}
-		else if (SceneManager.GetActiveScene().name == "Livello Castello")
+		else if (SceneManager.GetActiveScene().name == "SampleScene" ||SceneManager.GetActiveScene().name == "Livello Castello")
 		{
-			Play("MusicLiv2");
+			Play("MusicLiv3");
 		} else Debug.Log("Hai sbagliato a scrivere il livello");
 	}
 
@@ -55,7 +55,7 @@ public class AudioManager : MonoBehaviour
 			Debug.LogWarning("Sound: " + name + " not found!");
 			return;
 		}
-
+		//codice per eseguire il suono un pò diverso tramite la variazione impostata
 		s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
 		s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
 
@@ -79,7 +79,7 @@ public class AudioManager : MonoBehaviour
 
 	public void BossMusic()
     {
-		StopPlaying("MusicLiv1");
+		StopPlaying("MusicLiv3");
 		Play("MusicBoss");
     }
 
