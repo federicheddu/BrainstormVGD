@@ -903,7 +903,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 184318616939854600, guid: aea197447b4cc514188979c14bfe50c7, type: 3}
-  timer: 0
 --- !u!114 &289705414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1015,7 +1014,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 184318616939854600, guid: aea197447b4cc514188979c14bfe50c7, type: 3}
-  timer: 0
 --- !u!135 &351865087
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1498,7 +1496,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 184318616939854600, guid: aea197447b4cc514188979c14bfe50c7, type: 3}
-  timer: 0
 --- !u!114 &458342439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1901,7 +1898,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 184318616939854600, guid: aea197447b4cc514188979c14bfe50c7, type: 3}
-  timer: 0
 --- !u!135 &572117648
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2771,7 +2767,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 184318616939854600, guid: aea197447b4cc514188979c14bfe50c7, type: 3}
-  timer: 0
 --- !u!114 &1049100117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3319,7 +3314,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 184318616939854600, guid: aea197447b4cc514188979c14bfe50c7, type: 3}
-  timer: 0
 --- !u!114 &1311436179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4318,7 +4312,7 @@ MonoBehaviour:
     volume: 0.32
     volumeVariance: 0.3
     pitch: 1
-    pitchVariance: 0.2
+    pitchVariance: 0.3
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
@@ -4352,9 +4346,9 @@ MonoBehaviour:
   - name: Walk
     clip: {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
     volume: 0.32
-    volumeVariance: 0.35
+    volumeVariance: 0.4
     pitch: 1
-    pitchVariance: 0.2
+    pitchVariance: 0.4
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
@@ -4380,7 +4374,25 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 66b315e37ecf3f942bc1cb0e59c775b7, type: 3}
     volume: 0.03
     volumeVariance: 0
-    pitch: 0.9
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: MusicLiv2
+    clip: {fileID: 8300000, guid: af7f2ef9288cb4d93bbfb71ab2d04f18, type: 3}
+    volume: 0.035
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: MusicLiv3
+    clip: {fileID: 8300000, guid: c1a33f945f68e425f8aa0cc9b23fa582, type: 3}
+    volume: 0.035
+    volumeVariance: 0
+    pitch: 1
     pitchVariance: 0
     loop: 1
     mixerGroup: {fileID: 0}
@@ -4662,7 +4674,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 184318616939854600, guid: aea197447b4cc514188979c14bfe50c7, type: 3}
-  timer: 0
 --- !u!135 &1805939676
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4919,7 +4930,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 184318616939854600, guid: aea197447b4cc514188979c14bfe50c7, type: 3}
-  timer: 0
 --- !u!135 &1988193917
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5230,7 +5240,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 184318616939854600, guid: aea197447b4cc514188979c14bfe50c7, type: 3}
-  timer: 0
 --- !u!114 &2008348922
 MonoBehaviour:
   m_ObjectHideFlags: 0
