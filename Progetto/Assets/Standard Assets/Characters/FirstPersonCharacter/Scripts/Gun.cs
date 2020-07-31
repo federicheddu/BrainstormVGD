@@ -115,7 +115,7 @@ public class Gun : MonoBehaviour
                     Shoot();
                 }
                 else if (Input.GetMouseButton(0))
-                    StartCoroutine(Reload(2));
+                    StartCoroutine(Reload(2f));
 
                 break;
         }
