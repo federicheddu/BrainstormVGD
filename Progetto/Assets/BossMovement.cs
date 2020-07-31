@@ -31,7 +31,7 @@ public class BossMovement : MonoBehaviour
             start = false;
         }
         else
-        if (!_navMeshAgent.pathPending && _navMeshAgent.remainingDistance < 0.5f && start == false)
+        if (!_navMeshAgent.pathPending && _navMeshAgent.remainingDistance < 0.2f && start == false)
         {
             MoveToNextPatrolPoint();
             Debug.Log("nav mesh.pathpending e distanza rimane");
