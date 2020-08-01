@@ -11,6 +11,7 @@ public class BossMovement : MonoBehaviour
     private int currentControlPointIndex = 0;
     GameObject player;
     bool start = true;
+    float AttackDistance = 100f;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,24 +22,24 @@ public class BossMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {//rotazione costante
-        
-
-        
-        if (start)
+    {
+        //controlla se il nemico è abbastanza vicino e poi inizia a muoversi con la partol
+        float dist = Vector3.Distance(player.transform.position, this.transform.position);
+        if (dist < AttackDistance)
         {
-            MoveToNextPatrolPoint();
-            start = false;
-        }
-        else
+            if (start)
+            {
+                MoveToNextPatrolPoint();
+                start = false;
+                transform.parent.GetComponent<Rotate>().SetRotate();
+            }
+            else
         if (!_navMeshAgent.pathPending && _navMeshAgent.remainingDistance < 0.2f && start == false)
-        {
-            MoveToNextPatrolPoint();
-            Debug.Log("nav mesh.pathpending e distanza rimane");
-        }
-        
+            {
 
-        
+                MoveToNextPatrolPoint();
+            }
+        }
     }
 
     void MoveToNextPatrolPoint()
