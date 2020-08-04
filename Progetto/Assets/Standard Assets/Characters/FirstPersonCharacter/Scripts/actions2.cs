@@ -50,7 +50,6 @@ public class actions2 : MonoBehaviour
                 if (follow)
                 {
                     FaceTarget();
-
                 }
                 if (shoot)
                 {
@@ -62,7 +61,6 @@ public class actions2 : MonoBehaviour
                         Attack();
                         AudioManager.instance.Play("GunShoot");
                     }
-
                 }
                 if (!follow && !shoot)
                 {

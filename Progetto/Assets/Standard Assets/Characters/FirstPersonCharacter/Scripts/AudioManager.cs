@@ -1,6 +1,7 @@
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -31,9 +32,37 @@ public class AudioManager : MonoBehaviour
 
 			s.source.outputAudioMixerGroup = mixerGroup;
 		}
+
+		if ( SceneManager.GetActiveScene().name == "ProvaLivelloScrivania")
+		{
+			Play("MusicLiv1");
+
+		} else if (SceneManager.GetActiveScene().name == "New Scene")
+		{
+			Play("MusicLiv2");
+		}
+		else if (SceneManager.GetActiveScene().name == "SampleScene" ||SceneManager.GetActiveScene().name == "Livello Castello")
+		{
+			Play("MusicLiv3");
+		} else Debug.Log("Hai sbagliato a scrivere il livello");
 	}
 
 	public void Play(string sound)
+	{
+		Sound s = Array.Find(sounds, item => item.name == sound);
+		if (s == null)
+		{
+			Debug.LogWarning("Sound: " + name + " not found!");
+			return;
+		}
+		//codice per eseguire il suono un pò diverso tramite la variazione impostata
+		s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
+		s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
+
+		s.source.Play();
+	}
+
+	public void StopPlaying(string sound)
 	{
 		Sound s = Array.Find(sounds, item => item.name == sound);
 		if (s == null)
@@ -45,7 +74,13 @@ public class AudioManager : MonoBehaviour
 		s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
 		s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
 
-		s.source.Play();
+		s.source.Stop();
 	}
+
+	public void BossMusic()
+    {
+		StopPlaying("MusicLiv3");
+		Play("MusicBoss");
+    }
 
 }

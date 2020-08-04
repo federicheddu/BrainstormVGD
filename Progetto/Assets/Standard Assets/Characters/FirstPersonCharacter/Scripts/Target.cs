@@ -80,6 +80,7 @@ public class Target : MonoBehaviour
         {
             Target target = transform.parent.gameObject.GetComponent<Target>();
             target.TakeDamage(20);
+            //caso bullet
         }else if (gameObject.tag == "Bullet")
         {
             AudioManager.instance.Play("Bubble");
@@ -97,7 +98,12 @@ public class Target : MonoBehaviour
                 transform.GetChild(3).gameObject.SetActive(false);
                 AudioManager.instance.Play("Explosion");
                 Destroy(gameObject, 1);
-            }else 
+                //caso BOSS
+            }else if (gameObject.GetComponent<Rotate>())
+            {
+                Destroy(transform.parent);
+            }
+            else
                 Destroy(gameObject);
         }
     }

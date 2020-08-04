@@ -201,12 +201,10 @@ public class PlayerMovement : MonoBehaviour
         } else
         if (timer >= 0.5f && s <= 8f && s>1f)
         {
-            Debug.Log("Sto camminando a " + s);
             StartCoroutine(WalkSound());
             timer = 0f;
         } else if (s > 8f && timer > 0.3f)
         {
-            Debug.Log("Sto correndo");
             timer = 0f;
             StartCoroutine(WalkSound());
         }
