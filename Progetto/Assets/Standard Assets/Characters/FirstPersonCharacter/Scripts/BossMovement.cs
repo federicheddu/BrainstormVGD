@@ -8,7 +8,7 @@ public class BossMovement : MonoBehaviour
 {
     private NavMeshAgent _navMeshAgent;
     public Transform[] patrolPoints;
-    private int currentControlPointIndex = 0;
+    public int currentControlPointIndex = 0;
     GameObject player;
     bool start = true;
     float AttackDistance = 100f;
@@ -31,7 +31,7 @@ public class BossMovement : MonoBehaviour
             {
                 MoveToNextPatrolPoint();
                 start = false;
-                transform.parent.GetComponent<Rotate>().SetRotate();
+                transform.GetChild(0).GetComponent<Rotate>().SetRotate();
             }
             else
         if (!_navMeshAgent.pathPending && _navMeshAgent.remainingDistance < 0.2f && start == false)
