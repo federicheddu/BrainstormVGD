@@ -13952,7 +13952,7 @@ MonoBehaviour:
   camera: {fileID: 664354430}
   pu: {fileID: 1441252314}
   muzzleFlash: {fileID: 1469595335}
-  impactEffect: {fileID: 0}
+  impactEffect: {fileID: 100000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
 --- !u!114 &1242301644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14962,7 +14962,7 @@ MonoBehaviour:
   camera: {fileID: 664354430}
   pu: {fileID: 1441252314}
   muzzleFlash: {fileID: 2024849773}
-  impactEffect: {fileID: 0}
+  impactEffect: {fileID: 100000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
 --- !u!114 &1357120218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15838,6 +15838,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grappling: {fileID: 1588577783}
+  pistol: {fileID: 1588577781}
+  assault: {fileID: 1357120216}
+  lmg: {fileID: 1242301641}
   rotationSpeed: 5
 --- !u!114 &1421259179
 MonoBehaviour:
