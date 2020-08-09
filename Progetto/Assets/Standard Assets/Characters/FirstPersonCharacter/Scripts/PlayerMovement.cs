@@ -189,9 +189,11 @@ public class PlayerMovement : MonoBehaviour
 
         //so che x e z sono invertiti, ma mi servono invertiti per fare il prodotto vettoriale
         //uso questo approccio per avere la tangente al terreno con il giusto angolo e permettere di fare le salite facilmente
+        /*
         direction = new Vector3(force_z, 0f, -force_x);
         direction = Vector3.Cross(direction, groundNormal);
-        rb.AddForce(transform.TransformVector(direction), ForceMode.Impulse);
+        rb.AddForce(transform.TransformVector(direction), ForceMode.Impulse);*/// ho commentato questa parte perchè il personaggio rimaneva incastrato sui muri M.S
+        rb.AddForce(transform.TransformVector(new Vector3(force_x, 0f, force_z)), ForceMode.Impulse);
         float s = Mathf.Sqrt((Mathf.Pow(rb.velocity.x, 2) + Mathf.Pow(rb.velocity.z, 2)));
 
         timer += Time.deltaTime;
