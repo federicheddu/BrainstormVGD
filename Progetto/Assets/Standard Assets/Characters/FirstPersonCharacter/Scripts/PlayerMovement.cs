@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public bool key_run, key_crouch, key_jump;
 
     //movimento base
+    public float antiInclinazione;
     private Vector3 direction = Vector3.zero;               //direzione movimento
     private float speed;
     public float walkSpeed, runSpeed, walkCap, runCap;      //fattori moviemento orizzontale
@@ -193,7 +194,13 @@ public class PlayerMovement : MonoBehaviour
         direction = new Vector3(force_z, 0f, -force_x);
         direction = Vector3.Cross(direction, groundNormal);
         rb.AddForce(transform.TransformVector(direction), ForceMode.Impulse);*/// ho commentato questa parte perchè il personaggio rimaneva incastrato sui muri M.S
-        rb.AddForce(transform.TransformVector(new Vector3(force_x, 0f, force_z)), ForceMode.Impulse);
+
+        if (groundNormal.y > 0.5)
+            rb.AddForce(transform.TransformVector(new Vector3(force_x, (1 - groundNormal.y) * antiInclinazione, force_z)), ForceMode.Impulse);
+        else
+            rb.AddForce(transform.TransformVector(new Vector3(force_x, 0, force_z)), ForceMode.Impulse);
+        //Ho risolto temporaneamente il problema dell'inclinazione in questa maniera
+
         float s = Mathf.Sqrt((Mathf.Pow(rb.velocity.x, 2) + Mathf.Pow(rb.velocity.z, 2)));
 
         timer += Time.deltaTime;
