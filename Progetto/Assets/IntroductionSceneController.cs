@@ -7,30 +7,29 @@ using UnityEngine;
 public class IntroductionSceneController : MonoBehaviour
 {
     public enum FlowMode { oneByOne, atTheSameTime };
-    public enum PlayerPosition { farFromTheTable, inFrontOfTheTable };
+    public enum Level { Bedroom, Lava, Castle, None };
     public enum LevelNumber { One = 1, Two = 2, Three = 3 };
 
+
+    // Fields
     public string playerTag = "Player";
     public GameObject gameLight;
     public GameObject[] brainstormObjects;
-
 
     [Header("Uis")]
     public GameObject storyTellingUi;
     public GameObject finalCountdownUi;
 
-    [Header("Flow Settings")]
-    public PlayerPosition playerInitialPosition;
+    [Header("Scene Settings")]
     public FlowMode flowMode;
+    [Range(0f, 1.5f)] public float delayBetweenBrainstorms = 0.5f ;
+    public Level nextScene;
 
     private GameObject player;
-    private StoryTellingPlayerController playerStory;
-
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag(playerTag);
-        playerStory = player.GetComponent<StoryTellingPlayerController>();
 
         Cursor.visible = false;
         foreach (GameObject g in brainstormObjects)
@@ -39,21 +38,18 @@ public class IntroductionSceneController : MonoBehaviour
         }
         gameLight.SetActive(false);
 
-
         StartCoroutine(Flow());
     }
 
     IEnumerator Flow()
     {
-        if (playerInitialPosition.Equals(PlayerPosition.farFromTheTable))
-        {
-            yield return new WaitUntil(() => !playerStory.isInFrontOfTheTable());
-        }
+        StoryTellingPlayerController playerStory = player.GetComponent<StoryTellingPlayerController>();
+        yield return new WaitUntil(() => !playerStory.isInFrontOfTheTable());
         gameLight.SetActive(true);
         // Attivazione brainstorm per ogni studente
         foreach (GameObject g in brainstormObjects)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(delayBetweenBrainstorms);
             g.SetActive(true);
         }
         if (flowMode.Equals(FlowMode.oneByOne)) // Solo se sono uno per volta
@@ -64,16 +60,45 @@ public class IntroductionSceneController : MonoBehaviour
                 yield return new WaitUntil(() => g.transform.childCount == 0);
             }
         }
-        //Attivazione dialoghi
-        storyTellingUi.SetActive(true);
-        // Attesa finchè i dialoghi non finiscono
-        StoryTellingUI scoryTellingUiScript = storyTellingUi.GetComponent<StoryTellingUI>();
-        yield return new WaitUntil(() => scoryTellingUiScript.hasFinished());
-        storyTellingUi.SetActive(false);
-        finalCountdownUi.SetActive(true);
-        CountdownUI countdownUiScript = finalCountdownUi.GetComponent<CountdownUI>();
-        yield return new WaitUntil(() => countdownUiScript.hasFinished());
-        // Caricamento primo livello
-        StartMenu.LoadLevel(gameObject, 1, 1);
+        if(storyTellingUi != null)
+        {
+            //Attivazione dialoghi
+            storyTellingUi.SetActive(true);
+            // Attesa finchè i dialoghi non finiscono
+            StoryTellingUI scoryTellingUiScript = storyTellingUi.GetComponent<StoryTellingUI>();
+            yield return new WaitUntil(() => scoryTellingUiScript.hasFinished());
+            storyTellingUi.SetActive(false);
+        }
+        if(finalCountdownUi != null)
+        {
+            finalCountdownUi.SetActive(true);
+            CountdownUI countdownUiScript = finalCountdownUi.GetComponent<CountdownUI>();
+            yield return new WaitUntil(() => countdownUiScript.hasFinished());
+        }
+        // Caricamento livello
+        if(nextScene == Level.None)
+        {
+            Application.Quit();
+        }
+        else
+        {
+            StartMenu.LoadLevel(gameObject, GetLevelIndex(nextScene), 1);
+        }
+    }
+
+    public int GetLevelIndex(Level l)
+    {
+        switch (l)
+        {
+            case Level.Bedroom:
+                return 1;
+            case Level.Lava:
+                return 2;
+            case Level.Castle:
+                return 3;
+            default:
+                break;
+        }
+        return -1;
     }
 }
