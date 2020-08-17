@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 public class actions2 : MonoBehaviour
 {
 
-    public GameObject Player;
+    GameObject Player;
     public GameObject bullet;
     //private Animator animator;
     private NavMeshAgent _navMeshAgent;
@@ -15,7 +15,6 @@ public class actions2 : MonoBehaviour
     public float FollowDistance = 22.0f;
     private float AttackProbability = 250f;
     public float damage = 10f;
-    public AudioClip GunSound = null;
     public ParticleSystem muzzleFlash1;
     public ParticleSystem muzzleFlash2;
     float timer = 0f;
@@ -25,6 +24,8 @@ public class actions2 : MonoBehaviour
     {
         //animator = transform.GetChild(0).gameObject.GetComponent<Animator>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
+
+        Player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
@@ -105,10 +106,8 @@ public class actions2 : MonoBehaviour
     void FaceTarget()
     {
         Vector3 direction = (Player.transform.position - transform.position).normalized;
-        Quaternion lookRotation =
-            Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation =
-            Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));//d.x,0,x.z
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
 }

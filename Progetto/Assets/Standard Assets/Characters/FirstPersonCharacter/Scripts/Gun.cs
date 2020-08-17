@@ -68,9 +68,9 @@ public class Gun : MonoBehaviour
                 fireRate = assFireRate;
                 break;
             case GunType.LMG:
-                damage = lmgMag;
+                damage = lmgDamage;
                 mag = lmgMag;
-                headShot = lmgMag;
+                headShot = lmgHsMult;
                 fireRate = lmgFireRate;
                 break;
         }

@@ -10,8 +10,9 @@ public class PlayerMovement : MonoBehaviour
     //input
     public float vertical, horizontal, rotation = 0f;
     public bool key_run, key_crouch, key_jump;
-    
+
     //movimento base
+    public float antiInclinazione;
     private Vector3 direction = Vector3.zero;               //direzione movimento
     private float speed;
     public float walkSpeed, runSpeed, walkCap, runCap;      //fattori moviemento orizzontale
@@ -21,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     //salto e wallride
     private Vector3 groundNormal;
     public float jumpPower, airCorrection;
-    private double maxAirSpeed;
+    public double maxAirSpeed;
     public float wallJumpPower = 10f;
     public float wallRideGravity = -0.2f;
 
@@ -93,12 +94,12 @@ public class PlayerMovement : MonoBehaviour
             if (pu.doublejump) //riattivo anche il double jump in caso di powerup
                 doubleJump = true;
         }
-            
+
     }
 
     private void OnCollisionStay(Collision collision)
     {
-        
+
         if (collision.gameObject.tag == "Ground")
         {
             grounded = true;
@@ -107,14 +108,14 @@ public class PlayerMovement : MonoBehaviour
             if ((groundNormal == transform.TransformVector(Vector3.left) || groundNormal == transform.TransformVector(Vector3.right)) && Math.Sqrt(Math.Pow(rb.velocity.x, 2) + Math.Pow(rb.velocity.z, 2)) > 0)
             {
                 rb.useGravity = false;
-                rb.AddForce(Vector3.Cross(groundNormal, Vector3.up) * speed *  Time.deltaTime, ForceMode.Impulse);
+                rb.AddForce(Vector3.Cross(groundNormal, Vector3.up) * speed * Time.deltaTime, ForceMode.Impulse);
             }
             else
                 rb.useGravity = true;
 
             //rb.AddForce(Vector3.Scale(Physics.gravity, new Vector3(wallRideGravity, wallRideGravity, wallRideGravity)), ForceMode.Force); //diminuisce dell'80% la gravità
         }
-            
+
 
     }
 
@@ -124,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
         {
             grounded = false;
             rb.useGravity = true;
-            maxAirSpeed = Math.Sqrt(Math.Pow(rb.velocity.x,2) + Math.Pow(rb.velocity.z,2));
+            //maxAirSpeed = Math.Sqrt(Math.Pow(rb.velocity.x, 2) + Math.Pow(rb.velocity.z, 2)); Ho commentato questa riga perchè mi impediva di muovermi in aria M.S.
         }
     }
 
@@ -189,21 +190,31 @@ public class PlayerMovement : MonoBehaviour
 
         //so che x e z sono invertiti, ma mi servono invertiti per fare il prodotto vettoriale
         //uso questo approccio per avere la tangente al terreno con il giusto angolo e permettere di fare le salite facilmente
+        /*
         direction = new Vector3(force_z, 0f, -force_x);
         direction = Vector3.Cross(direction, groundNormal);
-        rb.AddForce(transform.TransformVector(direction), ForceMode.Impulse);
+        rb.AddForce(transform.TransformVector(direction), ForceMode.Impulse);*/// ho commentato questa parte perchè il personaggio rimaneva incastrato sui muri M.S
+
+        if (groundNormal.y > 0.5)
+            rb.AddForce(transform.TransformVector(new Vector3(force_x, (1 - groundNormal.y) * antiInclinazione, force_z)), ForceMode.Impulse);
+        else
+            rb.AddForce(transform.TransformVector(new Vector3(force_x, 0, force_z)), ForceMode.Impulse);
+        //Ho risolto temporaneamente il problema dell'inclinazione in questa maniera
+
         float s = Mathf.Sqrt((Mathf.Pow(rb.velocity.x, 2) + Mathf.Pow(rb.velocity.z, 2)));
 
         timer += Time.deltaTime;
         if (s < 1f)
         {
             timer = 0;
-        } else
-        if (timer >= 0.5f && s <= 8f && s>1f)
+        }
+        else
+        if (timer >= 0.5f && s <= 8f && s > 1f)
         {
             StartCoroutine(WalkSound());
             timer = 0f;
-        } else if (s > 8f && timer > 0.3f)
+        }
+        else if (s > 8f && timer > 0.3f)
         {
             timer = 0f;
             StartCoroutine(WalkSound());
