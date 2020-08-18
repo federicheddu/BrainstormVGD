@@ -3778,7 +3778,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1552101310}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 129.5, y: 98.1, z: 243.1}
+  m_LocalPosition: {x: 131.44, y: 100.33, z: 248.131}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1540431999}
@@ -4513,7 +4513,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: MusicLiv2
     clip: {fileID: 8300000, guid: af7f2ef9288cb4d93bbfb71ab2d04f18, type: 3}
-    volume: 0.035
+    volume: 0.35
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
