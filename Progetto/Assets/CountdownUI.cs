@@ -17,13 +17,21 @@ public class CountdownUI : MonoBehaviour
 
     IEnumerator Countdown()
     {
-        int i = 3;
-        while(i > 0)
+        if(countdownNumber != null)
         {
-            countdownNumber.text = i.ToString();
-            yield return new WaitForSeconds(1f);
-            i--;
+            int i = 3;
+            while (i > 0)
+            {
+                countdownNumber.text = i.ToString();
+                yield return new WaitForSeconds(1f);
+                i--;
+            }
         }
+        else
+        {
+            yield return new WaitForSeconds(2f);
+        }
+        
         finished = true;
     }
 

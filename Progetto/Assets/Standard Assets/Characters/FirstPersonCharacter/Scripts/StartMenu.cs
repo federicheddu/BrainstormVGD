@@ -33,12 +33,15 @@ public class StartMenu : MonoBehaviour
                 SceneManager.LoadScene(1);
                 break;
             case 1:
+                GameSettings.setRoomCheckpoint(0);
                 SceneManager.LoadScene(2);
                 break;
             case 2:
+                GameSettings.setRoomCheckpoint(1);
                 SceneManager.LoadScene(2);
                 break;
             case 3:
+                GameSettings.setRoomCheckpoint(2);
                 SceneManager.LoadScene(2);
                 break;
         }
@@ -49,15 +52,18 @@ public class StartMenu : MonoBehaviour
         switch (checkpoint)
         {
             case 0: // Caso in cui venga premuto play e nessun checkpoint
-                SceneManager.LoadScene(3);
+                SceneManager.LoadScene(3); // Introduzione secondo livello
                 break;
             case 1:
+                GameSettings.setLavaCheckpoint(0); // Il livello parte dall'inizio senza introduzione
                 SceneManager.LoadScene(4);
                 break;
             case 2:
+                GameSettings.setLavaCheckpoint(1); // Il livello parte dal primo checkpoint
                 SceneManager.LoadScene(4);
                 break;
             case 3:
+                GameSettings.setLavaCheckpoint(2); // Il livello parte dal secondo checkpoint
                 SceneManager.LoadScene(4);
                 break;
         }
@@ -72,13 +78,16 @@ public class StartMenu : MonoBehaviour
                 SceneManager.LoadScene(5);
                 break;
             case 1:
+                GameSettings.setCastleCheckpoint(0);
                 SceneManager.LoadScene(6);
                 break;
             case 2:
+                GameSettings.setCastleCheckpoint(1);
                 SceneManager.LoadScene(6);
                 break;
             case 3: // Lotta boss finale
-                SceneManager.LoadScene(7);
+                GameSettings.setCastleCheckpoint(2);
+                SceneManager.LoadScene(6);
                 break;
         }
     }
@@ -89,13 +98,13 @@ public class StartMenu : MonoBehaviour
         StartMenu s = g.AddComponent<StartMenu>();
         switch (level)
         {
-            case 1:
+            case 1: // Bedroom
                 s.FirstLevel(checkpoint);
                 break;
-            case 2:
+            case 2: // Lava
                 s.SecondLevel(checkpoint);
                 break;
-            case 3:
+            case 3: // Castle
                 s.ThirdLevel(checkpoint);
                 break;
         }
