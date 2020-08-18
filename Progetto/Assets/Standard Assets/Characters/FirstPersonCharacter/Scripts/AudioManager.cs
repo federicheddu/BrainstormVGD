@@ -41,7 +41,8 @@ public class AudioManager : MonoBehaviour
 		{
 			Play("MusicLiv2");
 		}
-		else if (SceneManager.GetActiveScene().name == "SampleScene" ||SceneManager.GetActiveScene().name == "Livello Castello")
+		else if (SceneManager.GetActiveScene().name == "SampleScene" ||SceneManager.GetActiveScene().name == "Livello Castello" 
+			|| SceneManager.GetActiveScene().name == "DemoScene")
 		{
 			Play("MusicLiv3");
 		} else Debug.Log("Hai sbagliato a scrivere il livello");
