@@ -1179,8 +1179,7 @@ MonoBehaviour:
   - {fileID: 1459386033}
   - {fileID: 1349304453}
   - {fileID: 1076183230}
-  prevMaterial: {fileID: 2100000, guid: 779d5b1e8b9889b4d8c6714f522240a2, type: 2}
-  mat: {fileID: 2100000, guid: 9418a5fcbafe84543998bd7c831a9ee1, type: 2}
+  material: {fileID: 0}
 --- !u!1 &391017012 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: f528810411b8e44a1b44860c463d7737,
@@ -1423,7 +1422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9f80c5a90e948128c95eaf1ddbfa13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talkerName: Luca
+  talkerName: 3
 --- !u!1 &440460730
 GameObject:
   m_ObjectHideFlags: 0
@@ -1457,6 +1456,8 @@ RectTransform:
   - {fileID: 785285474}
   - {fileID: 427167666}
   - {fileID: 1637496452}
+  - {fileID: 1332085560}
+  - {fileID: 1680288690}
   - {fileID: 744384872}
   - {fileID: 499478729}
   m_Father: {fileID: 987673210}
@@ -1769,7 +1770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9f80c5a90e948128c95eaf1ddbfa13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talkerName: Federico
+  talkerName: 1
 --- !u!1 &499478728
 GameObject:
   m_ObjectHideFlags: 0
@@ -1801,7 +1802,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 440460731}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -2189,9 +2190,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Ok, ora che abbiamo tirato fuori tutte le idee che facciamo?\nSicuramente
-    sar\xE0 un FPS. Troviamo una cosa che vada bene a tutti. A me l'idea di essere
-    piccolissimi piace. "
+  m_Text: Boh raga, non lo so, abbiamo tirato fuori un sacco di idee ma sinceramente
+    non saprei dove ambientare il tutto.
 --- !u!222 &562760436
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2567,6 +2567,96 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f528810411b8e44a1b44860c463d7737, type: 3}
+--- !u!1 &588787313
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 588787314}
+  - component: {fileID: 588787317}
+  - component: {fileID: 588787316}
+  - component: {fileID: 588787315}
+  m_Layer: 0
+  m_Name: First Row
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &588787314
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588787313}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1332085560}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -309.7, y: -15.4}
+  m_SizeDelta: {x: 713.2, y: 75.3}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &588787315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588787313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05a1cd413bc024b1ab2167c0c79d93f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &588787316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588787313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 04a842e316b6f44bf8da702de26a8ed6, type: 3}
+    m_FontSize: 17
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Ok, ci sta, provo a cercare qualche tutorial su YouTube
+--- !u!222 &588787317
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588787313}
+  m_CullTransparentMesh: 0
 --- !u!1 &601834602
 GameObject:
   m_ObjectHideFlags: 0
@@ -3060,6 +3150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b76d98ec3514d998ef11cf2689f516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goUp: 0
 --- !u!114 &639957271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3590,7 +3681,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 440460731}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -4148,7 +4239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9f80c5a90e948128c95eaf1ddbfa13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talkerName: Alessandro
+  talkerName: 0
 --- !u!1001 &806577666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4348,11 +4439,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Boh. FPS, nemici, power ups, rampino, cambio arma, altro?
-
-    L''idea
-    di essere piccolissimi in una camera potremo usarla per il primo livello. Ora
-    concentriamoci su quello, poi penseremo agli altri.'
+  m_Text: Allora siamo d'accordo sull'FPS, sulla storia boooooh
 --- !u!222 &857109700
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5071,6 +5158,8 @@ MonoBehaviour:
   - {fileID: 785285473}
   - {fileID: 427167665}
   - {fileID: 1637496450}
+  - {fileID: 1332085559}
+  - {fileID: 1680288689}
   button: {fileID: 499478728}
   michele: {fileID: 218257039}
   alessandro: {fileID: 684647049}
@@ -5286,6 +5375,98 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049579036}
+  m_CullTransparentMesh: 0
+--- !u!1 &1068196735
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1068196736}
+  - component: {fileID: 1068196739}
+  - component: {fileID: 1068196738}
+  - component: {fileID: 1068196737}
+  m_Layer: 0
+  m_Name: First Row
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1068196736
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068196735}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1680288690}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -309.7, y: -15.4}
+  m_SizeDelta: {x: 713.2, y: 75.3}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &1068196737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068196735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05a1cd413bc024b1ab2167c0c79d93f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1068196738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068196735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 04a842e316b6f44bf8da702de26a8ed6, type: 3}
+    m_FontSize: 17
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Raga ideona!
+
+    Immatinate di essere in camera mia, ma tipo piccolissimi...'
+--- !u!222 &1068196739
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068196735}
   m_CullTransparentMesh: 0
 --- !u!1 &1076183230
 GameObject:
@@ -5523,6 +5704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b76d98ec3514d998ef11cf2689f516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goUp: 0
 --- !u!114 &1172932460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5960,6 +6142,56 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f528810411b8e44a1b44860c463d7737, type: 3}
+--- !u!1 &1332085559
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1332085560}
+  - component: {fileID: 1332085561}
+  m_Layer: 0
+  m_Name: 'Fifth Dialogue '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1332085560
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332085559}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 588787314}
+  m_Father: {fileID: 440460731}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1332085561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332085559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9f80c5a90e948128c95eaf1ddbfa13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talkerName: 1
 --- !u!1 &1349304453
 GameObject:
   m_ObjectHideFlags: 0
@@ -6558,6 +6790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b76d98ec3514d998ef11cf2689f516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goUp: 0
 --- !u!1 &1445206093
 GameObject:
   m_ObjectHideFlags: 0
@@ -6639,9 +6872,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Ok dai il primo livello \xE8 quindi in camera mia per\xF2 si \xE8 piccolissimi,
-    ci sta.\nPoi vabb\xE8 ci sono i nemici da sparare col tasto sinistro, ti appendi
-    col tasto destro e cerchi di finire il livello."
+  m_Text: "si, anche perch\xE9 secondo me l'idea del platform/parkour non \xE8 da
+    scartare, se facessimo un misto?\n"
 --- !u!222 &1445206097
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7147,7 +7379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9f80c5a90e948128c95eaf1ddbfa13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talkerName: Michele
+  talkerName: 2
 --- !u!224 &1637496452
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7168,6 +7400,56 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1680288689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1680288690}
+  - component: {fileID: 1680288691}
+  m_Layer: 0
+  m_Name: 'Sixth Dialogue '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1680288690
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680288689}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1068196736}
+  m_Father: {fileID: 440460731}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1680288691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680288689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9f80c5a90e948128c95eaf1ddbfa13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talkerName: 2
 --- !u!1 &1716584036
 GameObject:
   m_ObjectHideFlags: 0
@@ -7272,8 +7554,9 @@ MonoBehaviour:
   - {fileID: 671488730}
   storyTellingUi: {fileID: 987673209}
   finalCountdownUi: {fileID: 907362802}
-  playerInitialPosition: 0
   flowMode: 0
+  delayBetweenBrainstorms: 0.5
+  nextScene: 0
 --- !u!4 &1735354571
 Transform:
   m_ObjectHideFlags: 0
@@ -7369,7 +7652,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Io lo farei anche mezzo platform.
+  m_Text: Ma alla fine mettiamo anche il rampino?
 --- !u!222 &1750291909
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7507,6 +7790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b76d98ec3514d998ef11cf2689f516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goUp: 0
 --- !u!114 &1823514724
 MonoBehaviour:
   m_ObjectHideFlags: 0

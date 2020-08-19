@@ -56,7 +56,7 @@ public class AudioManager : MonoBehaviour
 			Debug.LogWarning("Sound: " + name + " not found!");
 			return;
 		}
-		//codice per eseguire il suono un pò diverso tramite la variazione impostata
+		//codice per eseguire il suono un p? diverso tramite la variazione impostata
 		s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
 		s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
 
@@ -83,5 +83,23 @@ public class AudioManager : MonoBehaviour
 		StopPlaying("MusicLiv3");
 		Play("MusicBoss");
     }
+
+	public void IncreaseVolume()
+	{
+		AudioSource[] sources = GetComponents<AudioSource>();
+		foreach (AudioSource audioSource in sources)
+		{
+			audioSource.volume += 0.005f;
+		}
+	}
+
+	public void DecreaseVolume()
+	{
+		AudioSource[] sources = GetComponents<AudioSource>();
+		foreach (AudioSource audioSource in sources)
+		{
+			audioSource.volume -= 0.005f;
+		}
+	}
 
 }

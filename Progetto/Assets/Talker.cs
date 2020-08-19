@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum TalkerName
+{
+    Alessandro, Federico, Michele, Luca
+}
+
 public class Talker : MonoBehaviour
 {
-    public string talkerName;
+    public TalkerName talkerName;
 }

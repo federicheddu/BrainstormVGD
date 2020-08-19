@@ -402,8 +402,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Io mi metto in quarantena. \nSicuro sar\xF2 positivo.\nPiuttosto, se tutti
-    questi vaneggi li facessimo diventare un gioco?"
+  m_Text: 'Quindi che si fa?  '
 --- !u!222 &73567983
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -936,96 +935,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1014563495}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &362628886
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 362628887}
-  - component: {fileID: 362628890}
-  - component: {fileID: 362628889}
-  - component: {fileID: 362628888}
-  m_Layer: 0
-  m_Name: Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &362628887
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 362628886}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1087670914}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -317.7, y: -15.4}
-  m_SizeDelta: {x: 713.2, y: 75.3}
-  m_Pivot: {x: 0, y: 1}
---- !u!114 &362628888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 362628886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05a1cd413bc024b1ab2167c0c79d93f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &362628889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 362628886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 04a842e316b6f44bf8da702de26a8ed6, type: 3}
-    m_FontSize: 17
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 117
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Ci sono.
---- !u!222 &362628890
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 362628886}
-  m_CullTransparentMesh: 0
 --- !u!1 &363225053 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: f528810411b8e44a1b44860c463d7737,
@@ -1181,8 +1090,6 @@ RectTransform:
   - {fileID: 1080152409}
   - {fileID: 1036529779}
   - {fileID: 1835241095}
-  - {fileID: 1087670914}
-  - {fileID: 680435819}
   - {fileID: 1904380840}
   - {fileID: 707129262}
   m_Father: {fileID: 997904421}
@@ -2013,7 +1920,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "No. E' meglio discord. \nIo sono gi\xE0 dentro."
+  m_Text: 'E se facessimo un gioco su di noi che non sappiamo che progetto fare?   '
 --- !u!222 &574199064
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2547,56 +2454,6 @@ Transform:
   m_Father: {fileID: 956300663}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &680435818
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 680435819}
-  - component: {fileID: 680435820}
-  m_Layer: 0
-  m_Name: 'Seventh Dialogue '
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &680435819
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 680435818}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 1959000852}
-  m_Father: {fileID: 393413214}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9, y: -3.100006}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &680435820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 680435818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d9f80c5a90e948128c95eaf1ddbfa13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  talkerName: Luca
 --- !u!1 &707129261
 GameObject:
   m_ObjectHideFlags: 0
@@ -2628,7 +2485,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 393413214}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -3102,7 +2959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9f80c5a90e948128c95eaf1ddbfa13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talkerName: Luca
+  talkerName: 3
 --- !u!1 &794335181
 GameObject:
   m_ObjectHideFlags: 0
@@ -3261,8 +3118,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Me ne vado in quarantena anche io.\nPer\xF2 voglio farlo anche io il gioco.\nInizio
-    a creare la repository."
+  m_Text: 'Boh lo so, sui livelli non ho idee  '
 --- !u!222 &843429528
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3886,8 +3742,6 @@ MonoBehaviour:
   - {fileID: 1080152408}
   - {fileID: 1036529778}
   - {fileID: 1835241094}
-  - {fileID: 1087670913}
-  - {fileID: 680435818}
   button: {fileID: 707129261}
   michele: {fileID: 363225056}
   alessandro: {fileID: 1138725143}
@@ -4169,7 +4023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9f80c5a90e948128c95eaf1ddbfa13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talkerName: Federico
+  talkerName: 1
 --- !u!1 &1039084363
 GameObject:
   m_ObjectHideFlags: 0
@@ -4318,57 +4172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9f80c5a90e948128c95eaf1ddbfa13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talkerName: Alessandro
---- !u!1 &1087670913
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1087670914}
-  - component: {fileID: 1087670915}
-  m_Layer: 0
-  m_Name: 'Sixth Dialogue '
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1087670914
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1087670913}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 362628887}
-  m_Father: {fileID: 393413214}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9, y: -3.100006}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1087670915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1087670913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d9f80c5a90e948128c95eaf1ddbfa13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  talkerName: Alessandro
+  talkerName: 2
 --- !u!1 &1090538530
 GameObject:
   m_ObjectHideFlags: 0
@@ -4512,7 +4316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9f80c5a90e948128c95eaf1ddbfa13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talkerName: Federico
+  talkerName: 1
 --- !u!1 &1178281603
 GameObject:
   m_ObjectHideFlags: 0
@@ -6317,7 +6121,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -317.7, y: -15.4}
+  m_AnchoredPosition: {x: -309.7, y: -15.4}
   m_SizeDelta: {x: 713.2, y: 75.3}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1778973477
@@ -6363,7 +6167,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Oh metto solo l'audio perch\xE8 ho problemi.\nComunque ci sono anche io\n"
+  m_Text: 'E'' un''idea cos'' brutta che potrebbe funzionare   '
 --- !u!222 &1778973479
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6544,7 +6348,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1835241095
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6552,9 +6356,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1835241094}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1778973476}
   m_Father: {fileID: 393413214}
@@ -6562,7 +6366,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9, y: -3.100006}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1835241096
@@ -6577,7 +6381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9f80c5a90e948128c95eaf1ddbfa13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talkerName: Michele
+  talkerName: 0
 --- !u!1 &1847540959
 GameObject:
   m_ObjectHideFlags: 0
@@ -6659,7 +6463,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Mettiamoci d'accordo su zoom. Entrate qua https://us02web.zoom.us/j/81098060804?pwd=QTFJWjUvVEZqc
+  m_Text: 'Il livello dove siamo piccolissimi era palesemente l''idea migliore   '
 --- !u!222 &1847540963
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7070,7 +6874,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 393413214}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -7360,96 +7164,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &1959000851
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1959000852}
-  - component: {fileID: 1959000855}
-  - component: {fileID: 1959000854}
-  - component: {fileID: 1959000853}
-  m_Layer: 0
-  m_Name: Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1959000852
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1959000851}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 680435819}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -317.7, y: -15.4}
-  m_SizeDelta: {x: 713.2, y: 75.3}
-  m_Pivot: {x: 0, y: 1}
---- !u!114 &1959000853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1959000851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05a1cd413bc024b1ab2167c0c79d93f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1959000854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1959000851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 04a842e316b6f44bf8da702de26a8ed6, type: 3}
-    m_FontSize: 17
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 117
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Datemi due secondi e ci sono.
---- !u!222 &1959000855
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1959000851}
-  m_CullTransparentMesh: 0
 --- !u!1 &1970519954
 GameObject:
   m_ObjectHideFlags: 0

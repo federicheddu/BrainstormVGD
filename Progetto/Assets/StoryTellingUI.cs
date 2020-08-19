@@ -37,8 +37,8 @@ public class StoryTellingUI : MonoBehaviour
         {
             dialogues[i].SetActive(true);
             button.SetActive(false); // Disattivazione scritta "press any key to continue"
-            string talkerName = dialogues[i].GetComponent<Talker>().talkerName; // Recupero il nome dello studente che deve parlare
-            talkerText.text = talkerName; // Nella UI il nome della persona che parla cambia nel nome dello studente
+            TalkerName talkerName = dialogues[i].GetComponent<Talker>().talkerName; // Recupero il nome dello studente che deve parlare
+            talkerText.text = talkerName.ToString(); // Nella UI il nome della persona che parla cambia nel nome dello studente
             StudentController student = getStudentFromName(talkerName); // Recupero il gameobject dello studente che deve parlare
             student.Talk(); // Lo studente inizia a parlare
             TypeWriterEffect typeWriter = dialogues[i].GetComponentInChildren<TypeWriterEffect>(); // Nella UI iniziano ad apparire le scritte del dialogo
@@ -54,15 +54,15 @@ public class StoryTellingUI : MonoBehaviour
         finished = true;
     }
 
-    public StudentController getStudentFromName(string name)
+    public StudentController getStudentFromName(TalkerName name)
     {
-        if (name.Equals("Federico"))
+        if (name == TalkerName.Federico)
             return federico;
-        if (name.Equals("Alessandro"))
+        if (name == TalkerName.Alessandro)
             return alessandro;
-        if (name.Equals("Luca"))
+        if (name == TalkerName.Luca)
             return luca;
-        if (name.Equals("Michele"))
+        if (name == TalkerName.Michele)
             return michele;
 
         return null;

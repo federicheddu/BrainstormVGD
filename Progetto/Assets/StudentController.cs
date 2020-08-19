@@ -13,7 +13,7 @@ public class StudentController : MonoBehaviour
     {
         a = GetComponent<Animator>();
         a.SetBool("isIdle", true);
-        c = StartCoroutine(ChangeState());
+        c = StartCoroutine(ChangeState(0f));
     }
 
     public void Talk()
@@ -23,6 +23,7 @@ public class StudentController : MonoBehaviour
         a.SetBool("isIdle", false);
         pointer.SetActive(true);
         StopCoroutine(c);
+        c = StartCoroutine(ChangeState(1.5f));
     }
 
     public void Idle()
@@ -32,14 +33,7 @@ public class StudentController : MonoBehaviour
         a.SetBool("isIdle", true);
         pointer.SetActive(false);
         StopCoroutine(c);
-    }
-    public void AskQuestion()
-    {
-        a.SetBool("isTalking", false);
-        a.SetBool("isClapping", false);
-        a.SetBool("isIdle", false);
-        pointer.SetActive(false);
-        StopCoroutine(c);
+        c = StartCoroutine(ChangeState(1.5f));
     }
     public void Clap()
     {
@@ -48,11 +42,13 @@ public class StudentController : MonoBehaviour
         a.SetBool("isIdle", false);
         pointer.SetActive(false);
         StopCoroutine(c);
+        c = StartCoroutine(ChangeState(1.5f));
     }
 
 
-    IEnumerator ChangeState()
+    IEnumerator ChangeState(float delay)
     {
+        yield return new WaitForSeconds(delay);
         while (true)
         {
             switch (Random.Range(0, 3))

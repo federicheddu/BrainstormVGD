@@ -534,6 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b76d98ec3514d998ef11cf2689f516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goUp: 0
 --- !u!114 &46664668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -609,6 +610,7 @@ MonoBehaviour:
   storyTellingUi: {fileID: 826388436}
   finalCountdownUi: {fileID: 640528546}
   flowMode: 1
+  delayBetweenBrainstorms: 0.5
   nextScene: 1
 --- !u!4 &65337483
 Transform:
@@ -796,7 +798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9f80c5a90e948128c95eaf1ddbfa13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talkerName: Alessandro
+  talkerName: 1
 --- !u!1 &183117632
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,7 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9f80c5a90e948128c95eaf1ddbfa13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talkerName: Federico
+  talkerName: 0
 --- !u!1 &220285843
 GameObject:
   m_ObjectHideFlags: 0
@@ -1740,6 +1742,96 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376144961}
   m_CullTransparentMesh: 0
+--- !u!1 &413742644
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 413742645}
+  - component: {fileID: 413742648}
+  - component: {fileID: 413742647}
+  - component: {fileID: 413742646}
+  m_Layer: 0
+  m_Name: First Row
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &413742645
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413742644}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 708525047}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -309.7, y: -15.4}
+  m_SizeDelta: {x: 713.2, y: 75.3}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &413742646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413742644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05a1cd413bc024b1ab2167c0c79d93f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &413742647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413742644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 04a842e316b6f44bf8da702de26a8ed6, type: 3}
+    m_FontSize: 17
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Sentiamo la tua idea allora
+--- !u!222 &413742648
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413742644}
+  m_CullTransparentMesh: 0
 --- !u!1 &585535444
 GameObject:
   m_ObjectHideFlags: 0
@@ -1789,7 +1881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9f80c5a90e948128c95eaf1ddbfa13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talkerName: Michele
+  talkerName: 2
 --- !u!1 &595243840
 GameObject:
   m_ObjectHideFlags: 0
@@ -1920,7 +2012,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1317056904}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -2482,6 +2574,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705566393}
   m_CullTransparentMesh: 0
+--- !u!1 &708525046
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 708525047}
+  - component: {fileID: 708525048}
+  m_Layer: 0
+  m_Name: 'Fifth Dialogue '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &708525047
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708525046}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 413742645}
+  m_Father: {fileID: 1317056904}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &708525048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708525046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9f80c5a90e948128c95eaf1ddbfa13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talkerName: 2
 --- !u!1 &726509466 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: f528810411b8e44a1b44860c463d7737,
@@ -2619,6 +2761,97 @@ Transform:
   m_Father: {fileID: 648650769}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &764707865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 764707866}
+  - component: {fileID: 764707869}
+  - component: {fileID: 764707868}
+  - component: {fileID: 764707867}
+  m_Layer: 0
+  m_Name: First Row
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &764707866
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764707865}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1491771533}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -309.7, y: -15.4}
+  m_SizeDelta: {x: 713.2, y: 75.3}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &764707867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764707865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05a1cd413bc024b1ab2167c0c79d93f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &764707868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764707865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 04a842e316b6f44bf8da702de26a8ed6, type: 3}
+    m_FontSize: 17
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Facciamo the floor is lava, dove la lava sale, quindi non puoi perdere
+    tempo tra un salto e l'altro.
+--- !u!222 &764707869
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764707865}
+  m_CullTransparentMesh: 0
 --- !u!1001 &773191923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2879,6 +3112,8 @@ MonoBehaviour:
   - {fileID: 2108914672}
   - {fileID: 183117632}
   - {fileID: 181977381}
+  - {fileID: 708525046}
+  - {fileID: 1491771532}
   button: {fileID: 610508031}
   michele: {fileID: 991138611}
   alessandro: {fileID: 726509468}
@@ -3138,6 +3373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b76d98ec3514d998ef11cf2689f516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goUp: 0
 --- !u!114 &1116914508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3386,7 +3622,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1317056904}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -3536,6 +3772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b76d98ec3514d998ef11cf2689f516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goUp: 0
 --- !u!114 &1289691849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3748,6 +3985,8 @@ RectTransform:
   - {fileID: 2108914673}
   - {fileID: 183117633}
   - {fileID: 181977382}
+  - {fileID: 708525047}
+  - {fileID: 1491771533}
   - {fileID: 1193809394}
   - {fileID: 610508032}
   m_Father: {fileID: 826388441}
@@ -4300,6 +4539,56 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f528810411b8e44a1b44860c463d7737, type: 3}
+--- !u!1 &1491771532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1491771533}
+  - component: {fileID: 1491771534}
+  m_Layer: 0
+  m_Name: 'Sixth Dialogue '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1491771533
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491771532}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 764707866}
+  m_Father: {fileID: 1317056904}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1491771534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491771532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9f80c5a90e948128c95eaf1ddbfa13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talkerName: 1
 --- !u!1 &1499437957
 GameObject:
   m_ObjectHideFlags: 0
@@ -4553,7 +4842,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "The floor is lava? \nSecondo me ci sta. Ditemi voi"
+  m_Text: "La verit\xE0? \nE' il progetto di VGD."
 --- !u!222 &1502087675
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5523,7 +5812,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Per me va bene. Dai muoviamoci per\xF2"
+  m_Text: "boh, ci vuole qualcosa di pi\xF9 hardcore della stanza di Michele da cui
+    scappare"
 --- !u!222 &1782123313
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5900,6 +6190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b76d98ec3514d998ef11cf2689f516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goUp: 0
 --- !u!114 &2086870569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6017,7 +6308,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Ora ho la camera che \xE8 un casino. \nVabb\xE8 questo gioco quindi?"
+  m_Text: "raga, ora la mia stanza \xE8 un casino. \nLa devo mettere in ordine"
 --- !u!222 &2092195850
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6206,7 +6497,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Boh. Fede hai idee?
+  m_Text: "Ma non \xE8 che la disney ci cita per plagio di Toy Story?"
 --- !u!222 &2097057867
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6264,4 +6555,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9f80c5a90e948128c95eaf1ddbfa13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talkerName: Luca
+  talkerName: 3

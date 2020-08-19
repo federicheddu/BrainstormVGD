@@ -7,6 +7,7 @@ public class CovidHealthBardImageChanger : MonoBehaviour
 {
     public GameObject[] bosses;
     private Image image;
+    public Sprite oneVirusSprite;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,7 @@ public class CovidHealthBardImageChanger : MonoBehaviour
 
     IEnumerator CheckBossesDeath()
     {
-        yield return new WaitUntil(() => bosses[0] != null || bosses[1] != null);
-        image.sprite = Resources.Load<Sprite>("one_virus_sprite");
+        yield return new WaitUntil(() => bosses[0] == null || bosses[1] == null);
+        image.sprite = oneVirusSprite;
     }
 }
