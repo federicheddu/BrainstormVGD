@@ -1948,7 +1948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
-  goUp: -1
+  goUp: 1
 --- !u!4 &575162428 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: a20116cd9cefa4ee6a26328751221fea,

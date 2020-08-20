@@ -27,7 +27,6 @@ public class FinalSceneCovidMovement : MonoBehaviour
     {
         while (gameObject.activeSelf)
         {
-
             yield return new WaitForSeconds(0.5f);
             goUp *= -1;
 
