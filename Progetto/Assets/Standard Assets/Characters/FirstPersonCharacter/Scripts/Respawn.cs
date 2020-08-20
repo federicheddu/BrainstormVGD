@@ -5,7 +5,7 @@ using UnityEngine;
 public class Respawn : MonoBehaviour
 {
     GameObject player;
-        GameObject respwanPoint;
+    GameObject respwanPoint;
     // Start is called before the first frame update
     void Start()
     {
