@@ -6,6 +6,7 @@ public class SpawnEnemis : MonoBehaviour
 {
     GameObject player;
     public GameObject[] enemies;
+    bool flag = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,11 +16,15 @@ public class SpawnEnemis : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
     {
-        foreach (GameObject enemy in enemies)
+        if (flag)
         {
-            enemy.SetActive(true);
+            flag = false;
+            foreach (GameObject enemy in enemies)
+            {
+                enemy.SetActive(true);
+            }
+            AudioManager.instance.Play("Teletrasport");
+            Destroy(gameObject);
         }
-        AudioManager.instance.Play("Teletrasport");
-        Destroy(gameObject);
     }
 }
