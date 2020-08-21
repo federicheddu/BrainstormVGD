@@ -109,11 +109,14 @@ public class Gun : MonoBehaviour
             case GunType.Assault:
             case GunType.LMG:
 
-                if (Input.GetMouseButton(0) && bulletsFired < mag && Time.time >= nextTimeToFire)
+                if (Input.GetMouseButton(0) && bulletsFired < mag)
                 {
-                    bulletsFired++;
-                    nextTimeToFire = Time.time + 1f / fireRate;
-                    Shoot();
+                    if (Time.time >= nextTimeToFire)
+                    {
+                        bulletsFired++;
+                        nextTimeToFire = Time.time + 1f / fireRate;
+                        Shoot();
+                    }
                 }
                 else if (Input.GetMouseButton(0))
                     StartCoroutine(Reload(2f));
