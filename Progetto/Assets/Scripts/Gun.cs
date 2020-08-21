@@ -114,6 +114,7 @@ public class Gun : MonoBehaviour
                     if (Time.time >= nextTimeToFire)
                     {
                         bulletsFired++;
+                        AudioManager.instance.Play("GunShoot");
                         nextTimeToFire = Time.time + 1f / fireRate;
                         Shoot();
                     }
