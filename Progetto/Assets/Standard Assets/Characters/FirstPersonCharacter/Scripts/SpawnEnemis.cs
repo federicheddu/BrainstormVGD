@@ -21,11 +21,24 @@ public class SpawnEnemis : MonoBehaviour
             if (flag)
             {
                 flag = false;
-                foreach (GameObject enemy in enemies)
+                //caso nemici debbano comparire
+                if (!enemies[0].activeSelf)
                 {
-                    enemy.SetActive(true);
+
+                    foreach (GameObject enemy in enemies)
+                    {
+                        enemy.SetActive(true);
+                    }
+                    AudioManager.instance.Play("Teletrasport");
                 }
-                AudioManager.instance.Play("Teletrasport");
+                //caso nemici siano già presenti ma con lo scipt di azione disabilitato
+                else
+                {
+                    foreach (GameObject enemy in enemies)
+                    {
+                        enemy.GetComponent<Actions>().enabled = true;   
+                    }
+                }
                 Destroy(gameObject);
             }
         }
