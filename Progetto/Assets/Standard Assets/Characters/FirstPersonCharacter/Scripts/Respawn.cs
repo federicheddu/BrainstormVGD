@@ -15,7 +15,9 @@ public class Respawn : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        player.transform.position = respwanPoint.transform.position;
-        player.GetComponent<Rigidbody>().velocity = new Vector3( 0, 0, 0);
+        if (other.tag == "Player") {
+            player.transform.position = respwanPoint.transform.position;
+            player.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0); 
+        }
     }
 }
