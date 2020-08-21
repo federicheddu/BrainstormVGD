@@ -50,6 +50,7 @@ public class Gun : MonoBehaviour
     //effetti
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -108,7 +109,7 @@ public class Gun : MonoBehaviour
             case GunType.Assault:
             case GunType.LMG:
 
-                if (Input.GetMouseButton(0) && bulletsFired < mag && Time.time < nextTimeToFire)
+                if (Input.GetMouseButton(0) && bulletsFired < mag && Time.time >= nextTimeToFire)
                 {
                     bulletsFired++;
                     nextTimeToFire = Time.time + 1f / fireRate;
@@ -136,9 +137,9 @@ public class Gun : MonoBehaviour
         isReloading = true;
         Debug.Log("Reloading");
         StartCoroutine(ReloadSound());
-        //animazione set bool true
+        animator.SetBool("Reloading", true);//animazione set bool true
         yield return new WaitForSeconds(time-0.25f);
-        //animazion.setBool false
+        animator.SetBool("Reloading", false);//animazion.setBool false
         yield return new WaitForSeconds(0.25f);
         bulletsFired = 0;
         isReloading = false;
