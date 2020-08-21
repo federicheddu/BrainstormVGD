@@ -5862,7 +5862,7 @@ MonoBehaviour:
   pu: {fileID: 1552101312}
   muzzleFlash: {fileID: 2005970882}
   impactEffect: {fileID: 100000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
-  animator: {fileID: 1518946935}
+  animator: {fileID: 1011960555}
 --- !u!114 &1011960553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5979,6 +5979,25 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!95 &1011960555
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011960550}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ed39774864f92df49a5f339f2fbf7600, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1018502220 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: afb51b68389d0ea479c0553bf296d10a,
@@ -12968,7 +12987,7 @@ MonoBehaviour:
   pu: {fileID: 1552101312}
   muzzleFlash: {fileID: 1918769864}
   impactEffect: {fileID: 100000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
-  animator: {fileID: 1518946935}
+  animator: {fileID: 2054379792}
 --- !u!114 &2054379790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13085,6 +13104,25 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!95 &2054379792
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054379787}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ed39774864f92df49a5f339f2fbf7600, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2066703716
 PrefabInstance:
   m_ObjectHideFlags: 0
