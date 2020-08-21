@@ -13,6 +13,10 @@ TagManager:
   - Bullet
   - Shooter
   - Player_Brainstorm_Target
+  - checkpoint1
+  - checkpoint2
+  - checkpoint3
+  - checkstart
   layers:
   - Default
   - TransparentFX
