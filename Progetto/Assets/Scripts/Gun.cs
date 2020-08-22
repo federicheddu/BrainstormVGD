@@ -179,5 +179,4 @@ public class Gun : MonoBehaviour
             Destroy(obj, 2f);
         }
     }
-
 }
