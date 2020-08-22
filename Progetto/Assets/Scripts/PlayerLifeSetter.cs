@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LifeSetter : MonoBehaviour
+public class PlayerLifeSetter : MonoBehaviour
 {
     private Target target;
 
     public Slider slider;
     public Text text;
+
+    public GameObject[] toActiveOnDeath;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,14 @@ public class LifeSetter : MonoBehaviour
         if(text != null)
         {
             text.text = target.health.ToString();
+        }
+        if(target.health <= 0)
+        {
+            foreach(GameObject gm in toActiveOnDeath)
+            {
+                gm.SetActive(true);
+                Destroy(gameObject);
+            }
         }
     }
 
