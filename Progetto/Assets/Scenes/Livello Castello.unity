@@ -5773,7 +5773,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &352049658
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22099,6 +22099,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 1514048419}
   text: {fileID: 300860714}
+  toActiveOnDeath:
+  - {fileID: 352049657}
 --- !u!1 &1518417771 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: b9b02eb057964604ea83d4ef9b48b5cb,
