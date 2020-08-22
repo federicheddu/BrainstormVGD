@@ -77,10 +77,14 @@ public class actions2 : MonoBehaviour
         // metti un figlio e usa get component
         RaycastHit hit;
         //Ray MyRay = new Ray(bullet.transform.position, Vector3.forward);
-        
         muzzleFlash1.Play();
         muzzleFlash2.Play();
-        if (Physics.Raycast(bullet.transform.position, bullet.transform.forward, out hit, 100f))//Vector3.forward, out hit, 100f))
+        Vector3 fromPosition = bullet.transform.position;
+        Vector3 toPosition = Player.transform.position;
+        Vector3 direction = toPosition - fromPosition;
+
+        //(Physics.Raycast(bullet.transform.position, bullet.transform.forward, out hit, 100f))
+        if (Physics.Raycast(bullet.transform.position, direction, out hit, 100f))
         {
             if (Random.Range(1, 1000) < AttackProbability)
             {
@@ -91,13 +95,6 @@ public class actions2 : MonoBehaviour
                     target.TakeDamage(damage);
             }
         }
-
-        /*
-        if (m_Audio != null)
-        {
-            m_Audio.PlayOneShot(GunSound);
-        }
-        */
     }
     IEnumerator Waiter(float time)
     {

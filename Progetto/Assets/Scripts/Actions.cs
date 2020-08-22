@@ -97,6 +97,7 @@ public class Actions : MonoBehaviour
         animator.SetFloat("Speed", 1f);//1
     }
 
+    /*
     public void Attack()
     {
         Aiming();
@@ -119,6 +120,31 @@ public class Actions : MonoBehaviour
                     return;
                 }
                 
+            }
+        }
+    }
+    */
+    public void Attack()
+    {
+        Aiming();
+        animator.SetTrigger("Attack");
+        // metti un figlio e usa get component
+        RaycastHit hit;
+        //Ray MyRay = new Ray(bullet.transform.position, Vector3.forward);
+        StartCoroutine(Waiter(2f));
+        Vector3 fromPosition = bullet.transform.position;
+        Vector3 toPosition = Player.transform.position;
+        Vector3 direction = toPosition - fromPosition;
+
+        if (Physics.Raycast(bullet.transform.position, direction , out hit, 100f))
+            {
+            Target target = hit.transform.GetComponent<Target>();
+            string targetTag = hit.transform.gameObject.tag; //
+            if (target != null && targetTag == "Player" && timer >= 0.5f && Random.Range(1, 1000) < AttackProbability)
+            {
+                target.TakeDamage(damage);
+                Debug.Log(hit.transform.name + "dal soldato");
+                return;
             }
         }
     }
