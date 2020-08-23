@@ -10,7 +10,7 @@ public class SensSliderValuesFiller : MonoBehaviour
         UnityEngine.UI.Slider s = GetComponent<UnityEngine.UI.Slider>();
         s.minValue = GameSettings.MIN_SENS;
         s.maxValue = GameSettings.MAX_SENS;
-        float v = GameSettings.getMouseSensibility();
+        float v = GameSettings.GetMouseSensibility();
         Debug.Log(v.ToString());
         s.value = v;
     }

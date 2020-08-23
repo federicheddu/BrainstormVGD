@@ -14,9 +14,8 @@ public class StartMenu : MonoBehaviour
            3: introduzione liv lava
            4: LIVELLO 2 - THE FLOOR IS LAVA
            5: introduzione liv castello
-           6: LIVELLO 3 - CASTELLO
-           7: BOSS FINALE
-           8: dialoghi finali
+           6: LIVELLO 3 - CASTELLO e lotta boss finale
+           7: dialoghi finali
      */
 
     public void Quit()
@@ -27,21 +26,23 @@ public class StartMenu : MonoBehaviour
 
     public void FirstLevel(int checkpoint)
     {
+        GameSettings.SetLevel(1);
         switch (checkpoint)
         {
             case 0: // Caso in cui venga premuto play e nessun checkpoint
+                GameSettings.SetCheckpoint(1);
                 SceneManager.LoadScene(1);
                 break;
             case 1:
-                GameSettings.setRoomCheckpoint(0);
+                GameSettings.SetCheckpoint(1);
                 SceneManager.LoadScene(2);
                 break;
             case 2:
-                GameSettings.setRoomCheckpoint(1);
+                GameSettings.SetCheckpoint(2);
                 SceneManager.LoadScene(2);
                 break;
             case 3:
-                GameSettings.setRoomCheckpoint(2);
+                GameSettings.SetCheckpoint(3);
                 SceneManager.LoadScene(2);
                 break;
         }
@@ -49,21 +50,23 @@ public class StartMenu : MonoBehaviour
     }
     public void SecondLevel(int checkpoint)
     {
+        GameSettings.SetLevel(2);
         switch (checkpoint)
         {
             case 0: // Caso in cui venga premuto play e nessun checkpoint
+                GameSettings.SetCheckpoint(0);
                 SceneManager.LoadScene(3); // Introduzione secondo livello
                 break;
             case 1:
-                GameSettings.setLavaCheckpoint(0); // Il livello parte dall'inizio senza introduzione
+                GameSettings.SetCheckpoint(1); // Il livello parte dall'inizio senza introduzione
                 SceneManager.LoadScene(4);
                 break;
             case 2:
-                GameSettings.setLavaCheckpoint(1); // Il livello parte dal primo checkpoint
+                GameSettings.SetCheckpoint(2); // Il livello parte dal primo checkpoint
                 SceneManager.LoadScene(4);
                 break;
             case 3:
-                GameSettings.setLavaCheckpoint(2); // Il livello parte dal secondo checkpoint
+                GameSettings.SetCheckpoint(3); // Il livello parte dal secondo checkpoint
                 SceneManager.LoadScene(4);
                 break;
         }
@@ -71,22 +74,23 @@ public class StartMenu : MonoBehaviour
     }
     public void ThirdLevel(int checkpoint)
     {
-        // Il terzo livello ha solo due checkpoint, quindi con checkpoint==3 si passa al livello del boss finale
+        GameSettings.SetLevel(3);
         switch (checkpoint)
         {
             case 0: // Caso in cui venga premuto play e nessun checkpoint
+                GameSettings.SetCheckpoint(0);
                 SceneManager.LoadScene(5);
                 break;
             case 1:
-                GameSettings.setCastleCheckpoint(0);
+                GameSettings.SetCheckpoint(1);
                 SceneManager.LoadScene(6);
                 break;
             case 2:
-                GameSettings.setCastleCheckpoint(1);
+                GameSettings.SetCheckpoint(2);
                 SceneManager.LoadScene(6);
                 break;
             case 3: // Lotta boss finale
-                GameSettings.setCastleCheckpoint(2);
+                GameSettings.SetCheckpoint(3);
                 SceneManager.LoadScene(6);
                 break;
         }

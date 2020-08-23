@@ -3,76 +3,68 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GameSettings : MonoBehaviour
 {
     public static float MIN_SENS = 1f;
     public static float MAX_SENS = 6f;
 
-    private static int roomCheckpoint = 0;
-    private static int lavaCheckpoint = 0;
-    private static int castleCheckpoint = 0;
-    private static float mouseSensibility = 2f;
-    public static int currentLevel = 1;
-
 
     public void Start()
     {
         PlayerMovement pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
-        if(pm != null)
+        if(pm != null && PlayerPrefs.HasKey("mouseSens"))
         {
-            pm.setMouseSensibility(mouseSensibility);
+            pm.setMouseSensibility(GetMouseSensibility());
         }
     }
 
-    public static void setRoomCheckpoint(int checkpoint)
+    public static void SetCheckpoint(int checkpoint)
     {
         if (checkpoint >= 0 && checkpoint <= 3)
-            roomCheckpoint = checkpoint;
+        {
+            PlayerPrefs.SetInt("checkpoint", checkpoint);
+            PlayerPrefs.Save();
+        }
     }
 
-    public static void setLavaCheckpoint(int checkpoint)
+    public static void SetLevel(int level)
     {
-        if (checkpoint >= 0 && checkpoint <= 3)
-            lavaCheckpoint = checkpoint;
+        if (level >= 0 && level <= 3)
+        {
+            PlayerPrefs.SetInt("level", level);
+            PlayerPrefs.Save();
+        }
+            
     }
 
-    public static void setCastleCheckpoint(int checkpoint)
-    {
-        if (checkpoint >= 0 && checkpoint <= 3)
-            castleCheckpoint = checkpoint;
-    }
-
-    public static int getRoomCheckpoint()
-    {
-        return roomCheckpoint;
-    }
-
-    public static int getLavaCheckpoint()
-    {
-        return lavaCheckpoint;
-    }
-
-    public static int getCastleCheckpoint()
-    {
-        return castleCheckpoint;
-    }
-
-    public void setMouseSensibility(float mouseSens)
+    public void SetMouseSensibility(float mouseSens)
     {
         if(mouseSens >= MIN_SENS && mouseSens <= MAX_SENS)
         {
-            mouseSensibility = mouseSens;
+            PlayerPrefs.SetFloat("mouseSens", mouseSens);
             PlayerMovement pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
             if (pm != null)
             {
-                pm.setMouseSensibility(mouseSensibility);
+                pm.setMouseSensibility(GetMouseSensibility());
             }
+            PlayerPrefs.Save();
         }
     }
 
-    public static float getMouseSensibility()
+    public static float GetMouseSensibility()
     {
-        return mouseSensibility;
+        return PlayerPrefs.GetFloat("mouseSens", 2f);
+    }
+
+    public static int GetLevel()
+    {
+        return PlayerPrefs.GetInt("level", 1);
+    }
+
+    public static int GetCheckpoint()
+    {
+        return PlayerPrefs.GetInt("checkpoint", 0);
     }
 
 }

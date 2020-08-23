@@ -11,7 +11,8 @@ public class CheckPointTeleport : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        switch(PlayerPrefs.GetInt("checkpoint"))
+        tr = GetComponent<Transform>();
+        switch(GameSettings.GetCheckpoint())
         {
             case 1:
                 tr.position = check1.transform.position;
@@ -37,13 +38,13 @@ public class CheckPointTeleport : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "checkpoint1")
-            PlayerPrefs.SetInt("checkpoint", 1);
+            GameSettings.SetCheckpoint(1);
         if (collision.transform.tag == "checkpoint2")
-            PlayerPrefs.SetInt("checkpoint", 2);
+            GameSettings.SetCheckpoint(2);
         if (collision.transform.tag == "checkpoint3")
-            PlayerPrefs.SetInt("checkpoint", 3);
+            GameSettings.SetCheckpoint(3);
         if (collision.transform.tag == "checkstart")
-            PlayerPrefs.SetInt("checkpoint", 0);
+            GameSettings.SetCheckpoint(0);
     }
 
 }
