@@ -5,7 +5,7 @@ using Boo.Lang;
 
 public static class SaveSystem
 {
-    public static void SaveGames(GameData gameData, int slot)
+    public static void SaveGame(GameData gameData, int slot)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/gameData" + slot + ".vgd";
@@ -57,8 +57,7 @@ public static class SaveSystem
             }
             else
             {
-                GameData data = new GameData(0, 0, 0);
-                games[slot] = data;
+                games[slot] = null;
             }
         }
 

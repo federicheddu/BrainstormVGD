@@ -13,7 +13,24 @@ public class PickWeapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        switch (GunType.Pistol)
+        {
+            case GunType.Pistol:
+                pistol.SetActive(true);
+                assault.SetActive(false);
+                lmg.SetActive(false);
+                break;
+            case GunType.Assault:
+                assault.SetActive(true);
+                pistol.SetActive(false);
+                lmg.SetActive(false);
+                break;
+            case GunType.LMG:
+                lmg.SetActive(true);
+                pistol.SetActive(false);
+                assault.SetActive(false);
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -55,6 +72,18 @@ public class PickWeapon : MonoBehaviour
         }
         else
             canPick = false;
+    }
+
+    public GunType getCurrentWeapon()
+    {
+        if (pistol.activeInHierarchy)
+            return GunType.Pistol;
+        else if (assault.activeInHierarchy)
+            return GunType.Assault;
+        else if (lmg.activeInHierarchy)
+            return GunType.LMG;
+        else
+            return GunType.None;
     }
 
 }
