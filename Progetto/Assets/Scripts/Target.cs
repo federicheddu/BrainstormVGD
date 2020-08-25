@@ -103,7 +103,7 @@ public class Target : MonoBehaviour
             {
                 Destroy(transform.parent);
             }
-            else
+            else if(gameObject.tag != "Player")
                 Destroy(gameObject);
         }
     }
