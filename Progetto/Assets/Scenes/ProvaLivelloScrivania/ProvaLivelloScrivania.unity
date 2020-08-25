@@ -37708,11 +37708,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b654ffb7d0e17e43a7ffc5f377fee70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start: {fileID: 0}
-  check1: {fileID: 0}
-  check2: {fileID: 0}
-  check3: {fileID: 0}
-  tr: {fileID: 0}
+  start: {fileID: 2068593532}
+  check1: {fileID: 1806714015}
+  check2: {fileID: 749597699}
+  check3: {fileID: 656466220}
+  tr: {fileID: 1921295902}
 --- !u!1 &1926855112
 GameObject:
   m_ObjectHideFlags: 0
