@@ -101,7 +101,7 @@ public class Target : MonoBehaviour
                 //caso BOSS
             }else if (gameObject.GetComponent<Rotate>())
             {
-                Destroy(transform.parent);
+                Destroy(transform.parent.gameObject);
             }
             else if(gameObject.tag != "Player")
                 Destroy(gameObject);
