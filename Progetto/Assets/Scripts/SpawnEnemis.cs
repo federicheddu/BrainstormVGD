@@ -31,12 +31,19 @@ public class SpawnEnemis : MonoBehaviour
                     }
                     AudioManager.instance.Play("Teletrasport");
                 }
-                //caso nemici siano già presenti ma con lo scipt di azione disabilitato
-                else
+                //caso del boss
+                else if(enemies[0].name == "Boss")
+                {
+                    enemies[0].GetComponent<BossMovement>().enabled = true;
+                    for (int i = 0; i < 9; i++) {
+                        enemies[0].transform.GetChild(0).transform.GetChild(i + 2).gameObject.SetActive(true);
+                            }
+                }
+                else   //caso nemici siano già presenti ma con lo scipt di azione disabilitato
                 {
                     foreach (GameObject enemy in enemies)
                     {
-                        enemy.GetComponent<Actions>().enabled = true;   
+                        enemy.GetComponent<Actions>().enabled = true;
                     }
                 }
                 Destroy(gameObject);
