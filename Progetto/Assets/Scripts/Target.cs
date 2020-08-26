@@ -13,12 +13,13 @@ public class Target : MonoBehaviour
     public float regTime = 5f;
     private float timerHit;
     private float count;
-
+    GameObject manager;
     // Start is called before the first frame update
     void Start()
     {
         pu = GetComponent<PowerUp>();
         animator = GetComponent<Animator>();
+        manager = GameObject.Find("AudioManager");
     }
 
     // Update is called once per frame
@@ -102,6 +103,7 @@ public class Target : MonoBehaviour
             }else if (gameObject.GetComponent<Rotate>())
             {
                 Destroy(transform.parent.gameObject);
+                manager.GetComponent<AudioManager>().Victory();
             }
             else if(gameObject.tag != "Player")
                 Destroy(gameObject);
