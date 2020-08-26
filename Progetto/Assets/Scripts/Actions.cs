@@ -11,12 +11,13 @@ public class Actions : MonoBehaviour
     public GameObject bullet;
     private NavMeshAgent _navMeshAgent;
 
-    float AttackDistance = 10.0f;
-    float FollowDistance = 22.0f;
+    float AttackDistance = 30f;
+    float FollowDistance = 40f;
     private float AttackProbability = 400f;
     float damage = 10f;
     float timer = 0f;
     bool death = false;
+    bool saw = false; // variabile che dice se il giocatore è stato visto dal nemico
 
     const int countOfDamageAnimations = 3;
     int lastDamageAnimation = -1;
@@ -41,7 +42,16 @@ public class Actions : MonoBehaviour
 
                 if (follow)
                 {
-                    _navMeshAgent.SetDestination(Player.transform.position);
+                    RaycastHit hit;
+                    Vector3 fromPosition = bullet.transform.position;
+                    Vector3 toPosition = Player.transform.position;
+                    Vector3 direction = toPosition - fromPosition;
+                    Physics.Raycast(bullet.transform.position, direction, out hit, 100f);
+                    if (saw || hit.transform.tag == "Player")
+                    {
+                        saw = true;
+                        _navMeshAgent.SetDestination(Player.transform.position);
+                    }
                 }
 
                 if (!follow || shoot)
@@ -52,7 +62,7 @@ public class Actions : MonoBehaviour
                     FaceTarget();
                     Walk();
                 }
-                if (shoot)
+                if (shoot && saw)
                 {
                     FaceTarget();
                     timer += Time.deltaTime;
@@ -143,7 +153,6 @@ public class Actions : MonoBehaviour
             if (target != null && targetTag == "Player" && timer >= 0.5f && Random.Range(1, 1000) < AttackProbability)
             {
                 target.TakeDamage(damage);
-                Debug.Log(hit.transform.name + "dal soldato");
                 return;
             }
         }

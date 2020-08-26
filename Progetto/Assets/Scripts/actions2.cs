@@ -11,13 +11,14 @@ public class actions2 : MonoBehaviour
     //private Animator animator;
     private NavMeshAgent _navMeshAgent;
 
-    public float AttackDistance = 10.0f;
-    public float FollowDistance = 22.0f;
-    private float AttackProbability = 250f;
+    float AttackDistance = 30f;
+    float FollowDistance = 40f;
+    private float AttackProbability = 400f;
     public float damage = 10f;
     public ParticleSystem muzzleFlash1;
     public ParticleSystem muzzleFlash2;
     float timer = 0f;
+    bool saw = false; // variabile che dice se il giocatore è stato visto dal nemico
 
     // Start is called before the first frame update
     void Awake()
@@ -42,7 +43,16 @@ public class actions2 : MonoBehaviour
 
                 if (follow)
                 {
-                    _navMeshAgent.SetDestination(Player.transform.position);
+                    RaycastHit hit;
+                    Vector3 fromPosition = bullet.transform.position;
+                    Vector3 toPosition = Player.transform.position;
+                    Vector3 direction = toPosition - fromPosition;
+                    Physics.Raycast(bullet.transform.position, direction, out hit, 100f);
+                    if (saw || hit.transform.tag == "Player") 
+                    {
+                        saw = true;
+                        _navMeshAgent.SetDestination(Player.transform.position);
+                    }
                 }
 
                 if (!follow || shoot)
@@ -52,7 +62,7 @@ public class actions2 : MonoBehaviour
                 {
                     FaceTarget();
                 }
-                if (shoot)
+                if (shoot && saw)
                 {
                     FaceTarget();
                     timer += Time.deltaTime;

@@ -36,7 +36,7 @@ public class CoronaBullet : MonoBehaviour
             if (angle <= 90f)
             {
                 timer += Time.deltaTime;
-                if (timer >= 0.5f)
+                if (timer >= 0.75f)
                 {
                     //creazione dei proiettili
                     GameObject bulletObject = Instantiate (bullet);

@@ -84,6 +84,11 @@ public class AudioManager : MonoBehaviour
 		Play("MusicBoss");
     }
 
+	public void Victory()
+	{
+		StopPlaying("MusicBoss");
+		Play("Victory");
+	}
 	public void IncreaseVolume()
 	{
 		AudioSource[] sources = GetComponents<AudioSource>();
