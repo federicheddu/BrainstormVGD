@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DeathMenu : MonoBehaviour
 {
     public GameObject[] uisToDisableOnStart;
+    public Canvas toDisableOnStart;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,11 @@ public class DeathMenu : MonoBehaviour
         {
             ui.SetActive(false);
         }
+        toDisableOnStart.gameObject.SetActive(false);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
     }
 
     // Update is called once per frame
@@ -28,7 +35,6 @@ public class DeathMenu : MonoBehaviour
     private void RestartLevel(int checkpoint)
     {
         // set del checkpoint
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // reload della stessa scena
     }
 
@@ -43,6 +49,8 @@ public class DeathMenu : MonoBehaviour
         // c = l'ultimo checkpoint
         RestartLevel(c);
     }
+
+
 
 
 }

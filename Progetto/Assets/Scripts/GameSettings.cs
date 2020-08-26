@@ -67,4 +67,14 @@ public class GameSettings : MonoBehaviour
         return PlayerPrefs.GetInt("checkpoint", 0);
     }
 
+    public static int GetWeapon()
+    {
+        return PlayerPrefs.GetInt("weapon", 3);
+    }
+    public static void SetWeapon(int weapon)
+    {
+        PlayerPrefs.SetInt("weapon", weapon);
+        PlayerPrefs.Save();
+    }
+
 }

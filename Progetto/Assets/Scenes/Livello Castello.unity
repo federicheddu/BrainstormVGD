@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbe95c42fb5814fad96d9b9bd4e6fffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotIntex: 1
+  slotIndex: 1
   emptyContainer: {fileID: 858240418}
   saveDetails: {fileID: 980491571}
   level: {fileID: 1102541725}
@@ -3675,7 +3675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbe95c42fb5814fad96d9b9bd4e6fffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotIntex: 5
+  slotIndex: 5
   emptyContainer: {fileID: 1767147393}
   saveDetails: {fileID: 781414414}
   level: {fileID: 697053229}
@@ -5824,6 +5824,7 @@ MonoBehaviour:
   - {fileID: 1786928122}
   - {fileID: 1006244860}
   - {fileID: 1176971888}
+  toDisableOnStart: {fileID: 1904974257}
 --- !u!114 &352049660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9083,7 +9084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbe95c42fb5814fad96d9b9bd4e6fffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotIntex: 2
+  slotIndex: 2
   emptyContainer: {fileID: 2025515179}
   saveDetails: {fileID: 180227355}
   level: {fileID: 963878486}
@@ -19714,7 +19715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbe95c42fb5814fad96d9b9bd4e6fffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotIntex: 4
+  slotIndex: 4
   emptyContainer: {fileID: 616778872}
   saveDetails: {fileID: 449715868}
   level: {fileID: 2099499035}
@@ -24905,7 +24906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbe95c42fb5814fad96d9b9bd4e6fffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotIntex: 3
+  slotIndex: 3
   emptyContainer: {fileID: 1367456347}
   saveDetails: {fileID: 1530825508}
   level: {fileID: 104877790}
@@ -27180,7 +27181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbe95c42fb5814fad96d9b9bd4e6fffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotIntex: 0
+  slotIndex: 0
   emptyContainer: {fileID: 1022393705}
   saveDetails: {fileID: 858198999}
   level: {fileID: 335927253}

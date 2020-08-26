@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class SaveSlotController : MonoBehaviour
 {
-    public int slotIntex;
+    public int slotIndex;
     public GameObject emptyContainer;
     public GameObject saveDetails;
     public Text level, checkpoint, weapon;
@@ -14,7 +14,7 @@ public class SaveSlotController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        save = SaveSystem.LoadGame(slotIntex);
+        save = SaveSystem.LoadGame(slotIndex);
 
         UpdateContainers();
 
@@ -30,7 +30,8 @@ public class SaveSlotController : MonoBehaviour
             (int) GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PickWeapon>().getCurrentWeapon()
         );
         // Aggiorno lo slot
-        SaveSlotsContainerController.UpdateSlot(slotIntex, save);
+        SaveSystem.SaveGame(save, slotIndex);
+
         // Aggiorno i container della UI
         UpdateContainers();
     }
@@ -38,7 +39,7 @@ public class SaveSlotController : MonoBehaviour
     public void DeleteSave()
     {
         save = null;
-        SaveSlotsContainerController.UpdateSlot(slotIntex, save);
+        SaveSystem.SaveGame(save, slotIndex);
         UpdateContainers();
     }
 
