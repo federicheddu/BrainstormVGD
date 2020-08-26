@@ -1,38 +1,59 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class SaveSlotController : MonoBehaviour
 {
+    public int slotIntex;
     public GameObject emptyContainer;
     public GameObject saveDetails;
-    public bool isEmpty;
+    public Text level, checkpoint, weapon;
+
+    private bool isEmpty;
+    private GameData save;
 
     // Start is called before the first frame update
     void Start()
     {
-        // modo per capire se il salvataggio c'è o meno e settare:
-        // se il salvataggio c'è emptyContainer e isEmpty a false e saveDetails a true
+        save = SaveSystem.LoadGame(slotIntex);
+
+        UpdateContainers();
+
+
     }
 
     public void Save()
     {
-        // codice per recuperare i dati del salvataggio
-        // codice per salvare
-        Debug.Log("SALVANDOOOO");
-
-        emptyContainer.SetActive(false);
-        saveDetails.SetActive(true);
-        isEmpty = false;
+        // Creo nuovo salvataggio
+        save = new GameData(
+            GameSettings.GetLevel(),
+            GameSettings.GetCheckpoint(),
+            (int) GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PickWeapon>().getCurrentWeapon()
+        );
+        // Aggiorno lo slot
+        SaveSlotsContainerController.UpdateSlot(slotIntex, save);
+        // Aggiorno i container della UI
+        UpdateContainers();
     }
 
     public void DeleteSave()
     {
-        // codice per cancellare il salvataggio
+        save = null;
+        SaveSlotsContainerController.UpdateSlot(slotIntex, save);
+        UpdateContainers();
+    }
 
-        // ...... 
-        emptyContainer.SetActive(true);
-        saveDetails.SetActive(false);
-        isEmpty = true;
+    private void UpdateContainers()
+    {
+        isEmpty = save == null;
+        emptyContainer.SetActive(isEmpty);
+        saveDetails.SetActive(!isEmpty);
+
+        if (!isEmpty)
+        {
+            level.text = save.level.ToString();
+            checkpoint.text = save.checkpoint.ToString();
+            string[] weapons = new string[] { "Pistol", "Assault", "LMG", "No Weapon"};
+            weapon.text = weapons[save.weapon];
+        }
     }
 }
