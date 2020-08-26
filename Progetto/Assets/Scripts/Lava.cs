@@ -10,7 +10,13 @@ public class Lava : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameSettings.GetCheckpoint();
+        int a = GameSettings.GetCheckpoint();
+        if (a <= 1)
+            transform.position = new Vector3(0, 0, 0);
+        if (a == 2)
+            transform.position = new Vector3(0, 15, 0);
+        else
+            transform.position = new Vector3(0, 25, 0);
 
         Debug.Log("DIO");
     }
@@ -26,16 +32,16 @@ public class Lava : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         Debug.Log("DIOC");
-        Transform nemico = collision.transform;
+        Transform nemico = other.transform;
         TargetLink targetLink = nemico.GetComponent<TargetLink>();
         if (targetLink != null)
         {
             Debug.Log("DIOCA");
             Target targetNemico = targetLink.target;
-            targetNemico.TakeDamage(10000);
+            targetNemico.TakeDamage(100000);
         }
     }
 

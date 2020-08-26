@@ -39,7 +39,6 @@ public class PickWeapon : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(camera.position, camera.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
 
             Gun gun = hit.transform.GetComponent<Gun>();
             if (gun == null) return;
