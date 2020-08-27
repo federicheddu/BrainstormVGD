@@ -85,4 +85,16 @@ public class PickWeapon : MonoBehaviour
             return GunType.None;
     }
 
+    public GameObject getActiveWeaponGameObject()
+    {
+        if (pistol.activeInHierarchy)
+            return pistol;
+        else if (assault.activeInHierarchy)
+            return assault;
+        else if (lmg.activeInHierarchy)
+            return lmg;
+        else
+            return null;
+    }
+
 }

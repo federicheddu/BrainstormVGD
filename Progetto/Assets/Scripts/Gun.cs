@@ -179,4 +179,14 @@ public class Gun : MonoBehaviour
             Destroy(obj, 2f);
         }
     }
+
+    public float getFiredBullets()
+    {
+        return bulletsFired;
+    }
+
+    public float getMag()
+    {
+        return mag;
+    }
 }
