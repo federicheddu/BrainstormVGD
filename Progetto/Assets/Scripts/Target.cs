@@ -69,7 +69,6 @@ public class Target : MonoBehaviour
         //caso siano nemici umanoidi
         if (animator != null)
         {
-            Debug.Log("ha l'animator");
             animator.SetTrigger("Death");
             gameObject.GetComponent<Actions>().SetDeath();
             Destroy(gameObject, 2);
@@ -92,7 +91,6 @@ public class Target : MonoBehaviour
             // caso sia robot attack
             if (gameObject.GetComponent<actions2>())
             {
-                Debug.Log("OK");
                 transform.GetChild(1).gameObject.SetActive(true);
                 transform.GetChild(0).gameObject.SetActive(false);
                 transform.GetChild(2).gameObject.SetActive(false);

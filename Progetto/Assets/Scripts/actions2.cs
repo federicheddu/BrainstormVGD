@@ -99,7 +99,6 @@ public class actions2 : MonoBehaviour
             if (Random.Range(1, 1000) < AttackProbability)
             {
                 Debug.Log(hit.transform.name);
-                Debug.DrawRay(bullet.transform.position, Vector3.forward * 100f, Color.green);
                 Target target = hit.transform.GetComponent<Target>();
                 if (target != null)
                     target.TakeDamage(damage);
