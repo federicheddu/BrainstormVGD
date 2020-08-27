@@ -29173,14 +29173,7 @@ MonoBehaviour:
   camera: {fileID: 884922186}
   cameraVerticalMax: 90
   cameraVerticalMin: -90
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-  gunPosition: {fileID: 0}
-=======
   gunPosition: {fileID: 175268611}
->>>>>>> be32dd149a5477f579bb227dd07f69c47ca70d1e
->>>>>>> parent of f80dada... Revert "merge"
 --- !u!54 &1460968171
 Rigidbody:
   m_ObjectHideFlags: 0
