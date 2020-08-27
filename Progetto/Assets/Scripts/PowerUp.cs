@@ -45,17 +45,21 @@ public class PowerUp : MonoBehaviour
     {
         switch(collision.gameObject.tag)
         {
+            //molla
             case "PU_doublejump":
                 doublejump = true;
                 dj_activation = Time.time;
+                Destroy(collision.gameObject);
                 break;
-            case "PU_doubledamage":
+            case "PU_doubledamage": //amuchina
                 doubledamage = true;
                 dd_activation = Time.time;
+                Destroy(collision.gameObject);
                 break;
-            case "PU_nodamage":
+            case "PU_nodamage":  // mascherina
                 nodamage = true;
                 dd_activation = Time.time;
+                Destroy(collision.gameObject);
                 break;
             default:
                 break;

@@ -33,7 +33,7 @@ public class AudioManager : MonoBehaviour
 			s.source.outputAudioMixerGroup = mixerGroup;
 		}
 
-		if ( SceneManager.GetActiveScene().name == "ProvaLivelloScrivania")
+		if ( SceneManager.GetActiveScene().name == "LivelloCamera")
 		{
 			Play("MusicLiv1");
 
