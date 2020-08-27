@@ -7257,6 +7257,7 @@ MonoBehaviour:
   camera: {fileID: 890993093}
   cameraVerticalMax: 90
   cameraVerticalMin: -90
+  gunPosition: {fileID: 1211981171}
 --- !u!54 &462450318
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13042,7 +13043,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5, y: -529}
+  m_AnchoredPosition: {x: -5, y: -457}
   m_SizeDelta: {x: 173.4, y: 34.7}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &817387446
