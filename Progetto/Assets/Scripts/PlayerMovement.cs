@@ -55,6 +55,9 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private PowerUp pu;
 
+    //gameobject figli
+    public GameObject gunPosition;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -165,9 +168,15 @@ public class PlayerMovement : MonoBehaviour
 
         //crouch
         if (key_crouch)
+        {
             transform.localScale = halfDim;
+            gunPosition.transform.localScale = new Vector3(1, 2, 1);
+        }
         else
+        {
             transform.localScale = fullDim;
+            gunPosition.transform.localScale = new Vector3(1, 1, 1);
+        }
 
         //rotazione corpo e camera
         transform.Rotate(0f, rotation * mouseSens, 0f);
