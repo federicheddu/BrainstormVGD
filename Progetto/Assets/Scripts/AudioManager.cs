@@ -42,7 +42,7 @@ public class AudioManager : MonoBehaviour
 			Play("MusicLiv2");
 		}
 		else if (SceneManager.GetActiveScene().name == "SampleScene" ||SceneManager.GetActiveScene().name == "Livello Castello" 
-			|| SceneManager.GetActiveScene().name == "DemoScene")
+			|| SceneManager.GetActiveScene().name == "Demo Scene")
 		{
 			Play("MusicLiv3");
 		} else Debug.Log("Hai sbagliato a scrivere il livello");
