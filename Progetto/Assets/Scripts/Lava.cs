@@ -10,7 +10,7 @@ public class Lava : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int a = GameSettings.GetCheckpoint();
+      /*  int a = GameSettings.GetCheckpoint();
         if (a <= 1)
             transform.position = new Vector3(0, 0, 0);
         if (a == 2)
@@ -18,7 +18,7 @@ public class Lava : MonoBehaviour
         else
             transform.position = new Vector3(0, 25, 0);
 
-        Debug.Log("DIO");
+        Debug.Log("DIO");*/
     }
 
     // Update is called once per frame
