@@ -73,8 +73,8 @@ public class Target : MonoBehaviour
             gameObject.GetComponent<Actions>().SetDeath();
             Destroy(gameObject, 2);
             AudioManager.instance.Play("DeathHuman");
-            
-                }
+            gameObject.GetComponent<DropPu>().Drop();
+        }
         else if (gameObject.tag == "BossShooter")
             //caso siano lo shooter
         {
@@ -96,6 +96,7 @@ public class Target : MonoBehaviour
                 transform.GetChild(2).gameObject.SetActive(false);
                 transform.GetChild(3).gameObject.SetActive(false);
                 AudioManager.instance.Play("Explosion");
+                gameObject.GetComponent<DropPu>().Drop();
                 Destroy(gameObject, 1);
                 //caso BOSS
             }else if (gameObject.GetComponent<Rotate>())
