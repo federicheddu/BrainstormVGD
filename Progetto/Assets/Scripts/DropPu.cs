@@ -10,7 +10,7 @@ public class DropPu : MonoBehaviour
     void Start()
     {
         pu1 = GameObject.Find("2xjump");
-        pu2 = GameObject.Find("Soldier");
+        pu2 = GameObject.Find("2xdamage");
         pu3 = GameObject.Find("Cube");
     }
 
