@@ -13,7 +13,7 @@ public class Actions : MonoBehaviour
 
     float AttackDistance = 30f;
     float FollowDistance = 40f;
-    private float AttackProbability = 400f;
+    private float AttackProbability = 330;
     float damage = 10f;
     float timer = 0f;
     bool death = false;

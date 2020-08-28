@@ -17,6 +17,8 @@ TagManager:
   - checkpoint2
   - checkpoint3
   - checkstart
+  - PU_doubledamage
+  - PU_nodamage
   layers:
   - Default
   - TransparentFX
