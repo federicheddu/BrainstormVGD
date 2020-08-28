@@ -17,7 +17,8 @@ public class DeathMenu : MonoBehaviour
 
         foreach(GameObject ui in uisToDisableOnStart)
         {
-            ui.SetActive(false);
+            if(ui != null)
+                ui.SetActive(false);
         }
         toDisableOnStart.gameObject.SetActive(false);
 

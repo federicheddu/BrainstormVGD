@@ -35,6 +35,7 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
+        AudioManager.instance.SetIgnoreShoot(GameIsPaused); // ignoro i suoni di sparo quando è attivo il menù di pausa
     }
 
     public void Resume()
@@ -47,7 +48,8 @@ public class PauseMenu : MonoBehaviour
 
         for(int i=0; i<UisToDisableOnPause.Length; i++)
         {
-            UisToDisableOnPause[i].SetActive(true);
+            if(UisToDisableOnPause[i] != null)
+                UisToDisableOnPause[i].SetActive(true);
         }
 
         if(script != null)
@@ -64,7 +66,8 @@ public class PauseMenu : MonoBehaviour
 
         for (int i = 0; i < UisToDisableOnPause.Length; i++)
         {
-            UisToDisableOnPause[i].SetActive(false);
+            if (UisToDisableOnPause[i] != null)
+                UisToDisableOnPause[i].SetActive(false);
         }
         if (script != null)
         {
@@ -83,6 +86,12 @@ public class PauseMenu : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void ToggleSoundCheckbox()
+    {
+        AudioManager.instance.enabled = !AudioManager.instance.enabled;
+        //AudioManager.instance.gameObject.SetActive(!AudioManager.instance.gameObject.activeSelf);
     }
 
 }

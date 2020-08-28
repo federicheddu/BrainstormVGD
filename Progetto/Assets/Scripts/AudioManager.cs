@@ -12,6 +12,8 @@ public class AudioManager : MonoBehaviour
 
 	public Sound[] sounds;
 
+	public bool ignoreShoot = false;
+
 	void Awake()
 	{
 		if (instance != null)
@@ -50,6 +52,9 @@ public class AudioManager : MonoBehaviour
 
 	public void Play(string sound)
 	{
+		if (ignoreShoot && (sound.Equals("GunShoot") || sound.Equals("GunReload"))) // suoni ignorati quando sono attive le ui
+			return;
+
 		Sound s = Array.Find(sounds, item => item.name == sound);
 		if (s == null)
 		{
@@ -106,5 +111,16 @@ public class AudioManager : MonoBehaviour
 			audioSource.volume -= 0.005f;
 		}
 	}
+
+	public void ToggleIgnoreShoot()
+    {
+		ignoreShoot = !ignoreShoot;
+    }
+
+	public void SetIgnoreShoot(bool v)
+    {
+		ignoreShoot = v;
+    }
+
 
 }
