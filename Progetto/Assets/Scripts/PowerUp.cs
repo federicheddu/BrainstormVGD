@@ -41,25 +41,25 @@ public class PowerUp : MonoBehaviour
             nodamage = false;
     }
 
-    public void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        switch(collision.gameObject.tag)
+        switch (other.gameObject.tag)
         {
             //molla
             case "PU_doublejump":
                 doublejump = true;
                 dj_activation = Time.time;
-                Destroy(collision.gameObject);
+                Destroy(other.gameObject);
                 break;
             case "PU_doubledamage": //amuchina
                 doubledamage = true;
                 dd_activation = Time.time;
-                Destroy(collision.gameObject);
+                Destroy(other.gameObject);
                 break;
             case "PU_nodamage":  // mascherina
                 nodamage = true;
                 dd_activation = Time.time;
-                Destroy(collision.gameObject);
+                Destroy(other.gameObject);
                 break;
             default:
                 break;

@@ -30,6 +30,7 @@ public class CheckPointTeleport : MonoBehaviour
                 tr.position = start.transform.position;
                 break;
         }
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
@@ -47,6 +48,18 @@ public class CheckPointTeleport : MonoBehaviour
         if (collision.transform.tag == "checkpoint3")
             GameSettings.SetCheckpoint(3);
         if (collision.transform.tag == "checkstart")
+            GameSettings.SetCheckpoint(0);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag == "checkpoint1")
+            GameSettings.SetCheckpoint(1);
+        if (other.transform.tag == "checkpoint2")
+            GameSettings.SetCheckpoint(2);
+        if (other.transform.tag == "checkpoint3")
+            GameSettings.SetCheckpoint(3);
+        if (other.transform.tag == "checkstart")
             GameSettings.SetCheckpoint(0);
     }
 
