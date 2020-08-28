@@ -66,4 +66,14 @@ public class StartMenu : MonoBehaviour
                 break;
         }
     }
+
+    public void LoadDialogue(int level) {
+        GameSettings.SetCheckpoint(0);
+        if (level == 1)
+            SceneManager.LoadScene(1); // intro liv1
+        else if (level == 2)
+            SceneManager.LoadScene(3); // intro liv2
+        else if (level == 3)
+            SceneManager.LoadScene(5); // intro liv3
+    }
 }
