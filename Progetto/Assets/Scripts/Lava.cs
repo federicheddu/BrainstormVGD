@@ -11,14 +11,16 @@ public class Lava : MonoBehaviour
     void Start()
     {
       int a = GameSettings.GetCheckpoint();
-      /*  if (a <= 1)
+        if (a == 0)
             transform.position = new Vector3(0, 0, 0);
-        if (a == 2)
+        else if (a == 1)
             transform.position = new Vector3(0, 15, 0);
+        else if (a == 2)
+            transform.position = new Vector3(0, 25, 0);
         else
-            transform.position = new Vector3(0, 25, 0);*/
+            transform.position = new Vector3(0, 40, 0);
 
-        Debug.Log(a);
+        Debug.Log(a + "madonna impanata");
     }
 
     // Update is called once per frame
