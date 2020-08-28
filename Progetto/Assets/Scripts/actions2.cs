@@ -13,7 +13,7 @@ public class actions2 : MonoBehaviour
 
     float AttackDistance = 30f;
     float FollowDistance = 40f;
-    private float AttackProbability = 400f;
+    private float AttackProbability = 330f;
     public float damage = 10f;
     public ParticleSystem muzzleFlash1;
     public ParticleSystem muzzleFlash2;
