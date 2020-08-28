@@ -34,8 +34,7 @@ public class DeathMenu : MonoBehaviour
 
     private void RestartLevel(int checkpoint)
     {
-        // set del checkpoint
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // reload della stessa scena
+        StartMenu.LoadLevel(GameObject.FindGameObjectWithTag("Player").gameObject, GameSettings.GetLevel(), checkpoint);
     }
 
     public void RestartLevel()
@@ -45,9 +44,7 @@ public class DeathMenu : MonoBehaviour
 
     public void RestartLevelFromLastCheckpoint()
     {
-        int c = -3;
-        // c = l'ultimo checkpoint
-        RestartLevel(c);
+        RestartLevel(GameSettings.GetCheckpoint());
     }
 
 

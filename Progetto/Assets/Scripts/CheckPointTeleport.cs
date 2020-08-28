@@ -8,10 +8,13 @@ public class CheckPointTeleport : MonoBehaviour
     public GameObject start, check1, check2, check3;
     public Transform tr;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
         tr = GetComponent<Transform>();
+        GameSettings.SetLevelFromIndex(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex); // Questa riga in realtà nella build non serve. La terremo comunque per quando avviamo la scena su unity
         switch(GameSettings.GetCheckpoint())
         {
             case 1:

@@ -25,6 +25,7 @@ public class GameSettings : MonoBehaviour
         {
             PlayerPrefs.SetInt("checkpoint", checkpoint);
             PlayerPrefs.Save();
+            Debug.Log("Checkpoint: " + GetCheckpoint().ToString());
         }
     }
 
@@ -75,6 +76,16 @@ public class GameSettings : MonoBehaviour
     {
         PlayerPrefs.SetInt("weapon", weapon);
         PlayerPrefs.Save();
+    }
+
+    public static void SetLevelFromIndex(int index)
+    {
+        if (index == 2)
+            SetLevel(1);
+        if (index == 4)
+            SetLevel(2);
+        if (index == 6)
+            SetLevel(3);
     }
 
 }

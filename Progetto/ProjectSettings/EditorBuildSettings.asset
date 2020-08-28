@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Introduction To First Level.unity
     guid: d83d77386361f48ec91c25d715817baf
   - enabled: 1
-    path: Assets/Scenes/ProvaLivelloScrivania/ProvaLivelloScrivania.unity
-    guid: 5fab0d1d228b3c94f9b7aa587f40aa96
+    path: Assets/Scenes/LivelloCamera.unity
+    guid: 54d03fd26bfa84381bdcc9a19ec8c8d4
   - enabled: 1
     path: Assets/Scenes/Introduction To Second Level.unity
     guid: d00f79ad875e443128a9149ac083e086
@@ -24,8 +24,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Introduction To Third Level.unity
     guid: 5314fca7263b6419cbd8548440a6490f
   - enabled: 1
-    path: Assets/Scenes/Livello Castello.unity
-    guid: 0a713ecde31cb5a449cdb3ab7068c456
+    path: Assets/Sun_Temple/Scenes/Demo Scene.unity
+    guid: d8f213b28287d8b4dab42cf4a34f94e5
   - enabled: 1
     path: Assets/Scenes/Closing Scene.unity
     guid: 9704b3136191f468099568d34f03c0bb

@@ -23,77 +23,30 @@ public class StartMenu : MonoBehaviour
         Application.Quit();
     }
 
-
     public void FirstLevel(int checkpoint)
     {
         GameSettings.SetLevel(1);
-        switch (checkpoint)
-        {
-            case 0: // Caso in cui venga premuto play e nessun checkpoint
-                GameSettings.SetCheckpoint(1);
-                SceneManager.LoadScene(1);
-                break;
-            case 1:
-                GameSettings.SetCheckpoint(1);
-                SceneManager.LoadScene(2);
-                break;
-            case 2:
-                GameSettings.SetCheckpoint(2);
-                SceneManager.LoadScene(2);
-                break;
-            case 3:
-                GameSettings.SetCheckpoint(3);
-                SceneManager.LoadScene(2);
-                break;
-        }
-
+        if (checkpoint < 0 || checkpoint > 3)
+            checkpoint = 0;
+        GameSettings.SetCheckpoint(checkpoint);
+        SceneManager.LoadScene(2);
     }
     public void SecondLevel(int checkpoint)
     {
         GameSettings.SetLevel(2);
-        switch (checkpoint)
-        {
-            case 0: // Caso in cui venga premuto play e nessun checkpoint
-                GameSettings.SetCheckpoint(0);
-                SceneManager.LoadScene(3); // Introduzione secondo livello
-                break;
-            case 1:
-                GameSettings.SetCheckpoint(1); // Il livello parte dall'inizio senza introduzione
-                SceneManager.LoadScene(4);
-                break;
-            case 2:
-                GameSettings.SetCheckpoint(2); // Il livello parte dal primo checkpoint
-                SceneManager.LoadScene(4);
-                break;
-            case 3:
-                GameSettings.SetCheckpoint(3); // Il livello parte dal secondo checkpoint
-                SceneManager.LoadScene(4);
-                break;
-        }
+        if (checkpoint < 0 || checkpoint > 3)
+            checkpoint = 0;
+        GameSettings.SetCheckpoint(checkpoint);
+        SceneManager.LoadScene(4);
 
     }
     public void ThirdLevel(int checkpoint)
     {
         GameSettings.SetLevel(3);
-        switch (checkpoint)
-        {
-            case 0: // Caso in cui venga premuto play e nessun checkpoint
-                GameSettings.SetCheckpoint(0);
-                SceneManager.LoadScene(5);
-                break;
-            case 1:
-                GameSettings.SetCheckpoint(1);
-                SceneManager.LoadScene(6);
-                break;
-            case 2:
-                GameSettings.SetCheckpoint(2);
-                SceneManager.LoadScene(6);
-                break;
-            case 3: // Lotta boss finale
-                GameSettings.SetCheckpoint(3);
-                SceneManager.LoadScene(6);
-                break;
-        }
+        if (checkpoint < 0 || checkpoint > 3)
+            checkpoint = 0;
+        GameSettings.SetCheckpoint(checkpoint);
+        SceneManager.LoadScene(6);
     }
 
     // Metodo utile se da un gameobject qualunque si vuole passare ad un'altra scena

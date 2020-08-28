@@ -82,11 +82,11 @@ public class IntroductionSceneController : MonoBehaviour
         }
         else
         {
-            StartMenu.LoadLevel(gameObject, GetLevelIndex(nextScene), 1);
+            StartMenu.LoadLevel(gameObject, GetIndexFromLevel(nextScene), 0);
         }
     }
 
-    public int GetLevelIndex(Level l)
+    public int GetIndexFromLevel(Level l)
     {
         switch (l)
         {
