@@ -26,7 +26,7 @@ public class Lava : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y < 49)
+        if (transform.position.y < 64)
             transform.Translate(new Vector3(0, 1, 0) * speed * Time.deltaTime);
 
         transform.Rotate(new Vector3(0, 1, 0) * rotationSpeed1 * Time.deltaTime, Space.Self);
@@ -36,12 +36,10 @@ public class Lava : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("DIOC");
         Transform nemico = other.transform;
         TargetLink targetLink = nemico.GetComponent<TargetLink>();
         if (targetLink != null)
         {
-            Debug.Log("DIOCA");
             Target targetNemico = targetLink.target;
             targetNemico.TakeDamage(100000);
         }
