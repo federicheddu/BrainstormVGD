@@ -11,7 +11,7 @@ public class DropPu : MonoBehaviour
     {
         pu1 = GameObject.Find("2xjump");
         pu2 = GameObject.Find("2xdamage");
-        pu3 = GameObject.Find("Cube");
+        pu3 = GameObject.Find("NoDamage");
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class DropPu : MonoBehaviour
                 Instantiate(pu2, transform.position + new Vector3(0, 0.5f, 0), transform.rotation);
                 break;
             case 3:
-                Instantiate(pu3, transform.position + new Vector3(0, 0.5f, 0), transform.rotation);
+                Instantiate(pu3, transform.position + new Vector3(0, 1f, 0), transform.rotation);
                 break;
             default:
                 int doom = Random.Range(1, 100);
@@ -45,7 +45,7 @@ public class DropPu : MonoBehaviour
                 }
                 else if (doom <= 21)
                 {
-                    Instantiate(pu3, transform.position + new Vector3(0, 0.5f, 0), transform.rotation);
+                    Instantiate(pu3, transform.position + new Vector3(0, 1f, 0), transform.rotation);
                 }
                 else break;
                     
