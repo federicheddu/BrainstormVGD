@@ -17,4 +17,17 @@ public class ventola : MonoBehaviour
     {
         transform.Rotate(new Vector3(0, 0, 1) * rotationSpeed1 * Time.deltaTime, Space.Self);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+        Transform nemico = collision.gameObject.transform;
+        TargetLink targetLink = nemico.GetComponent<TargetLink>();
+        if (targetLink != null)
+        {
+            Target targetNemico = targetLink.target;
+            targetNemico.TakeDamage(100000);
+        }
+    }
+    
 }
