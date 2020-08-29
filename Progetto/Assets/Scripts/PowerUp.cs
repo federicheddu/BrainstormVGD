@@ -25,7 +25,7 @@ public class PowerUp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        doublejump = true;
+        doublejump = false;
         doubledamage = false;
         nodamage = false;
     }
@@ -58,7 +58,7 @@ public class PowerUp : MonoBehaviour
                 break;
             case "PU_nodamage":  // mascherina
                 nodamage = true;
-                dd_activation = Time.time;
+                nd_activation = Time.time;
                 Destroy(other.gameObject);
                 break;
             default:
