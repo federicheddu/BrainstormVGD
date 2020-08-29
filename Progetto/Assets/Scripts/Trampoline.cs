@@ -21,6 +21,7 @@ public class Trampoline : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            AudioManager.instance.Play("Jump");
             collision.transform.GetComponent<Rigidbody>().AddForce(transform.up * power);
         }
     }

@@ -51,7 +51,7 @@ public class Target : MonoBehaviour
         // - i nemici NON devono avere il component powerup
         // - non sono nello stesso if per non fare nullpointerexception nel caso dei nemici
         if (pu != null)
-            if (pu.nodamage)
+            if (pu.nodamage && damage != 100000)
                 return;
 
         //il boss non prende danno se esiste ancora la corona tra i suoi figli
