@@ -19,6 +19,10 @@ TagManager:
   - checkstart
   - PU_doubledamage
   - PU_nodamage
+  - gun
+  - pistol
+  - assault
+  - lmg
   layers:
   - Default
   - TransparentFX
