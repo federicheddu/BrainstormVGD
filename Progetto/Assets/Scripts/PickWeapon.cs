@@ -13,7 +13,7 @@ public class PickWeapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        switch (GunType.Pistol)
+        switch (GameSettings.GetWeapon())
         {
             case GunType.Pistol:
                 pistol.SetActive(true);
@@ -37,40 +37,42 @@ public class PickWeapon : MonoBehaviour
     void Update()
     {
         RaycastHit hit;
+        canPick = false;
         if (Physics.Raycast(camera.position, camera.forward, out hit, range))
         {
+            string tag = hit.transform.tag;
+            if (tag == "pistol" || tag == "assault" || tag == "lmg")
+                canPick = true;
+            else
+                return;
 
-            Gun gun = hit.transform.GetComponent<Gun>();
-            if (gun == null) return;
-
-
-            canPick = true;
             if (Input.GetKeyDown(KeyCode.F))
             {
-                switch(hit.transform.GetComponent<Gun>().gunType)
+                switch(hit.transform.tag)
                 {
-                    case GunType.Pistol:
+                    case "pistol":
                         pistol.SetActive(true);
                         assault.SetActive(false);
-                        lmg.SetActive(false); 
+                        lmg.SetActive(false);
+                        GameSettings.SetWeapon(GunType.Pistol);
                         break;
-                    case GunType.Assault:
+                    case "assault":
                         assault.SetActive(true);
                         pistol.SetActive(false);
                         lmg.SetActive(false);
+                        GameSettings.SetWeapon(GunType.Assault);
                         break;
-                    case GunType.LMG:
+                    case "lmg":
                         lmg.SetActive(true);
                         pistol.SetActive(false);
                         assault.SetActive(false);
+                        GameSettings.SetWeapon(GunType.LMG);
                         break;
                 }
 
                 Destroy(hit.transform.gameObject);
             }
         }
-        else
-            canPick = false;
     }
 
     public GunType getCurrentWeapon()

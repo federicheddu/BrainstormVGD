@@ -127,7 +127,7 @@ public class Gun : MonoBehaviour
 
         //ricarca automatica
         if (Input.GetKeyDown("r") && bulletsFired > 0)
-            StartCoroutine(Reload(2));
+            StartCoroutine(Reload(2f));
     }
 
     IEnumerator ReloadSound()

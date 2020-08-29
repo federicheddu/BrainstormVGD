@@ -27,7 +27,7 @@ public class SaveSlotController : MonoBehaviour
         save = new GameData(
             GameSettings.GetLevel(),
             GameSettings.GetCheckpoint(),
-            (int) GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PickWeapon>().getCurrentWeapon()
+            GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PickWeapon>().getCurrentWeapon()
         );
         // Aggiorno lo slot
         SaveSystem.SaveGame(save, slotIndex);
@@ -54,7 +54,7 @@ public class SaveSlotController : MonoBehaviour
             level.text = save.level.ToString();
             checkpoint.text = save.checkpoint.ToString();
             string[] weapons = new string[] { "Pistol", "Assault", "LMG", "No Weapon"};
-            weapon.text = weapons[save.weapon];
+            weapon.text = weapons[(int)save.weapon];
         }
     }
 }

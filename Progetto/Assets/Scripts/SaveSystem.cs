@@ -15,7 +15,7 @@ public static class SaveSystem
         FileStream stream = new FileStream(path, FileMode.OpenOrCreate);
 
         if (gameData == null)
-            gameData = new GameData(0, 0, 0);
+            gameData = new GameData(0, 0, GunType.None);
 
         formatter.Serialize(stream, gameData);
         stream.Close();

@@ -29,7 +29,7 @@ public class LoadGameSlotController : MonoBehaviour
             levelText.text = save.level.ToString();
             checkpointText.text = save.checkpoint.ToString();
             string[] weapons = new string[] { "Pistol", "Assault", "LMG", "No Weapon" };
-            weaponText.text = weapons[save.weapon];
+            weaponText.text = weapons[(int)save.weapon];
         }
 
     }

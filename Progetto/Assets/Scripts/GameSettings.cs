@@ -68,13 +68,25 @@ public class GameSettings : MonoBehaviour
         return PlayerPrefs.GetInt("checkpoint", 0);
     }
 
-    public static int GetWeapon()
+    public static GunType GetWeapon()
     {
-        return PlayerPrefs.GetInt("weapon", 3);
+        switch(PlayerPrefs.GetInt("weapon",3))
+        {
+            case 0: return GunType.Pistol;
+            case 1: return GunType.Assault;
+            case 2: return GunType.LMG;
+            default: return GunType.None;
+        }
     }
-    public static void SetWeapon(int weapon)
+    public static void SetWeapon(GunType weapon)
     {
-        PlayerPrefs.SetInt("weapon", weapon);
+        switch (weapon)
+        {
+            case GunType.Pistol: PlayerPrefs.SetInt("weapon", 0); break;
+            case GunType.Assault: PlayerPrefs.SetInt("weapon", 1); break;
+            case GunType.LMG: PlayerPrefs.SetInt("weapon", 2); break;
+            default: PlayerPrefs.SetInt("weapon",3); break;
+        }
         PlayerPrefs.Save();
     }
 
