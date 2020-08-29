@@ -29,7 +29,7 @@ public class StartMenu : MonoBehaviour
         if (checkpoint < 0 || checkpoint > 3)
             checkpoint = 0;
         GameSettings.SetCheckpoint(checkpoint);
-        SceneManager.LoadScene(2);
+        LoadScene(2);
     }
     public void SecondLevel(int checkpoint)
     {
@@ -37,8 +37,7 @@ public class StartMenu : MonoBehaviour
         if (checkpoint < 0 || checkpoint > 3)
             checkpoint = 0;
         GameSettings.SetCheckpoint(checkpoint);
-        SceneManager.LoadScene(4);
-
+        LoadScene(4);
     }
     public void ThirdLevel(int checkpoint)
     {
@@ -46,7 +45,7 @@ public class StartMenu : MonoBehaviour
         if (checkpoint < 0 || checkpoint > 3)
             checkpoint = 0;
         GameSettings.SetCheckpoint(checkpoint);
-        SceneManager.LoadScene(6);
+        LoadScene(6);
     }
 
     // Metodo utile se da un gameobject qualunque si vuole passare ad un'altra scena
@@ -70,10 +69,16 @@ public class StartMenu : MonoBehaviour
     public void LoadDialogue(int level) {
         GameSettings.SetCheckpoint(0);
         if (level == 1)
-            SceneManager.LoadScene(1); // intro liv1
+            LoadScene(1); // intro liv1
         else if (level == 2)
-            SceneManager.LoadScene(3); // intro liv2
+            LoadScene(3); // intro liv2
         else if (level == 3)
-            SceneManager.LoadScene(5); // intro liv3
+            LoadScene(5); // intro liv3
+    }
+
+    private void LoadScene(int index)
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(index);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
+    public bool GameIsPaused = false;
  
     public KeyCode keyToPressToPause = KeyCode.Escape;
     public GameObject pauseMenuUI;
@@ -17,6 +17,7 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1f;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if(player != null)
         {
