@@ -153,3 +153,13 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: 547fca9dff1f05548b573f65c1c3b7b3, type: 3}
+    volume: 0.5
+    volumeVariance: 0
+    pitch: 1.1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  ignoreShoot: 0
