@@ -25,7 +25,7 @@ public class PowerUp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        doublejump = true;
+        doublejump = false;
         doubledamage = false;
         nodamage = false;
     }
