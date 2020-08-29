@@ -122,5 +122,11 @@ public class AudioManager : MonoBehaviour
 		ignoreShoot = v;
     }
 
-
+	public void StopMusicMenu()
+    {
+		StopPlaying("MusicLiv1");
+		StopPlaying("MusicLiv2");
+		StopPlaying("MusicLiv3");
+		StopPlaying("MusicBoss");
+	}
 }
