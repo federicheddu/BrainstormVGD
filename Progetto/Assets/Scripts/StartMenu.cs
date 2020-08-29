@@ -23,6 +23,16 @@ public class StartMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void Start()
+    {
+        GameObject manager = GameObject.Find("AudioManager");
+        if(manager != null)
+        {
+            manager.GetComponent<AudioManager>().StopMusicMenu();
+        }
+        
+    }
+
     public void FirstLevel(int checkpoint)
     {
         GameSettings.SetLevel(1);
