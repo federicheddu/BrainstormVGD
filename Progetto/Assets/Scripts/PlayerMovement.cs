@@ -166,6 +166,7 @@ public class PlayerMovement : MonoBehaviour
         //salto
         if (doubleJumpPrevFrame != pu.doublejump)
             doubleJump = pu.doublejump;
+        doubleJumpPrevFrame = pu.doublejump;
 
         if (key_jump)
             jump();
