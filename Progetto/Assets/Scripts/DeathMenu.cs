@@ -25,16 +25,24 @@ public class DeathMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
+
+
+        AudioManager.instance.SetIgnoreShoot(true);
+
     }
 
     // Update is called once per frame
     public void Menu()
     {
+        AudioManager.instance.SetIgnoreShoot(false);
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 
     private void RestartLevel(int checkpoint)
     {
+        AudioManager.instance.SetIgnoreShoot(false);
+        Time.timeScale = 1f;
         StartMenu.LoadLevel(GameObject.FindGameObjectWithTag("Player").gameObject, GameSettings.GetLevel(), checkpoint);
     }
 
