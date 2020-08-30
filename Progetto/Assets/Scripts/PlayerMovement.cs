@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public float walkSpeed, runSpeed, walkCap, runCap;      //fattori moviemento orizzontale
     public bool grounded;
     private bool doubleJump = false;
+    private bool doubleJumpPrevFrame = false;
 
     //salto e wallride
     private Vector3 groundNormal;
@@ -163,6 +164,10 @@ public class PlayerMovement : MonoBehaviour
         CounterMovement(direction.x, direction.z, new Vector2(rb.velocity.x, rb.velocity.z));
 
         //salto
+        if (doubleJumpPrevFrame != pu.doublejump)
+            doubleJump = pu.doublejump;
+        doubleJumpPrevFrame = pu.doublejump;
+
         if (key_jump)
             jump();
 
@@ -203,7 +208,7 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(transform.TransformVector(direction), ForceMode.Impulse);*/// ho commentato questa parte perchè il personaggio rimaneva incastrato sui muri M.S
 
         if (groundNormal.y > 0.5)
-            rb.AddForce(transform.TransformVector(new Vector3(force_x, (1 - groundNormal.y) * antiInclinazione, force_z)), ForceMode.Impulse);
+            rb.AddForce(transform.TransformVector(new Vector3(force_x, (1 - groundNormal.y) * antiInclinazione * 0.5f, force_z)), ForceMode.Impulse);
         else
             rb.AddForce(transform.TransformVector(new Vector3(force_x, 0, force_z)), ForceMode.Impulse);
         //Ho risolto temporaneamente il problema dell'inclinazione in questa maniera
