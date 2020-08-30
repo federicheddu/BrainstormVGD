@@ -9,7 +9,7 @@ public class Rotate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (transform.tag == "PU_doublejump" || transform.tag == "PU_doubledamage" || transform.tag == "PU_nodamage" || transform.tag == "gun")
+        if (transform.tag == "PU_doublejump" || transform.tag == "PU_doubledamage" || transform.tag == "PU_nodamage" || transform.tag == "pistol" || transform.tag == "assault" || transform.tag == "lmg")
             rotate = true;
     }
 
