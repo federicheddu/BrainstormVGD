@@ -24,7 +24,6 @@ public class SpawnEnemis : MonoBehaviour
                 //caso nemici debbano comparire
                 if (!enemies[0].activeSelf)
                 {
-
                     foreach (GameObject enemy in enemies)
                     {
                         enemy.SetActive(true);

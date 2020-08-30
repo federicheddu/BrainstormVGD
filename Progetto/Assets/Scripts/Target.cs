@@ -55,7 +55,7 @@ public class Target : MonoBehaviour
                 return;
 
         //il boss non prende danno se esiste ancora la corona tra i suoi figli
-        if (gameObject.name == "Coronavirus2_hipoly" && gameObject.transform.GetChild(1).name == "Crown")
+        if (gameObject.name == "Coronavirus2_hipoly" && (gameObject.transform.Find("Crown") || gameObject.transform.Find("Crown Variant").gameObject.activeInHierarchy)) //GetChild(1).name == "Crown")
             return;
 
         //controllo per vedere se il proprietario di target muore
@@ -88,6 +88,11 @@ public class Target : MonoBehaviour
         }
         else
         { 
+            //caso clone corona
+            if(gameObject.name == "Crown Variant")
+            {
+                gameObject.SetActive(false);
+            }else 
             // caso sia robot attack
             if (gameObject.GetComponent<actions2>())
             {
@@ -102,7 +107,7 @@ public class Target : MonoBehaviour
             }else if (gameObject.GetComponent<Rotate>())
             {
                 Destroy(transform.parent.gameObject);
-                manager.GetComponent<AudioManager>().Victory();
+                //manager.GetComponent<AudioManager>().Victory();
             }
             else if(gameObject.tag != "Player")
                 Destroy(gameObject);
