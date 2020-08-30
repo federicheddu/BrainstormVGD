@@ -257,8 +257,10 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 jumpDirection = Vector3.zero;
 
-        if (grounded)
+        if (grounded && groundNormal.y < 0.19)
             jumpDirection = groundNormal + Vector3.up;
+        else
+            jumpDirection = new Vector3(0,1,0) + Vector3.up;
 
         if (!grounded && doubleJump)
         {
