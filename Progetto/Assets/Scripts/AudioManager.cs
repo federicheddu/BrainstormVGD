@@ -2,7 +2,8 @@ using UnityEngine.Audio;
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+// dal video https://www.youtube.com/watch?v=6OT43pvUyfY&t=662s&pp=qAMBugMGCgJpdBAB
+// http://old.brackeys.com/wp-content/FilesForDownload/AudioManager.zip
 public class AudioManager : MonoBehaviour
 {
 
