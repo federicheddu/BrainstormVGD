@@ -12,7 +12,7 @@ public class GrapplingGun : MonoBehaviour
     public Transform gunTip;
     public Transform camera;
     public Transform player;
-    public float maxDistance = 100f;
+    private float maxDistance = 80f;
 
     private void Awake()
     {
