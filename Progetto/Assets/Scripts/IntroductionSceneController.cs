@@ -82,7 +82,7 @@ public class IntroductionSceneController : MonoBehaviour
             Application.Quit();
         }
         else
-        {
+        {/*
             if (manager != null)
             {
                 
@@ -97,7 +97,7 @@ public class IntroductionSceneController : MonoBehaviour
                     AudioManager.instance.Play("MusicLiv3");
                     //AudioManager.instance.Play("MusicLiv3");
                 }
-            }
+            }*/
                 
             StartMenu.LoadLevel(gameObject, GetIndexFromLevel(nextScene), 0);
         }

@@ -26,18 +26,7 @@ public class AudioManager : MonoBehaviour
 			instance = this;
 			//DontDestroyOnLoad(gameObject);
 		}
-		if(GameObject.Find("DontDestroyOnload"))
-        {
-			if (SceneManager.GetActiveScene().name == "New Scene")
-			{
-				Play("MusicLiv2");
-			}
-			else if (SceneManager.GetActiveScene().name == "SampleScene" || SceneManager.GetActiveScene().name == "Livello Castello"
-				|| SceneManager.GetActiveScene().name == "Demo Scene")
-			{
-				Play("MusicLiv3");
-			}
-		}
+		
 		foreach (Sound s in sounds)
 		{
 			s.source = gameObject.AddComponent<AudioSource>();

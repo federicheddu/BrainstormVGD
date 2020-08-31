@@ -43,6 +43,7 @@ public class DeathMenu : MonoBehaviour
     {
         AudioManager.instance.SetIgnoreShoot(false);
         Time.timeScale = 1f;
+        /*
         if (SceneManager.GetActiveScene().name == "New Scene")
         {
             AudioManager.instance.Play("MusicLiv2");
@@ -52,6 +53,7 @@ public class DeathMenu : MonoBehaviour
         {
             AudioManager.instance.Play("MusicLiv3");
         }
+        */
         StartMenu.LoadLevel(GameObject.FindGameObjectWithTag("Player").gameObject, GameSettings.GetLevel(), checkpoint);
     }
 
