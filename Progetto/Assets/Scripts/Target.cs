@@ -71,9 +71,9 @@ public class Target : MonoBehaviour
         {
             animator.SetTrigger("Death");
             gameObject.GetComponent<Actions>().SetDeath();
-            Destroy(gameObject, 2);
             AudioManager.instance.Play("DeathHuman");
             gameObject.GetComponent<DropPu>().Drop();
+            Destroy(gameObject, 2);
         }
         else if (gameObject.tag == "BossShooter")
             //caso siano lo shooter
