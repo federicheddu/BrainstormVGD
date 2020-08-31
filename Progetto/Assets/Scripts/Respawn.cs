@@ -17,6 +17,7 @@ public class Respawn : MonoBehaviour
     {
         if (other.tag == "Player") {
             player.transform.position = respwanPoint.transform.position;
+            player.transform.rotation = respwanPoint.transform.rotation;
             player.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0); 
         }
     }
