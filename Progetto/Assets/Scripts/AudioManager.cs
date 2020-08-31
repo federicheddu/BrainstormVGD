@@ -140,13 +140,4 @@ public class AudioManager : MonoBehaviour
 	{
 		Play("MusicLiv3");
 	}
-
-	public void SetVolume(float volume)
-    {
-		AudioSource[] sources = GetComponents<AudioSource>();
-		foreach (AudioSource audioSource in sources)
-		{
-			audioSource.volume = volume;
-		}
-	}
 }
