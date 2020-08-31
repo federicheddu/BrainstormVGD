@@ -79,26 +79,10 @@ public class IntroductionSceneController : MonoBehaviour
         // Caricamento livello
         if(nextScene == Level.None)
         {
-            Application.Quit();
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         }
         else
-        {/*
-            if (manager != null)
-            {
-                
-                if (nextScene == Level.Lava)
-                {
-                    manager.GetComponent<AudioManager>().Lava();
-                    AudioManager.instance.Play("MusicLiv2");
-                    Debug.Log("AAAAAAAA");//AudioManager.instance.Play("MusicLiv2");
-                }else if (nextScene == Level.Castle)
-                {
-                    manager.GetComponent<AudioManager>().Castle();
-                    AudioManager.instance.Play("MusicLiv3");
-                    //AudioManager.instance.Play("MusicLiv3");
-                }
-            }*/
-                
+        {                
             StartMenu.LoadLevel(gameObject, GetIndexFromLevel(nextScene), 0);
         }
     }
