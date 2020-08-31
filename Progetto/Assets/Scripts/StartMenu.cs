@@ -89,7 +89,21 @@ public class StartMenu : MonoBehaviour
     private void LoadScene(int index)
     {
         Time.timeScale = 1f;
-        //quaaa
+        if(AudioManager.instance != null)
+        {
+            if (index == 2)
+            {
+                AudioManager.instance.Play("MusicLiv1");
+            }
+            else if (index == 4)
+            {
+                AudioManager.instance.Play("MusicLiv2");
+            }
+            else if (index == 6)
+            {
+                AudioManager.instance.Play("MusicLiv3");
+            }
+        }
         SceneManager.LoadScene(index);
         
     }
