@@ -6,43 +6,69 @@ using UnityEngine.UI;
 public class BossesLivesSetter : MonoBehaviour
 {
     public Target[] target;
+    public GameObject[] toActivateOnWin;
 
     private Slider slider;
-    private Text text;
-    private float bossesTotalLife;
+    private Text lifeText;
+    private float bossesMaxLife, life;
 
     // Start is called before the first frame update
     void Start()
     {
-        slider = GetComponent<Slider>();
-        text = GetComponentInChildren<Text>();
-        bossesTotalLife = 0f;
-        foreach(Target t in target)
-        {
-            bossesTotalLife += t.maxHealt;
-        }
-        slider.maxValue = bossesTotalLife;
+        slider = GetComponentInChildren<Slider>();
+        lifeText = GetComponentInChildren<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float life = 0f;
-        foreach(Target t in target)
+        life = 0f;
+        bossesMaxLife = 0f;
+
+        Target[] activeBosses = GetActiveBosses();
+        Debug.Log("Active bosses:" + activeBosses);
+
+        foreach (Target t in activeBosses)
         {
-            if(t != null)
+            bossesMaxLife += t.maxHealt;
+            life += t.health;
+        }
+
+        lifeText.text = slider.value.ToString();
+        if (activeBosses.Length == target.Length && life == 0f)
+        {
+            foreach (GameObject g in toActivateOnWin)
             {
-                life += t.health;
+                if (g != null)
+                    g.SetActive(true);
+            }
+            AudioManager am = AudioManager.instance;
+            if (am != null)
+            {
+                am.Victory();
+                Destroy(gameObject);
             }
         }
-        if(life > 0)
+    }
+
+    private Target[] GetActiveBosses()
+    {
+        List<Target> activeBosses = new List<Target>();
+        foreach (Target t in target)
         {
-            slider.value = life;
-            text.text = (slider.value.ToString() + "   ").Substring(0, 3);
+            if (t != null && t.gameObject.activeInHierarchy)
+                activeBosses.Add(t);
         }
-        else
+        Debug.Log("Active bosses:" + activeBosses);
+        return activeBosses.ToArray();
+    }
+
+    public void SetVolume(float volume)
+    {
+        AudioSource[] sources = GetComponents<AudioSource>();
+        foreach (AudioSource audioSource in sources)
         {
-            Destroy(gameObject);
+            audioSource.volume = volume;
         }
     }
 
