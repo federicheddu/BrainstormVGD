@@ -5146,7 +5146,7 @@ RectTransform:
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.001}
   m_Children: []
   m_Father: {fileID: 1351507549}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -117.811005, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -27758,7 +27758,7 @@ RectTransform:
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.001}
   m_Children: []
   m_Father: {fileID: 1351507549}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -75.692, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -29748,6 +29748,85 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9893c70cb3e856c46a3d0f0fb61eb1f7, type: 3}
+--- !u!1 &1047271143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1047271144}
+  - component: {fileID: 1047271146}
+  - component: {fileID: 1047271145}
+  m_Layer: 5
+  m_Name: Reach the green ball
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1047271144
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047271143}
+  m_LocalRotation: {x: -0.0002145581, y: -0.69654024, z: 0.010494126, w: 0.717441}
+  m_LocalPosition: {x: 0, y: 0, z: -37.488}
+  m_LocalScale: {x: 0.04, y: 0.04, z: 0.00898986}
+  m_Children: []
+  m_Father: {fileID: 1351507549}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.82, y: -88.3, z: 0.88}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.691, y: 2.58}
+  m_SizeDelta: {x: 130.115, y: 71.993}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1047271145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047271143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 070a011594a264f8ea120f695fc7e2f5, type: 3}
+    m_FontSize: 3
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Reach the
+
+    green ball'
+--- !u!222 &1047271146
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047271143}
+  m_CullTransparentMesh: 0
 --- !u!1001 &1052921525
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37034,6 +37113,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1047271144}
   - {fileID: 1822576693}
   - {fileID: 2142105223}
   - {fileID: 989003481}
@@ -48631,7 +48711,7 @@ RectTransform:
   m_LocalScale: {x: 0.009, y: 0.009, z: 0.001}
   m_Children: []
   m_Father: {fileID: 1351507549}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -8.295, y: 160.79001, z: 7.3810005}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -57885,7 +57965,7 @@ RectTransform:
   m_LocalScale: {x: 0.009, y: 0.009, z: 0.001}
   m_Children: []
   m_Father: {fileID: 1351507549}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -8.295, y: 160.79001, z: 7.3810005}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
