@@ -48,7 +48,8 @@ public class PickWeapon : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F))
             {
-                switch(hit.transform.tag)
+                AudioManager.instance.Play("PickGun");
+                switch (hit.transform.tag)
                 {
                     case "pistol":
                         pistol.SetActive(true);
