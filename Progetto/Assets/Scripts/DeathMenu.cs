@@ -25,8 +25,6 @@ public class DeathMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-
-
         AudioManager.instance.SetIgnoreShoot(true);
 
     }
@@ -41,19 +39,10 @@ public class DeathMenu : MonoBehaviour
 
     private void RestartLevel(int checkpoint)
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         AudioManager.instance.SetIgnoreShoot(false);
         Time.timeScale = 1f;
-        /*
-        if (SceneManager.GetActiveScene().name == "New Scene")
-        {
-            AudioManager.instance.Play("MusicLiv2");
-        }
-        else if (SceneManager.GetActiveScene().name == "SampleScene" || SceneManager.GetActiveScene().name == "Livello Castello"
-            || SceneManager.GetActiveScene().name == "Demo Scene")
-        {
-            AudioManager.instance.Play("MusicLiv3");
-        }
-        */
         StartMenu.LoadLevel(GameObject.FindGameObjectWithTag("Player").gameObject, GameSettings.GetLevel(), checkpoint);
     }
 
