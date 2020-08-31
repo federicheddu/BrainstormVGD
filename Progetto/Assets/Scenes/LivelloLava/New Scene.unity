@@ -31161,6 +31161,8 @@ MonoBehaviour:
   walkCap: 10
   runCap: 18
   grounded: 0
+  doubleJump: 0
+  doubleJumpPrevFrame: 0
   jumpPower: 8
   airCorrection: 5
   maxAirSpeed: 10
@@ -31266,6 +31268,9 @@ MonoBehaviour:
   check1: {fileID: 125792912}
   check2: {fileID: 775673922}
   check3: {fileID: 1075883533}
+  pistol: {fileID: 1518946930}
+  assault: {fileID: 2054379787}
+  lmg: {fileID: 1011960550}
   tr: {fileID: 1552101311}
 --- !u!4 &1552927128 stripped
 Transform:
