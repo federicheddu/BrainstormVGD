@@ -38,6 +38,7 @@ public class StartMenu : MonoBehaviour
         GameSettings.SetLevel(1);
         if (checkpoint < 0 || checkpoint > 3)
             checkpoint = 0;
+        if (checkpoint == 0) GameSettings.SetWeapon(GunType.None);
         GameSettings.SetCheckpoint(checkpoint);
         LoadScene(2);
     }
@@ -46,6 +47,7 @@ public class StartMenu : MonoBehaviour
         GameSettings.SetLevel(2);
         if (checkpoint < 0 || checkpoint > 3)
             checkpoint = 0;
+        if (checkpoint == 0) GameSettings.SetWeapon(GunType.None);
         GameSettings.SetCheckpoint(checkpoint);
         LoadScene(4);
     }
@@ -54,6 +56,7 @@ public class StartMenu : MonoBehaviour
         GameSettings.SetLevel(3);
         if (checkpoint < 0 || checkpoint > 3)
             checkpoint = 0;
+        if (checkpoint == 0) GameSettings.SetWeapon(GunType.None);
         GameSettings.SetCheckpoint(checkpoint);
         LoadScene(6);
     }
