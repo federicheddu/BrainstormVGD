@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossFightFinished : MonoBehaviour
 {
@@ -14,6 +15,20 @@ public class BossFightFinished : MonoBehaviour
             {
                 g.SetActive(false);
             }
+        }
+
+        AudioManager am = AudioManager.instance;
+        if (am != null)
+        {
+            am.Victory();
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            SceneManager.LoadScene(7);
         }
     }
 }
