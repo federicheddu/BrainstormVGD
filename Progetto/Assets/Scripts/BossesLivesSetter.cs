@@ -45,14 +45,6 @@ public class BossesLivesSetter : MonoBehaviour
                 if (g != null)
                     g.SetActive(true);
             }
-
-            StartCoroutine(LastLevel());
-
-            AudioManager am = AudioManager.instance;
-            if (am != null)
-            {
-                am.Victory();
-            }
         }
     }
 
@@ -75,12 +67,5 @@ public class BossesLivesSetter : MonoBehaviour
         {
             audioSource.volume = volume;
         }
-    }
-
-
-    IEnumerator LastLevel()
-    {
-        yield return new WaitForSeconds(2f);
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
