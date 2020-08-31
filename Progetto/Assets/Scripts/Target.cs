@@ -106,7 +106,8 @@ public class Target : MonoBehaviour
                 //caso BOSS
             }else if (gameObject.GetComponent<Rotate>())
             {
-                Destroy(transform.parent.gameObject);
+                transform.parent.gameObject.SetActive(false);
+                //Destroy(transform.parent.gameObject);
                 //manager.GetComponent<AudioManager>().Victory();
             }
             else if(gameObject.tag != "Player")
