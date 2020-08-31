@@ -5,13 +5,14 @@ using UnityEngine;
 public class DropPu : MonoBehaviour
 {
     public int type = 0;
-    GameObject pu1, pu2, pu3;
+    GameObject pu1, pu2, pu3, pu4;
     // Start is called before the first frame update
     void Start()
     {
         pu1 = GameObject.Find("2xjump");
         pu2 = GameObject.Find("2xdamage");
         pu3 = GameObject.Find("NoDamage");
+        pu4 = GameObject.Find("RespawnPup");
     }
 
     // Update is called once per frame
@@ -32,6 +33,9 @@ public class DropPu : MonoBehaviour
                 break;
             case 3:
                 Instantiate(pu3, transform.position + new Vector3(0, 1f, 0), transform.rotation);
+                break;
+            case 4:
+                Instantiate(pu4, transform.position + new Vector3(0, 1f, 0), transform.rotation);
                 break;
             default:
                 int doom = Random.Range(1, 100);
