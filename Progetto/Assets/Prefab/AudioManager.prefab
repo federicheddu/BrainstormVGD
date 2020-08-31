@@ -119,7 +119,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: MusicLiv2
     clip: {fileID: 8300000, guid: af7f2ef9288cb4d93bbfb71ab2d04f18, type: 3}
-    volume: 0.035
+    volume: 1
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0

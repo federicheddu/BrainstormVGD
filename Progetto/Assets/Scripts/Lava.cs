@@ -19,8 +19,6 @@ public class Lava : MonoBehaviour
             transform.position = new Vector3(0, 25, 0);
         else
             transform.position = new Vector3(0, 40, 0);
-
-        Debug.Log(a + "madonna impanata");
     }
 
     // Update is called once per frame

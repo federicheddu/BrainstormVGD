@@ -24,9 +24,20 @@ public class AudioManager : MonoBehaviour
 		else
 		{
 			instance = this;
-			DontDestroyOnLoad(gameObject);
+			//DontDestroyOnLoad(gameObject);
 		}
-
+		if(GameObject.Find("DontDestroyOnload"))
+        {
+			if (SceneManager.GetActiveScene().name == "New Scene")
+			{
+				Play("MusicLiv2");
+			}
+			else if (SceneManager.GetActiveScene().name == "SampleScene" || SceneManager.GetActiveScene().name == "Livello Castello"
+				|| SceneManager.GetActiveScene().name == "Demo Scene")
+			{
+				Play("MusicLiv3");
+			}
+		}
 		foreach (Sound s in sounds)
 		{
 			s.source = gameObject.AddComponent<AudioSource>();
@@ -129,5 +140,15 @@ public class AudioManager : MonoBehaviour
 		StopPlaying("MusicLiv2");
 		StopPlaying("MusicLiv3");
 		StopPlaying("MusicBoss");
+	}
+
+	public void Lava()
+	{
+		Play("MusicLiv2");
+	}
+
+	public void Castle()
+	{
+		Play("MusicLiv3");
 	}
 }
