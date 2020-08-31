@@ -19,15 +19,19 @@ public class CheckPointTeleport : MonoBehaviour
         {
             case 1:
                 tr.position = check1.transform.position;
+                tr.rotation = check1.transform.rotation;
                 break;
             case 2:
                 tr.position = check2.transform.position;
+                tr.rotation = check2.transform.rotation;
                 break;
             case 3:
                 tr.position = check3.transform.position;
+                tr.rotation = check3.transform.rotation;
                 break;
             default:
                 tr.position = start.transform.position;
+                tr.rotation = start.transform.rotation;
                 break;
         }
         Time.timeScale = 1f;
