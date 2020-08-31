@@ -5,26 +5,19 @@ using UnityEngine.UI;
 
 public class PickWeaponTextController : MonoBehaviour
 {
+    public GameObject text;
+
     private PickWeapon pW;
-    private Text t;
 
     // Start is called before the first frame update
     void Start()
     {
         pW = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PickWeapon>();
-        t = GetComponent<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (pW.canPick)
-        {
-            t.text = "Press F to collect";
-        }
-        else
-        {
-            t.text = "";
-        }
+        text.SetActive(pW.canPick);
     }
 }
