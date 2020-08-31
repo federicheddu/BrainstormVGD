@@ -7,6 +7,8 @@ public class SpawnEnemis : MonoBehaviour
     GameObject player;
     public GameObject[] enemies;
     bool flag = true;
+
+    public GameObject[] toActivateOnTriggerEnter;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +47,15 @@ public class SpawnEnemis : MonoBehaviour
                         enemy.GetComponent<Actions>().enabled = true;
                     }
                 }
+
+                foreach(GameObject g in toActivateOnTriggerEnter)
+                {
+                    if(g != null)
+                    {
+                        g.SetActive(true);
+                    }
+                }
+
                 Destroy(gameObject);
             }
         }

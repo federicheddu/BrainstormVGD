@@ -12,6 +12,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject[] UisToDisableOnPause;
 
     private PlayerMovement script;
+    private bool isVolumeOn = true;
 
 
     // Start is called before the first frame update
@@ -91,8 +92,21 @@ public class PauseMenu : MonoBehaviour
 
     public void ToggleSoundCheckbox()
     {
-        AudioManager.instance.enabled = !AudioManager.instance.enabled;
-        //AudioManager.instance.gameObject.SetActive(!AudioManager.instance.gameObject.activeSelf);
+        AudioManager am = AudioManager.instance;
+        if(am != null)
+        {
+            isVolumeOn = !isVolumeOn;
+            am.SetVolume(isVolumeOn ? 0.005f : 0f);
+        }
+    }
+
+    public void DecreaseVolume()
+    {
+        AudioManager.instance.DecreaseVolume();
+    }
+    public void IncreaseVolume()
+    {
+        AudioManager.instance.IncreaseVolume();
     }
 
 }

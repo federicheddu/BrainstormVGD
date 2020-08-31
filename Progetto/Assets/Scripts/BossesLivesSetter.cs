@@ -6,44 +6,67 @@ using UnityEngine.UI;
 public class BossesLivesSetter : MonoBehaviour
 {
     public Target[] target;
+    public Sprite oneVirusSprite, twoVirusSprite;
+    public GameObject[] toActivateOnWin;
 
     private Slider slider;
-    private Text text;
-    private float bossesTotalLife;
+    private Text lifeText;
+    private float bossesMaxLife, life;
+    private Image image;
 
     // Start is called before the first frame update
     void Start()
     {
-        slider = GetComponent<Slider>();
-        text = GetComponentInChildren<Text>();
-        bossesTotalLife = 0f;
-        foreach(Target t in target)
-        {
-            bossesTotalLife += t.maxHealt;
-        }
-        slider.maxValue = bossesTotalLife;
+        slider = GetComponentInChildren<Slider>();
+        lifeText = GetComponentInChildren<Text>();
+        image = GetComponentInChildren<Image>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float life = 0f;
-        foreach(Target t in target)
+        life = 0f;
+        bossesMaxLife = 0f;
+
+        Target[] activeBosses = GetActiveBosses();
+        Debug.Log("Active bosses:" + activeBosses);
+
+        foreach (Target t in activeBosses)
         {
-            if(t != null)
+            bossesMaxLife += t.maxHealt;
+            life += t.health;
+        }
+        slider.maxValue = bossesMaxLife;
+        slider.value = life;
+
+
+        
+        lifeText.text = slider.value.ToString();
+        if(activeBosses.Length == target.Length && life == 0f)
+        {
+            foreach(GameObject g in toActivateOnWin)
             {
-                life += t.health;
+                if (g != null)
+                    g.SetActive(true);
+                AudioManager am = AudioManager.instance;
+                if(am != null)
+                {
+                    am.Victory();
+                }
+
             }
-        }
-        if(life > 0)
-        {
-            slider.value = life;
-            text.text = (slider.value.ToString() + "   ").Substring(0, 3);
-        }
-        else
-        {
-            Destroy(gameObject);
         }
     }
 
+    private Target[] GetActiveBosses()
+    {
+        List<Target> activeBosses = new List<Target>();
+        foreach(Target t in target)
+        {
+            if (t != null && t.gameObject.activeInHierarchy)
+                activeBosses.Add(t);
+        }
+        Debug.Log("Active bosses:" + activeBosses);
+        return activeBosses.ToArray();
+    }
 }
