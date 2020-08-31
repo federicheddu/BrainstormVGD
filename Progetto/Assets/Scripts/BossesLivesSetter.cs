@@ -34,7 +34,10 @@ public class BossesLivesSetter : MonoBehaviour
             life += t.health;
         }
 
-        lifeText.text = slider.value.ToString();
+        slider.value = life;
+        slider.maxValue = bossesMaxLife;
+
+        lifeText.text = slider.value.ToString()+"/"+slider.maxValue.ToString();
         if (activeBosses.Length == target.Length && life == 0f)
         {
             foreach (GameObject g in toActivateOnWin)
@@ -46,8 +49,8 @@ public class BossesLivesSetter : MonoBehaviour
             if (am != null)
             {
                 am.Victory();
-                Destroy(gameObject);
             }
+            StartCoroutine(LastLevel());
         }
     }
 
@@ -72,4 +75,10 @@ public class BossesLivesSetter : MonoBehaviour
         }
     }
 
+
+    IEnumerator LastLevel()
+    {
+        yield return new WaitForSeconds(2f);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }
