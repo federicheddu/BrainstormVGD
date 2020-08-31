@@ -25,6 +25,8 @@ public class StartMenu : MonoBehaviour
 
     public void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         GameObject manager = GameObject.Find("AudioManager");
         if(manager != null)
         {
@@ -38,7 +40,7 @@ public class StartMenu : MonoBehaviour
         GameSettings.SetLevel(1);
         if (checkpoint < 0 || checkpoint > 3)
             checkpoint = 0;
-        if (checkpoint == 0) GameSettings.SetWeapon(GunType.None);
+        GameSettings.SetWeapon(GunType.None);
         GameSettings.SetCheckpoint(checkpoint);
         LoadScene(2);
     }
@@ -47,7 +49,7 @@ public class StartMenu : MonoBehaviour
         GameSettings.SetLevel(2);
         if (checkpoint < 0 || checkpoint > 3)
             checkpoint = 0;
-        if (checkpoint == 0) GameSettings.SetWeapon(GunType.None);
+        GameSettings.SetWeapon(GunType.None);
         GameSettings.SetCheckpoint(checkpoint);
         LoadScene(4);
     }
@@ -56,7 +58,7 @@ public class StartMenu : MonoBehaviour
         GameSettings.SetLevel(3);
         if (checkpoint < 0 || checkpoint > 3)
             checkpoint = 0;
-        if (checkpoint == 0) GameSettings.SetWeapon(GunType.None);
+        GameSettings.SetWeapon(GunType.None);
         GameSettings.SetCheckpoint(checkpoint);
         LoadScene(6);
     }
@@ -92,23 +94,6 @@ public class StartMenu : MonoBehaviour
     private void LoadScene(int index)
     {
         Time.timeScale = 1f;
-        /*
-        if(AudioManager.instance != null)
-        {
-            if (index == 2)
-            {
-                AudioManager.instance.Play("MusicLiv1");
-            }
-            else if (index == 4)
-            {
-                AudioManager.instance.Play("MusicLiv2");
-            }
-            else if (index == 6)
-            {
-                AudioManager.instance.Play("MusicLiv3");
-            }
-        }
-        */
         SceneManager.LoadScene(index);
         
     }
