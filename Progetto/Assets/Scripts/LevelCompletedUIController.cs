@@ -9,9 +9,17 @@ public class LevelCompletedUIController : MonoBehaviour
     public GameObject[] uisToDisableOnStart;
     public Canvas toDisableOnStart;
     public GameObject countdown;
+    GameObject manager;
+
     // Start is called before the first frame update
     void Start()
     {
+        manager = GameObject.Find("AudioManager");
+        if (manager != null)
+        {
+            manager.GetComponent<AudioManager>().StopMusicMenu();
+        }
+
         // Blocco del gioco
         Time.timeScale = 0f;
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().enabled = false;
@@ -51,9 +59,5 @@ public class LevelCompletedUIController : MonoBehaviour
         yield return new WaitUntil(() => c.hasFinished());
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-
-
-
-
 
 }

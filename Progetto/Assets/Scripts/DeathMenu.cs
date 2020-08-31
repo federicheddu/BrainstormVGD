@@ -43,6 +43,15 @@ public class DeathMenu : MonoBehaviour
     {
         AudioManager.instance.SetIgnoreShoot(false);
         Time.timeScale = 1f;
+        if (SceneManager.GetActiveScene().name == "New Scene")
+        {
+            AudioManager.instance.Play("MusicLiv2");
+        }
+        else if (SceneManager.GetActiveScene().name == "SampleScene" || SceneManager.GetActiveScene().name == "Livello Castello"
+            || SceneManager.GetActiveScene().name == "Demo Scene")
+        {
+            AudioManager.instance.Play("MusicLiv3");
+        }
         StartMenu.LoadLevel(GameObject.FindGameObjectWithTag("Player").gameObject, GameSettings.GetLevel(), checkpoint);
     }
 
