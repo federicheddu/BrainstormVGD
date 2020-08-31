@@ -277,6 +277,99 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 27361271}
   m_Mesh: {fileID: 4493585093827132993, guid: 2267a594ce8a31e44af3b5fe5045b501, type: 3}
+--- !u!1 &42865321
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 42865322}
+  - component: {fileID: 42865325}
+  - component: {fileID: 42865324}
+  - component: {fileID: 42865323}
+  m_Layer: 0
+  m_Name: Are you ready text (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &42865322
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42865321}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 625635698}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -202}
+  m_SizeDelta: {x: 156.4, y: 141.3}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &42865323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42865321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 5, y: -5}
+  m_UseGraphicAlpha: 1
+--- !u!114 &42865324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42865321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 070a011594a264f8ea120f695fc7e2f5, type: 3}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 112
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 3
+--- !u!222 &42865325
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42865321}
+  m_CullTransparentMesh: 0
 --- !u!1 &65013178 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: f528810411b8e44a1b44860c463d7737,
@@ -608,7 +701,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &108625130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -621,7 +714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 400f44f18bf744869adad3d9af3e9ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdownNumber: {fileID: 0}
+  countdownNumber: {fileID: 42865324}
 --- !u!114 &108625131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1759,7 +1852,7 @@ GameObject:
   - component: {fileID: 565067325}
   - component: {fileID: 565067324}
   m_Layer: 0
-  m_Name: Are you ready text
+  m_Name: Bye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1781,7 +1874,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -144}
+  m_AnchoredPosition: {x: 0, y: -104.00001}
   m_SizeDelta: {x: 1136.1, y: 141.3}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &565067324
@@ -1830,7 +1923,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Bye
+  m_Text: The end
 --- !u!222 &565067326
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2379,6 +2472,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 565067323}
+  - {fileID: 42865322}
   m_Father: {fileID: 108625134}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6533,7 +6627,7 @@ MonoBehaviour:
   storyTellingUi: {fileID: 997904416}
   finalCountdownUi: {fileID: 108625129}
   flowMode: 0
-  delayBetweenBrainstorms: 0.5
+  delayBetweenBrainstorms: 0
   nextScene: 3
 --- !u!4 &1862120785
 Transform:
