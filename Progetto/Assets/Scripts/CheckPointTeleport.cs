@@ -6,7 +6,6 @@ public class CheckPointTeleport : MonoBehaviour
 {
 
     public GameObject start, check1, check2, check3;
-    public GameObject pistol, assault, lmg;
     public Transform tr;
 
 
@@ -33,23 +32,6 @@ public class CheckPointTeleport : MonoBehaviour
             default:
                 tr.position = start.transform.position;
                 tr.rotation = start.transform.rotation;
-                break;
-        }
-        pistol.SetActive(false);
-        assault.SetActive(false);
-        lmg.SetActive(false);
-        switch ((GunType) GameSettings.GetWeapon())
-        {
-            case GunType.Pistol:
-                pistol.SetActive(true);
-                break;
-            case GunType.Assault:
-                assault.SetActive(true);
-                break;
-            case GunType.LMG:
-                lmg.SetActive(true);
-                break;
-            case GunType.None:
                 break;
         }
         Time.timeScale = 1f;
