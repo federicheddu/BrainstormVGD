@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     public double maxAirSpeed;
     public float wallJumpPower = 10f;
     public float wallRideGravity = -0.2f;
+    public bool walled;
+    public float antiGravita;
 
     //countermovement
     public float maxSpeed = 15;
@@ -39,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
     public float cameraVerticalMax = 90f;
     public float cameraVerticalMin = -90f;
     private float mouseSens = 2f; // Attributo aggiunto piuttosto che fare ogni volta GameSettings.getMouseSensibility() perchè più leggero, anzichè leggerlo ogni volta chiamando il metodo viene salvato e letto normalmente
+    public float zRotation;
+    public float cameraRotationSpeed = 100;
 
     //altro
     private Vector3 fullDim;
@@ -98,16 +102,15 @@ public class PlayerMovement : MonoBehaviour
             if (pu.doublejump) //riattivo anche il double jump in caso di powerup
                 doubleJump = true;
         }
-
     }
 
     private void OnCollisionStay(Collision collision)
     {
 
+        groundNormal = collision.GetContact(0).normal;
         if (collision.gameObject.tag == "Ground")
         {
             grounded = true;
-            groundNormal = collision.GetContact(0).normal;
 
             if ((groundNormal == transform.TransformVector(Vector3.left) || groundNormal == transform.TransformVector(Vector3.right)) && Math.Sqrt(Math.Pow(rb.velocity.x, 2) + Math.Pow(rb.velocity.z, 2)) > 0)
             {
@@ -119,6 +122,15 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
+        if (collision.gameObject.tag == "Wall")
+        {
+            walled = true;
+
+            if (Math.Sqrt(rb.velocity.x * rb.velocity.x + rb.velocity.z * rb.velocity.z) > 0) {
+                rb.AddForce(Physics.gravity * antiGravita * -1);
+                rb.AddForce(groundNormal * -1);
+            }
+        }
     }
 
     private void OnCollisionExit(Collision collision)
@@ -128,6 +140,10 @@ public class PlayerMovement : MonoBehaviour
             grounded = false;
             rb.useGravity = true;
             //maxAirSpeed = Math.Sqrt(Math.Pow(rb.velocity.x, 2) + Math.Pow(rb.velocity.z, 2)); Ho commentato questa riga perchè mi impediva di muovermi in aria M.S.
+        }
+        if (collision.gameObject.tag == "Wall")
+        {
+            walled = false;
         }
     }
 
@@ -257,7 +273,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 jumpDirection = Vector3.zero;
 
-        if (grounded && groundNormal.y < 0.19)
+        if ((grounded || walled) && groundNormal.y < 0.19)
             jumpDirection = groundNormal + Vector3.up;
         else if(grounded)
             jumpDirection = new Vector3(0,1,0) + Vector3.up;
@@ -306,5 +322,6 @@ public class PlayerMovement : MonoBehaviour
     {
         mouseSens = sens;
     }
+
 
 }
