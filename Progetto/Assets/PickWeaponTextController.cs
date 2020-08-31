@@ -20,11 +20,11 @@ public class PickWeaponTextController : MonoBehaviour
     {
         if (pW.canPick)
         {
-
+            t.text = "Press F to collect";
         }
         else
         {
-
+            t.text = "";
         }
     }
 }
