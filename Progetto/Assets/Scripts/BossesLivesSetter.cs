@@ -38,19 +38,21 @@ public class BossesLivesSetter : MonoBehaviour
         slider.maxValue = bossesMaxLife;
 
         lifeText.text = slider.value.ToString()+"/"+slider.maxValue.ToString();
-        if (activeBosses.Length == target.Length && life == 0f)
+        if (activeBosses.Length == 0)
         {
             foreach (GameObject g in toActivateOnWin)
             {
                 if (g != null)
                     g.SetActive(true);
             }
+
+            StartCoroutine(LastLevel());
+
             AudioManager am = AudioManager.instance;
             if (am != null)
             {
                 am.Victory();
             }
-            StartCoroutine(LastLevel());
         }
     }
 

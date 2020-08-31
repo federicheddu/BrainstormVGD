@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class SpawnEnemis : MonoBehaviour
 {
@@ -46,11 +47,12 @@ public class SpawnEnemis : MonoBehaviour
                         enemy.GetComponent<Actions>().enabled = true;
                     }
                 }
-                foreach(GameObject g in toActivateOnTriggerEnter)
-                {
-                    if (g != null)
-                        g.SetActive(true);
-                }
+                if(toActivateOnTriggerEnter != null && toActivateOnTriggerEnter.Length > 0)
+                    foreach(GameObject g in toActivateOnTriggerEnter)
+                    {
+                        if (g != null)
+                            g.SetActive(true);
+                    }
                 Destroy(gameObject);
             }
         }
