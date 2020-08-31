@@ -17,8 +17,8 @@ public class PlayerMovement : MonoBehaviour
     private float speed;
     public float walkSpeed, runSpeed, walkCap, runCap;      //fattori moviemento orizzontale
     public bool grounded;
-    private bool doubleJump = false;
-    private bool doubleJumpPrevFrame = false;
+    public bool doubleJump = false;
+    public bool doubleJumpPrevFrame = false;
 
     //salto e wallride
     private Vector3 groundNormal;
@@ -164,7 +164,7 @@ public class PlayerMovement : MonoBehaviour
         CounterMovement(direction.x, direction.z, new Vector2(rb.velocity.x, rb.velocity.z));
 
         //salto
-        if (doubleJumpPrevFrame != pu.doublejump)
+        if (doubleJumpPrevFrame != pu.doublejump && grounded)
             doubleJump = pu.doublejump;
         doubleJumpPrevFrame = pu.doublejump;
 
@@ -259,7 +259,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (grounded && groundNormal.y < 0.19)
             jumpDirection = groundNormal + Vector3.up;
-        else
+        else if(grounded)
             jumpDirection = new Vector3(0,1,0) + Vector3.up;
 
         if (!grounded && doubleJump)
